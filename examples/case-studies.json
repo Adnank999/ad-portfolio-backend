@@ -1,0 +1,1048 @@
+[
+  {
+    "slug": "hotel-booking-platform",
+    "title": "Hotel Booking Platform",
+    "description": "A high-performance hotel discovery and booking experience with supplier integrations, flexible payments, and a modern search flow.",
+    "status": "published",
+    "fields": {
+      "industry": "hospitality-real-estate",
+      "studyType": "portfolio",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85",
+      "imageAlt": "Hotel Booking Platform project preview",
+      "gallery": [],
+      "context": "A full-stack travel platform designed around fast hotel discovery, supplier inventory, and a frictionless checkout journey.",
+      "problem": "Travel inventory is fragmented, image-heavy, and latency-sensitive. Users need useful results quickly without sacrificing booking flexibility.",
+      "solution": "A server-rendered application combines provider APIs, caching, streamed search results, optimized media delivery, and a modular booking pipeline.",
+      "steps": [
+        {
+          "title": "Map the problem",
+          "text": "Travel inventory is fragmented, image-heavy, and latency-sensitive. Users need useful results quickly without sacrificing booking flexibility."
+        },
+        {
+          "title": "Shape the experience",
+          "text": "A server-rendered application combines provider APIs, caching, streamed search results, optimized media delivery, and a modular booking pipeline."
+        },
+        {
+          "title": "Connect the architecture",
+          "text": "Laravel powers the application and integrations while React and Inertia provide a rich interface. Redis is used for caching and queues, with a strong focus on resilient external API boundaries."
+        },
+        {
+          "title": "Review the trade-offs",
+          "text": "The biggest challenge is balancing fresh provider inventory with response speed while keeping downstream supplier failures isolated from the customer experience."
+        }
+      ],
+      "technologies": [
+        "Laravel",
+        "React",
+        "TypeScript",
+        "Inertia",
+        "Redis"
+      ],
+      "outcomes": [
+        {
+          "title": "Designed outcome",
+          "text": "Designed as a scalable foundation where new suppliers, destinations, payment providers, and customer features can be added without rebuilding the core booking flow."
+        },
+        {
+          "title": "Capabilities explored",
+          "text": "Supplier inventory aggregation. Streaming hotel search. Pay now / pay later checkout. Wallet and cashback flows. Optimized hotel imagery. Provider-aware booking orchestration."
+        },
+        {
+          "title": "Evidence boundary",
+          "text": "This study expands an existing portfolio entry. No independent business metrics, client endorsement, or production deployment is asserted."
+        }
+      ],
+      "lessons": [
+        "The biggest challenge is balancing fresh provider inventory with response speed while keeping downstream supplier failures isolated from the customer experience.",
+        "Keep the primary user journey clear as the product grows.",
+        "Treat operating states, exceptions, and future changes as part of the design."
+      ],
+      "projectSlug": "hotel-booking-platform"
+    },
+    "seo": {
+      "metaTitle": "Hotel Booking Platform | Adnan Hossain Khan",
+      "metaDescription": "A high-performance hotel discovery and booking experience with supplier integrations, flexible payments, and a modern search flow."
+    },
+    "faqs": [
+      {
+        "question": "What is the source of this case study?",
+        "answer": "This study expands the existing Hotel Booking Platform entry in Adnan's portfolio. It describes its stated design and technical approach."
+      },
+      {
+        "question": "Are measured business results available?",
+        "answer": "No verified business metrics are supplied for this portfolio entry. The outcomes describe design capabilities and intended benefits, not measured gains."
+      },
+      {
+        "question": "Which technologies does the portfolio entry list?",
+        "answer": "Laravel, React, TypeScript, Inertia, Redis."
+      },
+      {
+        "question": "Can I discuss a similar project?",
+        "answer": "Yes. Use the contact page to describe your workflow, constraints, and goals. A new project would need its own discovery and agreed scope."
+      }
+    ]
+  },
+  {
+    "slug": "saas-command-center",
+    "title": "SaaS Command Center",
+    "description": "A focused analytics workspace that turns operational data into clear dashboards, alerts, and actionable workflows.",
+    "status": "published",
+    "fields": {
+      "industry": "technology-saas",
+      "studyType": "portfolio",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85",
+      "imageAlt": "SaaS Command Center project preview",
+      "gallery": [],
+      "context": "A polished SaaS dashboard concept for teams that need a single place to understand operational health.",
+      "problem": "Important metrics often live across disconnected tools and are difficult to scan quickly.",
+      "solution": "A modular dashboard groups critical metrics into visual cards, trends, activity streams, and contextual actions.",
+      "steps": [
+        {
+          "title": "Map the problem",
+          "text": "Important metrics often live across disconnected tools and are difficult to scan quickly."
+        },
+        {
+          "title": "Shape the experience",
+          "text": "A modular dashboard groups critical metrics into visual cards, trends, activity streams, and contextual actions."
+        },
+        {
+          "title": "Connect the architecture",
+          "text": "A component-driven React interface consumes typed API responses and uses reusable visualization primitives."
+        },
+        {
+          "title": "Review the trade-offs",
+          "text": "Making dense information feel calm and approachable without hiding important details."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind",
+        "REST API"
+      ],
+      "outcomes": [
+        {
+          "title": "Designed outcome",
+          "text": "A clean information architecture that scales naturally as more dashboards and workflows are introduced."
+        },
+        {
+          "title": "Capabilities explored",
+          "text": "Metric dashboards. Activity feed. Alerts. Responsive data tables. Workspace navigation."
+        },
+        {
+          "title": "Evidence boundary",
+          "text": "This study expands an existing portfolio entry. No independent business metrics, client endorsement, or production deployment is asserted."
+        }
+      ],
+      "lessons": [
+        "Making dense information feel calm and approachable without hiding important details.",
+        "Keep the primary user journey clear as the product grows.",
+        "Treat operating states, exceptions, and future changes as part of the design."
+      ],
+      "projectSlug": "saas-command-center"
+    },
+    "seo": {
+      "metaTitle": "SaaS Command Center | Adnan Hossain Khan",
+      "metaDescription": "A focused analytics workspace that turns operational data into clear dashboards, alerts, and actionable workflows."
+    },
+    "faqs": [
+      {
+        "question": "What is the source of this case study?",
+        "answer": "This study expands the existing SaaS Command Center entry in Adnan's portfolio. It describes its stated design and technical approach."
+      },
+      {
+        "question": "Are measured business results available?",
+        "answer": "No verified business metrics are supplied for this portfolio entry. The outcomes describe design capabilities and intended benefits, not measured gains."
+      },
+      {
+        "question": "Which technologies does the portfolio entry list?",
+        "answer": "React, TypeScript, Tailwind, REST API."
+      },
+      {
+        "question": "Can I discuss a similar project?",
+        "answer": "Yes. Use the contact page to describe your workflow, constraints, and goals. A new project would need its own discovery and agreed scope."
+      }
+    ]
+  },
+  {
+    "slug": "commerce-studio",
+    "title": "Commerce Studio",
+    "description": "A conversion-focused commerce interface with product discovery, rich product pages, and a streamlined cart experience.",
+    "status": "published",
+    "fields": {
+      "industry": "retail-ecommerce",
+      "studyType": "portfolio",
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=85",
+      "imageAlt": "Commerce Studio project preview",
+      "gallery": [],
+      "context": "An editorial-style commerce experience designed to make product discovery feel premium.",
+      "problem": "Traditional storefronts can feel crowded and make comparison difficult.",
+      "solution": "Large imagery, restrained typography, contextual filters, and progressive disclosure keep the shopping journey focused.",
+      "steps": [
+        {
+          "title": "Map the problem",
+          "text": "Traditional storefronts can feel crowded and make comparison difficult."
+        },
+        {
+          "title": "Shape the experience",
+          "text": "Large imagery, restrained typography, contextual filters, and progressive disclosure keep the shopping journey focused."
+        },
+        {
+          "title": "Connect the architecture",
+          "text": "Reusable React components and typed product models keep the UI flexible for multiple catalog layouts."
+        },
+        {
+          "title": "Review the trade-offs",
+          "text": "Maintaining rich imagery without compromising perceived speed."
+        }
+      ],
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind"
+      ],
+      "outcomes": [
+        {
+          "title": "Designed outcome",
+          "text": "A storefront system designed for future experimentation and content-led merchandising."
+        },
+        {
+          "title": "Capabilities explored",
+          "text": "Product discovery. Responsive product gallery. Cart interactions. Search and filtering. Mobile-first checkout."
+        },
+        {
+          "title": "Evidence boundary",
+          "text": "This study expands an existing portfolio entry. No independent business metrics, client endorsement, or production deployment is asserted."
+        }
+      ],
+      "lessons": [
+        "Maintaining rich imagery without compromising perceived speed.",
+        "Keep the primary user journey clear as the product grows.",
+        "Treat operating states, exceptions, and future changes as part of the design."
+      ],
+      "projectSlug": "commerce-studio"
+    },
+    "seo": {
+      "metaTitle": "Commerce Studio | Adnan Hossain Khan",
+      "metaDescription": "A conversion-focused commerce interface with product discovery, rich product pages, and a streamlined cart experience."
+    },
+    "faqs": [
+      {
+        "question": "What is the source of this case study?",
+        "answer": "This study expands the existing Commerce Studio entry in Adnan's portfolio. It describes its stated design and technical approach."
+      },
+      {
+        "question": "Are measured business results available?",
+        "answer": "No verified business metrics are supplied for this portfolio entry. The outcomes describe design capabilities and intended benefits, not measured gains."
+      },
+      {
+        "question": "Which technologies does the portfolio entry list?",
+        "answer": "Next.js, React, TypeScript, Tailwind."
+      },
+      {
+        "question": "Can I discuss a similar project?",
+        "answer": "Yes. Use the contact page to describe your workflow, constraints, and goals. A new project would need its own discovery and agreed scope."
+      }
+    ]
+  },
+  {
+    "slug": "ai-vision-lab",
+    "title": "AI Vision Lab",
+    "description": "A visual workspace for classifying large image collections with review queues, confidence scores, and batch workflows.",
+    "status": "published",
+    "fields": {
+      "industry": "technology-saas",
+      "studyType": "portfolio",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85",
+      "imageAlt": "AI Vision Lab project preview",
+      "gallery": [],
+      "context": "A developer-focused interface for large-scale image classification and human review workflows.",
+      "problem": "Millions of images require automation, but uncertain classifications still need fast human review.",
+      "solution": "Batch processing, confidence thresholds, review queues, and clear image provenance turn classification into an auditable workflow.",
+      "steps": [
+        {
+          "title": "Map the problem",
+          "text": "Millions of images require automation, but uncertain classifications still need fast human review."
+        },
+        {
+          "title": "Shape the experience",
+          "text": "Batch processing, confidence thresholds, review queues, and clear image provenance turn classification into an auditable workflow."
+        },
+        {
+          "title": "Connect the architecture",
+          "text": "The architecture separates ingestion, classification, persistence, and review so model providers can be changed without rewriting the workflow."
+        },
+        {
+          "title": "Review the trade-offs",
+          "text": "Managing throughput and cost while keeping results traceable."
+        }
+      ],
+      "technologies": [
+        "Laravel",
+        "React",
+        "AI APIs",
+        "Redis"
+      ],
+      "outcomes": [
+        {
+          "title": "Designed outcome",
+          "text": "A foundation for reliable large-scale visual data processing."
+        },
+        {
+          "title": "Capabilities explored",
+          "text": "Batch classification. Confidence filtering. Review queue. Spend monitoring. Provider switching."
+        },
+        {
+          "title": "Evidence boundary",
+          "text": "This study expands an existing portfolio entry. No independent business metrics, client endorsement, or production deployment is asserted."
+        }
+      ],
+      "lessons": [
+        "Managing throughput and cost while keeping results traceable.",
+        "Keep the primary user journey clear as the product grows.",
+        "Treat operating states, exceptions, and future changes as part of the design."
+      ],
+      "projectSlug": "ai-vision-lab"
+    },
+    "seo": {
+      "metaTitle": "AI Vision Lab | Adnan Hossain Khan",
+      "metaDescription": "A visual workspace for classifying large image collections with review queues, confidence scores, and batch workflows."
+    },
+    "faqs": [
+      {
+        "question": "What is the source of this case study?",
+        "answer": "This study expands the existing AI Vision Lab entry in Adnan's portfolio. It describes its stated design and technical approach."
+      },
+      {
+        "question": "Are measured business results available?",
+        "answer": "No verified business metrics are supplied for this portfolio entry. The outcomes describe design capabilities and intended benefits, not measured gains."
+      },
+      {
+        "question": "Which technologies does the portfolio entry list?",
+        "answer": "Laravel, React, AI APIs, Redis."
+      },
+      {
+        "question": "Can I discuss a similar project?",
+        "answer": "Yes. Use the contact page to describe your workflow, constraints, and goals. A new project would need its own discovery and agreed scope."
+      }
+    ]
+  },
+  {
+    "slug": "developer-observatory",
+    "title": "Developer Observatory",
+    "description": "A dark, high-signal monitoring interface for application health, queues, deployments, and infrastructure events.",
+    "status": "published",
+    "fields": {
+      "industry": "technology-saas",
+      "studyType": "portfolio",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=85",
+      "imageAlt": "Developer Observatory project preview",
+      "gallery": [],
+      "context": "A monitoring interface designed for engineers who need signal without visual noise.",
+      "problem": "Operational dashboards often overload engineers with simultaneous charts and alerts.",
+      "solution": "Prioritized metrics, compact cards, contextual timelines, and clear states make important changes easier to spot.",
+      "steps": [
+        {
+          "title": "Map the problem",
+          "text": "Operational dashboards often overload engineers with simultaneous charts and alerts."
+        },
+        {
+          "title": "Shape the experience",
+          "text": "Prioritized metrics, compact cards, contextual timelines, and clear states make important changes easier to spot."
+        },
+        {
+          "title": "Connect the architecture",
+          "text": "The UI is built around small composable panels that can subscribe to live data independently."
+        },
+        {
+          "title": "Review the trade-offs",
+          "text": "Creating a dense monitoring experience that still feels calm."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Charts",
+        "WebSockets"
+      ],
+      "outcomes": [
+        {
+          "title": "Designed outcome",
+          "text": "A scalable dashboard pattern for operational tooling."
+        },
+        {
+          "title": "Capabilities explored",
+          "text": "Live system status. Queue monitoring. Deployment timeline. Incident states. Metric drill-downs."
+        },
+        {
+          "title": "Evidence boundary",
+          "text": "This study expands an existing portfolio entry. No independent business metrics, client endorsement, or production deployment is asserted."
+        }
+      ],
+      "lessons": [
+        "Creating a dense monitoring experience that still feels calm.",
+        "Keep the primary user journey clear as the product grows.",
+        "Treat operating states, exceptions, and future changes as part of the design."
+      ],
+      "projectSlug": "developer-observatory"
+    },
+    "seo": {
+      "metaTitle": "Developer Observatory | Adnan Hossain Khan",
+      "metaDescription": "A dark, high-signal monitoring interface for application health, queues, deployments, and infrastructure events."
+    },
+    "faqs": [
+      {
+        "question": "What is the source of this case study?",
+        "answer": "This study expands the existing Developer Observatory entry in Adnan's portfolio. It describes its stated design and technical approach."
+      },
+      {
+        "question": "Are measured business results available?",
+        "answer": "No verified business metrics are supplied for this portfolio entry. The outcomes describe design capabilities and intended benefits, not measured gains."
+      },
+      {
+        "question": "Which technologies does the portfolio entry list?",
+        "answer": "React, TypeScript, Charts, WebSockets."
+      },
+      {
+        "question": "Can I discuss a similar project?",
+        "answer": "Yes. Use the contact page to describe your workflow, constraints, and goals. A new project would need its own discovery and agreed scope."
+      }
+    ]
+  },
+  {
+    "slug": "travel-explorer",
+    "title": "Travel Explorer",
+    "description": "A visual destination discovery experience combining editorial content, activities, and stay inspiration.",
+    "status": "published",
+    "fields": {
+      "industry": "hospitality-real-estate",
+      "studyType": "portfolio",
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85",
+      "imageAlt": "Travel Explorer project preview",
+      "gallery": [],
+      "context": "A destination-first travel experience where visual discovery leads naturally into planning.",
+      "problem": "Travel planning can become fragmented between inspiration, activities, and accommodation.",
+      "solution": "A unified destination experience connects editorial content with stays and activities.",
+      "steps": [
+        {
+          "title": "Map the problem",
+          "text": "Travel planning can become fragmented between inspiration, activities, and accommodation."
+        },
+        {
+          "title": "Shape the experience",
+          "text": "A unified destination experience connects editorial content with stays and activities."
+        },
+        {
+          "title": "Connect the architecture",
+          "text": "Content and destination data are modeled independently so editorial and transactional content can evolve separately."
+        },
+        {
+          "title": "Review the trade-offs",
+          "text": "Balancing immersive photography with fast navigation."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Maps",
+        "Tailwind"
+      ],
+      "outcomes": [
+        {
+          "title": "Designed outcome",
+          "text": "A flexible foundation for a modern travel discovery product."
+        },
+        {
+          "title": "Capabilities explored",
+          "text": "Destination discovery. Activity cards. Stay recommendations. Map exploration. Responsive galleries."
+        },
+        {
+          "title": "Evidence boundary",
+          "text": "This study expands an existing portfolio entry. No independent business metrics, client endorsement, or production deployment is asserted."
+        }
+      ],
+      "lessons": [
+        "Balancing immersive photography with fast navigation.",
+        "Keep the primary user journey clear as the product grows.",
+        "Treat operating states, exceptions, and future changes as part of the design."
+      ],
+      "projectSlug": "travel-explorer"
+    },
+    "seo": {
+      "metaTitle": "Travel Explorer | Adnan Hossain Khan",
+      "metaDescription": "A visual destination discovery experience combining editorial content, activities, and stay inspiration."
+    },
+    "faqs": [
+      {
+        "question": "What is the source of this case study?",
+        "answer": "This study expands the existing Travel Explorer entry in Adnan's portfolio. It describes its stated design and technical approach."
+      },
+      {
+        "question": "Are measured business results available?",
+        "answer": "No verified business metrics are supplied for this portfolio entry. The outcomes describe design capabilities and intended benefits, not measured gains."
+      },
+      {
+        "question": "Which technologies does the portfolio entry list?",
+        "answer": "React, TypeScript, Maps, Tailwind."
+      },
+      {
+        "question": "Can I discuss a similar project?",
+        "answer": "Yes. Use the contact page to describe your workflow, constraints, and goals. A new project would need its own discovery and agreed scope."
+      }
+    ]
+  },
+  {
+    "slug": "production-workflow-console",
+    "title": "A clearer view of the production floor",
+    "description": "A manufacturing workflow concept for work orders, quality checkpoints, and traceable operational handoffs.",
+    "status": "published",
+    "fields": {
+      "industry": "manufacturing",
+      "studyType": "concept",
+      "image": "/images/case-studies-cover.png",
+      "imageAlt": "Software case study cover",
+      "gallery": [],
+      "context": "An illustrative production team coordinates orders, quality reviews, and maintenance across separate records. This is a proposed system design, not a commissioned or deployed client project.",
+      "problem": "A status update can lose its meaning when the underlying event, responsible person, and next action are not recorded together. A single dashboard is not enough if the workflow behind it remains ambiguous.",
+      "solution": "Model each work order as an explicit sequence of operational events, with ownership, review checkpoints, and an exception queue. Show what needs attention before presenting aggregate charts.",
+      "steps": [
+        {
+          "title": "Map the handoffs",
+          "text": "Define the events that move an order forward and who can record each transition."
+        },
+        {
+          "title": "Design a shared record",
+          "text": "Keep order status, checkpoints, and supporting notes in one traceable model."
+        },
+        {
+          "title": "Make exceptions visible",
+          "text": "Separate blocked work and quality reviews from routine progress."
+        },
+        {
+          "title": "Plan validation",
+          "text": "Evaluate representative scenarios with operational users before any production integration."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Laravel",
+        "SQL",
+        "Role-based access"
+      ],
+      "outcomes": [
+        {
+          "title": "Traceable status",
+          "text": "The proposed model links each status to a recorded event and responsible role."
+        },
+        {
+          "title": "Reviewable quality checks",
+          "text": "Checkpoints become explicit workflow steps rather than informal notes."
+        },
+        {
+          "title": "Planned validation",
+          "text": "No production savings, downtime reductions, or defect-rate improvements are claimed."
+        }
+      ],
+      "lessons": [
+        "Agree on operational definitions before building a dashboard.",
+        "Exceptions need an owner, not only a warning color.",
+        "A concept needs user and integration validation before deployment."
+      ],
+      "projectSlug": ""
+    },
+    "seo": {
+      "metaTitle": "A clearer view of the production floor | Adnan Hossain Khan",
+      "metaDescription": "A manufacturing workflow concept for work orders, quality checkpoints, and traceable operational handoffs."
+    },
+    "faqs": [
+      {
+        "question": "Is this deployed in a factory?",
+        "answer": "No. It is an illustrative portfolio concept. No manufacturing client, live deployment, or measured operational result is claimed."
+      },
+      {
+        "question": "Could it connect to an existing ERP?",
+        "answer": "That would require a separate assessment of supported interfaces, data ownership, access, and synchronization rules."
+      },
+      {
+        "question": "How would quality checks be tested?",
+        "answer": "Operational owners would define representative scenarios and approve the workflow before production use."
+      }
+    ]
+  },
+  {
+    "slug": "clinic-operations-workspace",
+    "title": "Administrative handoffs without the guesswork",
+    "description": "A healthcare administration concept for service requests, scheduling visibility, and role-based coordination.",
+    "status": "published",
+    "fields": {
+      "industry": "healthcare",
+      "studyType": "concept",
+      "image": "/images/case-studies-cover.png",
+      "imageAlt": "Software case study cover",
+      "gallery": [],
+      "context": "This fictional administrative workflow explores how staff might coordinate service requests. It is not a medical device, clinical tool, or certified healthcare system, and uses no patient data.",
+      "problem": "A request can become difficult to follow when scheduling, administrative notes, and task ownership live in different places. Sensitive information also needs tighter boundaries than an unrestricted shared workspace.",
+      "solution": "Separate administrative coordination from clinical records. Give each request a clear owner and visible next step, with role-aware access and a proposed audit trail.",
+      "steps": [
+        {
+          "title": "Bound the use case",
+          "text": "Keep the concept focused on non-clinical coordination and synthetic information."
+        },
+        {
+          "title": "Define access",
+          "text": "Model who can view or update each administrative field."
+        },
+        {
+          "title": "Clarify handoffs",
+          "text": "Design request states and explicit ownership changes."
+        },
+        {
+          "title": "Identify deployment reviews",
+          "text": "Record the privacy, security, and domain assessments required before real use."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Laravel",
+        "Access control",
+        "Audit events"
+      ],
+      "outcomes": [
+        {
+          "title": "Narrow scope",
+          "text": "The concept demonstrates administrative coordination only."
+        },
+        {
+          "title": "Explicit permissions",
+          "text": "Access boundaries are treated as part of the workflow design."
+        },
+        {
+          "title": "No clinical claims",
+          "text": "No patient outcome, compliance certification, or production performance is asserted."
+        }
+      ],
+      "lessons": [
+        "Keep administrative and clinical responsibilities distinct.",
+        "Data minimization should start in the interface model.",
+        "Production readiness requires qualified domain and security review."
+      ],
+      "projectSlug": ""
+    },
+    "seo": {
+      "metaTitle": "Administrative handoffs without the guesswork | Adnan Hossain Khan",
+      "metaDescription": "A healthcare administration concept for service requests, scheduling visibility, and role-based coordination."
+    },
+    "faqs": [
+      {
+        "question": "Does this process real patient records?",
+        "answer": "No. This concept uses synthetic information and is not connected to healthcare systems."
+      },
+      {
+        "question": "Is it certified or compliant with a healthcare standard?",
+        "answer": "No certification or compliance claim is made. A real implementation would require its own qualified assessment."
+      },
+      {
+        "question": "Does it make clinical recommendations?",
+        "answer": "No. It illustrates administrative task coordination, not diagnosis, treatment, or clinical decision-making."
+      }
+    ]
+  },
+  {
+    "slug": "learning-operations-hub",
+    "title": "A calmer home for everyday learning operations",
+    "description": "An education-platform concept connecting course resources, requests, and administrative roles.",
+    "status": "published",
+    "fields": {
+      "industry": "education",
+      "studyType": "concept",
+      "image": "/images/case-studies-cover.png",
+      "imageAlt": "Software case study cover",
+      "gallery": [],
+      "context": "A fictional training provider needs a manageable way to publish course information and coordinate learner requests. The concept uses synthetic records and does not represent a live institution.",
+      "problem": "Course updates and requests are easily missed when the same information appears in several places. Different roles also need different editing responsibilities without making the interface hard to learn.",
+      "solution": "Separate published course content from operational requests. Use clear role-based workspaces, accessible forms, and a reviewable publication workflow.",
+      "steps": [
+        {
+          "title": "Understand recurring tasks",
+          "text": "Map the course and request journeys rather than start with a feature inventory."
+        },
+        {
+          "title": "Separate responsibilities",
+          "text": "Define learner, instructor, and administrator permissions."
+        },
+        {
+          "title": "Design accessible interactions",
+          "text": "Prioritize keyboard navigation, useful labels, and understandable status messages."
+        },
+        {
+          "title": "Plan a pilot",
+          "text": "Evaluate the flow using synthetic scenarios before any institutional rollout."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Laravel",
+        "Structured content",
+        "Accessible forms"
+      ],
+      "outcomes": [
+        {
+          "title": "Clear content ownership",
+          "text": "The proposed structure distinguishes editing, review, and publication."
+        },
+        {
+          "title": "Visible requests",
+          "text": "Each administrative request has an explicit status and next action."
+        },
+        {
+          "title": "Design-stage evidence",
+          "text": "No learning gains, enrollment changes, or institutional adoption metrics are claimed."
+        }
+      ],
+      "lessons": [
+        "A platform must survive changes in staff and course schedules.",
+        "Accessible forms are part of the core workflow.",
+        "Collect only the learner information the task requires."
+      ],
+      "projectSlug": ""
+    },
+    "seo": {
+      "metaTitle": "A calmer home for everyday learning operations | Adnan Hossain Khan",
+      "metaDescription": "An education-platform concept connecting course resources, requests, and administrative roles."
+    },
+    "faqs": [
+      {
+        "question": "Is this used by a school?",
+        "answer": "No. It is a fictional portfolio concept, not a school deployment."
+      },
+      {
+        "question": "Does it replace a complete learning management system?",
+        "answer": "No. The concept focuses on course information and administrative requests rather than every possible learning-management feature."
+      },
+      {
+        "question": "Can it work with an existing student system?",
+        "answer": "A real integration would need a separate assessment of interfaces, permissions, data handling, and ownership."
+      }
+    ]
+  },
+  {
+    "slug": "editorial-workflow-studio",
+    "title": "From draft to publication, with clearer ownership",
+    "description": "An editorial workspace concept for structured content, review stages, and publication history.",
+    "status": "published",
+    "fields": {
+      "industry": "media-publishing",
+      "studyType": "concept",
+      "image": "/images/case-studies-cover.png",
+      "imageAlt": "Software case study cover",
+      "gallery": [],
+      "context": "A fictional publication coordinates drafts across writers and editors. This concept explores a publishing workflow without claiming a real newsroom engagement.",
+      "problem": "Draft status becomes unreliable when approvals happen in separate messages. Content structure is also difficult to reuse when each page stores information differently.",
+      "solution": "Use structured articles with visible editorial states, role-based review, and a publication history. Make the next responsible person clear at every stage.",
+      "steps": [
+        {
+          "title": "Map editorial states",
+          "text": "Define what ready for review and ready to publish mean to the team."
+        },
+        {
+          "title": "Structure the content",
+          "text": "Separate article fields from presentation templates."
+        },
+        {
+          "title": "Design review actions",
+          "text": "Make approvals and requested changes part of the article record."
+        },
+        {
+          "title": "Plan a safe release",
+          "text": "Evaluate preview, versioning, and publication checks before connecting a live site."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Structured content",
+        "Role-based access",
+        "Version history"
+      ],
+      "outcomes": [
+        {
+          "title": "Visible review stages",
+          "text": "The proposed interface makes draft ownership explicit."
+        },
+        {
+          "title": "Reusable content",
+          "text": "A structured model allows presentation to evolve independently."
+        },
+        {
+          "title": "No growth claims",
+          "text": "No subscriber, traffic, or editorial productivity results are asserted."
+        }
+      ],
+      "lessons": [
+        "Publishing states are business rules, not decorative labels.",
+        "An editor needs context with an approval request.",
+        "Preview and rollback should be designed before launch."
+      ],
+      "projectSlug": ""
+    },
+    "seo": {
+      "metaTitle": "From draft to publication, with clearer ownership | Adnan Hossain Khan",
+      "metaDescription": "An editorial workspace concept for structured content, review stages, and publication history."
+    },
+    "faqs": [
+      {
+        "question": "Was this commissioned by a publication?",
+        "answer": "No. It is an illustrative publishing concept created for the portfolio."
+      },
+      {
+        "question": "Does it include an automated writing system?",
+        "answer": "No. This study focuses on editorial structure and human review, not replacing writers or editors."
+      },
+      {
+        "question": "Could it integrate with an existing CMS?",
+        "answer": "Potentially. That depends on the CMS content model, APIs, permissions, and versioning support."
+      }
+    ]
+  },
+  {
+    "slug": "event-coordination-console",
+    "title": "One shared view of the show behind the show",
+    "description": "An event-operations concept for schedules, collaborator roles, and production handoffs.",
+    "status": "published",
+    "fields": {
+      "industry": "music-entertainment",
+      "studyType": "concept",
+      "image": "/images/case-studies-cover.png",
+      "imageAlt": "Software case study cover",
+      "gallery": [],
+      "context": "A fictional event team coordinates artists, production tasks, and schedule changes. The scenario is a portfolio exploration, not a named organizer's project.",
+      "problem": "A schedule can look complete while important dependencies remain hidden. Last-minute changes create confusion when each collaborator works from a different document.",
+      "solution": "Connect schedule items with task ownership, dependencies, and a visible change history. Give collaborators the information they need without exposing every internal detail.",
+      "steps": [
+        {
+          "title": "Identify dependencies",
+          "text": "Map the handoffs that influence whether a schedule item is ready."
+        },
+        {
+          "title": "Define collaborator access",
+          "text": "Separate production, performer, and administrative views."
+        },
+        {
+          "title": "Expose changes",
+          "text": "Keep current status and schedule revisions understandable."
+        },
+        {
+          "title": "Rehearse scenarios",
+          "text": "Test delays, reassignment, and conflicting updates using synthetic events."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Scheduling models",
+        "Role-based access",
+        "Event history"
+      ],
+      "outcomes": [
+        {
+          "title": "Connected schedules",
+          "text": "The design relates planned activities to their operational prerequisites."
+        },
+        {
+          "title": "Scoped collaboration",
+          "text": "Role-based views limit unnecessary information sharing."
+        },
+        {
+          "title": "Concept-stage results",
+          "text": "No ticket sales, event attendance, or production efficiency gains are claimed."
+        }
+      ],
+      "lessons": [
+        "A shared schedule needs a shared meaning of ready.",
+        "Changed information should be distinguishable from current information.",
+        "Design for delayed tasks, not only the planned timeline."
+      ],
+      "projectSlug": ""
+    },
+    "seo": {
+      "metaTitle": "One shared view of the show behind the show | Adnan Hossain Khan",
+      "metaDescription": "An event-operations concept for schedules, collaborator roles, and production handoffs."
+    },
+    "faqs": [
+      {
+        "question": "Is this a live event management platform?",
+        "answer": "No. It is a fictional concept for discussing operational interface design."
+      },
+      {
+        "question": "Does it sell tickets or process payments?",
+        "answer": "No. Ticketing and payments are outside the scope of this study."
+      },
+      {
+        "question": "Can collaborators see different views?",
+        "answer": "The concept models role-based views. A production implementation would need tested permissions and access policies."
+      }
+    ]
+  },
+  {
+    "slug": "dispatch-exception-workspace",
+    "title": "Make shipment exceptions easier to act on",
+    "description": "A logistics operations concept for shipment events, exception ownership, and follow-up queues.",
+    "status": "published",
+    "fields": {
+      "industry": "logistics",
+      "studyType": "concept",
+      "image": "/images/case-studies-cover.png",
+      "imageAlt": "Software case study cover",
+      "gallery": [],
+      "context": "A fictional dispatch operation receives updates from multiple sources. This portfolio scenario illustrates coordination problems without claiming a live logistics implementation.",
+      "problem": "A shipment status alone rarely explains whether an operator should act. Missing updates, conflicting events, and unowned exceptions can become difficult to distinguish.",
+      "solution": "Keep event history separate from the interpreted shipment state. Provide a prioritized exception queue with reasons, ownership, and the next expected action.",
+      "steps": [
+        {
+          "title": "Define event contracts",
+          "text": "Record source, event time, and meaning before combining updates."
+        },
+        {
+          "title": "Model exceptions",
+          "text": "Distinguish missing information from a confirmed operational issue."
+        },
+        {
+          "title": "Assign responsibility",
+          "text": "Make follow-up ownership visible in the queue."
+        },
+        {
+          "title": "Test difficult sequences",
+          "text": "Use synthetic late, duplicate, and out-of-order events to evaluate the design."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Laravel",
+        "Queues",
+        "Event models"
+      ],
+      "outcomes": [
+        {
+          "title": "Traceable updates",
+          "text": "A proposed event model retains the context behind a status."
+        },
+        {
+          "title": "Actionable exceptions",
+          "text": "The queue groups a reason, owner, and next step."
+        },
+        {
+          "title": "No operational guarantees",
+          "text": "No delivery-time, cost, or shipment-volume outcomes are claimed."
+        }
+      ],
+      "lessons": [
+        "Source timestamps and arrival timestamps answer different questions.",
+        "An exception should communicate why it needs attention.",
+        "A late event should not silently erase a more reliable state."
+      ],
+      "projectSlug": ""
+    },
+    "seo": {
+      "metaTitle": "Make shipment exceptions easier to act on | Adnan Hossain Khan",
+      "metaDescription": "A logistics operations concept for shipment events, exception ownership, and follow-up queues."
+    },
+    "faqs": [
+      {
+        "question": "Is this connected to delivery carriers?",
+        "answer": "No. The study uses fictional events and is not connected to carrier systems."
+      },
+      {
+        "question": "Does it track real vehicles?",
+        "answer": "No. This is an operational event and exception concept, not a live tracking deployment."
+      },
+      {
+        "question": "Could it support external integrations?",
+        "answer": "A production design would require source-specific contracts, authentication, delivery guarantees, and data-validation rules."
+      }
+    ]
+  },
+  {
+    "slug": "community-program-hub",
+    "title": "Less fragmented administration for community programs",
+    "description": "A non-profit operations concept connecting program tasks, volunteer coordination, and responsible reporting.",
+    "status": "published",
+    "fields": {
+      "industry": "non-profits",
+      "studyType": "concept",
+      "image": "/images/case-studies-cover.png",
+      "imageAlt": "Software case study cover",
+      "gallery": [],
+      "context": "A fictional community organization manages activities using separate documents. This concept illustrates a focused workflow using synthetic information, not a deployed non-profit engagement.",
+      "problem": "Program tasks, volunteer availability, and reporting can drift apart when information is repeatedly copied. Collecting additional personal information is not a good substitute for a clearer process.",
+      "solution": "Keep program records focused on necessary operational information. Connect task ownership, volunteer roles, and a reporting view with explicit access boundaries.",
+      "steps": [
+        {
+          "title": "Map essential administration",
+          "text": "Identify the records genuinely needed to run a program."
+        },
+        {
+          "title": "Reduce unnecessary data",
+          "text": "Avoid collecting personal details that do not support an agreed task."
+        },
+        {
+          "title": "Connect participation",
+          "text": "Model assignments and status without duplicating program records."
+        },
+        {
+          "title": "Design transparent reporting",
+          "text": "Explain metric definitions and reporting limitations alongside summaries."
+        }
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Laravel",
+        "Access control",
+        "Reporting models"
+      ],
+      "outcomes": [
+        {
+          "title": "Focused records",
+          "text": "The concept limits information collection to the proposed workflow."
+        },
+        {
+          "title": "Clear assignments",
+          "text": "Program tasks and responsibilities are represented together."
+        },
+        {
+          "title": "No fundraising claims",
+          "text": "No donation increases, beneficiary outcomes, or organization adoption are asserted."
+        }
+      ],
+      "lessons": [
+        "Limited operational capacity should influence product scope.",
+        "Useful reporting depends on consistent definitions.",
+        "Responsible access starts with deciding what not to collect."
+      ],
+      "projectSlug": ""
+    },
+    "seo": {
+      "metaTitle": "Less fragmented administration for community programs | Adnan Hossain Khan",
+      "metaDescription": "A non-profit operations concept connecting program tasks, volunteer coordination, and responsible reporting."
+    },
+    "faqs": [
+      {
+        "question": "Is this used by a charity?",
+        "answer": "No. It is a fictional portfolio concept and does not represent an organization's endorsement."
+      },
+      {
+        "question": "Does it handle donations?",
+        "answer": "Payment processing and fundraising integrations are outside this concept's scope."
+      },
+      {
+        "question": "Is the data real?",
+        "answer": "No. The concept uses synthetic information and has no connection to program participants or volunteers."
+      }
+    ]
+  }
+]

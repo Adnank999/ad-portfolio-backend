@@ -1,0 +1,43 @@
+{
+  "slug": "hotel-booking-platform",
+  "title": "Hotel Booking Platform",
+  "description": "A high-performance hotel discovery and booking experience with supplier integrations, flexible payments, and a modern search flow.",
+  "status": "draft",
+  "fields": {
+    "category": "Travel / SaaS",
+    "year": "2026",
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85",
+    "gallery": [],
+    "technologies": [
+      "Laravel",
+      "React",
+      "TypeScript",
+      "Inertia",
+      "Redis"
+    ],
+    "githubUrl": "",
+    "liveUrl": "",
+    "featured": true,
+    "overview": "A full-stack travel platform designed around fast hotel discovery, supplier inventory, and a frictionless checkout journey.",
+    "problem": "Travel inventory is fragmented, image-heavy, and latency-sensitive. Users need useful results quickly without sacrificing booking flexibility.",
+    "solution": "A server-rendered application combines provider APIs, caching, streamed search results, optimized media delivery, and a modular booking pipeline.",
+    "features": [
+      "Supplier inventory aggregation",
+      "Streaming hotel search",
+      "Pay now / pay later checkout",
+      "Wallet and cashback flows",
+      "Optimized hotel imagery",
+      "Provider-aware booking orchestration"
+    ],
+    "technical": "Laravel powers the application and integrations while React and Inertia provide a rich interface. Redis is used for caching and queues, with a strong focus on resilient external API boundaries.",
+    "challenges": "The biggest challenge is balancing fresh provider inventory with response speed while keeping downstream supplier failures isolated from the customer experience.",
+    "results": "Designed as a scalable foundation where new suppliers, destinations, payment providers, and customer features can be added without rebuilding the core booking flow.",
+    "imageAlt": "Hotel and pool at sunset, representing the hotel booking platform"
+  },
+  "faqs": [],
+  "seo": {
+    "metaTitle": "Hotel Booking Platform",
+    "metaDescription": "A high-performance hotel discovery and booking experience with supplier integrations, flexible payments, and a modern search flow."
+  },
+  "editorContent": null
+}

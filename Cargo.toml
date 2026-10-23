@@ -1,0 +1,51 @@
+[package]
+name = "clean_axum_demo"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+autobins = false
+autotests = false
+default-run = "portfolio-api"
+
+[lib]
+name = "portfolio_api"
+path = "src/portfolio/lib.rs"
+
+[[bin]]
+name = "portfolio-api"
+path = "src/portfolio/main.rs"
+
+[[test]]
+name = "portfolio_api"
+path = "tests/portfolio_api.rs"
+
+[dependencies]
+axum = { version = "0.8", features = ["json", "query", "tokio", "http1"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4", "serde"] }
+sqlx = { version = "0.8.6", default-features = false, features = ["postgres", "runtime-tokio-rustls", "macros", "migrate", "uuid", "chrono", "json"] }
+chrono = { version = "0.4", features = ["serde"] }
+argon2 = "0.5.3"
+rand = "0.9"
+sha2 = "0.10"
+hex = "0.4"
+ammonia = "4"
+regex = "1"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+url = "2"
+dotenvy = "0.15"
+thiserror = "2"
+lettre = { version = "0.11", default-features = false, features = ["builder", "smtp-transport", "tokio1-rustls", "rustls-platform-verifier", "ring"] }
+tower = { version = "0.5", features = ["util", "timeout"] }
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+http-body-util = "0.1"
+
+[profile.release]
+lto = "thin"
+strip = true

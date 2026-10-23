@@ -1,0 +1,188 @@
+{
+  "slug": "from-idea-to-first-release",
+  "title": "From idea to first release: a practical web project checklist",
+  "description": "Define the users, workflow, content, and handover before building your next website or application. A practical checklist for a useful first release.",
+  "status": "draft",
+  "fields": {
+    "category": "insights",
+    "cover": "/images/blog/from-idea-to-first-release.svg",
+    "coverAlt": "Three connected panels representing a project brief, a working build, and a release handover.",
+    "socialImage": "/images/blog/from-idea-to-first-release.png",
+    "intro": [
+      "A web project often starts with a list of pages or features. A homepage, a dashboard, a booking form, an integration. Those are useful ingredients, but they leave an important question open: what should someone be able to accomplish when the first version is ready?",
+      "I find the most useful starting point is a complete task. Follow a visitor from finding a service to sending an enquiry, or an operator from receiving a request to recording its outcome. That journey reveals the content, data, decisions, and handoffs the software needs to support. This checklist turns those details into a brief that can guide a first release."
+    ],
+    "takeaways": [
+      "Describe one user and one useful task before listing screens.",
+      "Give the first release a complete journey, including errors and exceptions.",
+      "Identify content, data, and integration owners before development depends on them.",
+      "Agree on acceptance checks and a practical handover before launch."
+    ],
+    "sections": [
+      {
+        "id": "start-with-the-user",
+        "title": "Start with a person and a task",
+        "paragraphs": [
+          "Choose a specific person who will use the website or application. A prospective customer comparing services has different needs from a team member approving a booking. Writing down their situation helps separate essential information from features that merely seem interesting.",
+          "Then describe the task from beginning to end. What brings the person to the system? What information do they have? Which decision or action ends the journey? A short walkthrough gives design and development a shared reference."
+        ],
+        "points": [
+          "Who is using this, and what do they already know?",
+          "What are they trying to achieve in this visit or session?",
+          "What does a successful outcome look like to them?",
+          "Who in the business receives or acts on that outcome?"
+        ],
+        "callout": {
+          "title": "A useful starting sentence",
+          "text": "A prospective customer can understand the service, send a relevant enquiry, and receive confirmation that the team has received it."
+        }
+      },
+      {
+        "id": "define-the-first-release",
+        "title": "Give the first release a clear boundary",
+        "paragraphs": [
+          "A first release needs enough functionality to complete the chosen task. It also needs a boundary that makes the work possible to estimate and review. Describe what is included, what can be handled manually, and what will be considered after the first users provide feedback.",
+          "A customer enquiry journey, for example, can be complete without a large account system. It still needs understandable fields, validation, delivery to the right destination, and a confirmation. The boundary follows the task rather than a fixed number of screens."
+        ],
+        "table": {
+          "caption": "An example scope for a first service website release",
+          "headers": [
+            "Decision",
+            "First release",
+            "A later iteration"
+          ],
+          "rows": [
+            [
+              "Content",
+              "A clear offer and answers to key buying questions",
+              "A larger library of guides and case studies"
+            ],
+            [
+              "Enquiries",
+              "A tested form and a named destination",
+              "More detailed routing and follow-up automation"
+            ],
+            [
+              "Editing",
+              "An agreed way to update essential content",
+              "Additional publishing roles and approval steps"
+            ],
+            [
+              "Measurement",
+              "A defined, verifiable enquiry event",
+              "Experiments around specific visitor journeys"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "map-the-full-journey",
+        "title": "Map the journey beyond the happy path",
+        "paragraphs": [
+          "The main flow explains how the product should work. Exceptions explain what people need when it does not. A missing field, a duplicate request, an expired session, or an unavailable provider can affect whether a task is actually complete.",
+          "Choose the important cases and discuss them while the journey is still easy to change. This gives the interface meaningful loading, empty, confirmation, and error states instead of leaving those decisions to the end of the build."
+        ],
+        "cards": [
+          {
+            "title": "Before the action",
+            "text": "What information is required? What should a person see if there is no data or they do not have access?"
+          },
+          {
+            "title": "During the action",
+            "text": "How does the interface show progress? What happens if the person submits twice or a connection is interrupted?"
+          },
+          {
+            "title": "After the action",
+            "text": "How is completion confirmed? Who receives the result, and where can an unresolved request be found?"
+          }
+        ]
+      },
+      {
+        "id": "prepare-content-and-connections",
+        "title": "Prepare the content, data, and connections",
+        "paragraphs": [
+          "Development depends on more than the codebase. Someone needs to approve the copy, supply the images, explain the business rules, and provide access to the systems being connected. Put those responsibilities in the brief so they can be planned alongside the build.",
+          "For an integration, establish the supported interface, required fields, account access, and a way to test the connection. Record who owns the source information and who should investigate a failed delivery. These decisions influence both the implementation and the handover."
+        ],
+        "points": [
+          "Content: page copy, assets, approvals, and the person responsible for updates.",
+          "Data: sample records, field definitions, source ownership, and access rules.",
+          "Connections: provider documentation, test access, and supported operations.",
+          "Decisions: an owner who can answer questions and approve changes to the scope."
+        ]
+      },
+      {
+        "id": "agree-on-acceptance",
+        "title": "Agree on how you will review the result",
+        "paragraphs": [
+          "A requirement becomes easier to review when it describes observable behavior. Instead of saying the form should work, agree on what happens with valid information, missing fields, and an unavailable destination. Use representative examples that the people accepting the work understand.",
+          "Review the important journeys at milestones rather than waiting for a single final demonstration. A working increment gives everyone something concrete to discuss and makes it easier to identify a missing rule before more work depends on it."
+        ],
+        "callout": {
+          "title": "An example acceptance check",
+          "text": "A valid enquiry reaches the agreed destination once, includes the required source information, and displays a useful confirmation. If delivery fails, the request remains visible to the person responsible for resolving it."
+        },
+        "points": [
+          "Walk through the main task with representative content and data.",
+          "Check the relevant roles, devices, and keyboard interactions.",
+          "Exercise the important errors and confirm how people recover.",
+          "Record remaining limitations and the decisions needed for release."
+        ]
+      },
+      {
+        "id": "plan-the-handover",
+        "title": "Plan for the day after launch",
+        "paragraphs": [
+          "A release needs someone to own the website or application once it is live. That includes routine content changes, deployment access, account administration, and the first place a user reports a problem. Decide which responsibilities stay with your team and which need an ongoing support arrangement.",
+          "The handover should make frequent tasks understandable. Setup instructions, deployment steps, integration notes, and a short walkthrough of the editing process are often more useful than an unstructured collection of documents."
+        ],
+        "points": [
+          "Source code, hosting, and third-party accounts have clear ownership.",
+          "The responsible people can follow the agreed deployment and editing steps.",
+          "Integration failures and support requests have a destination.",
+          "Maintenance, further features, and availability are discussed explicitly."
+        ]
+      },
+      {
+        "id": "bring-it-together",
+        "title": "Bring it together in a short project brief",
+        "paragraphs": [
+          "You do not need every answer before a first conversation. A useful brief makes the known decisions visible and gives the unanswered questions a place to go. Start with the user, the task, the first release boundary, and the people who can help clarify the rest.",
+          "From there, discovery can turn the uncertain parts into a delivery plan. The result is a shared understanding of what is being built, how it will be reviewed, and what the team will receive when the milestone is complete."
+        ],
+        "callout": {
+          "title": "Your brief in six lines",
+          "text": "Who it is for. What they need to do. What the first release includes. Which content and systems it depends on. How acceptance will work. Who owns the result after launch."
+        }
+      }
+    ],
+    "tags": [
+      "Project planning",
+      "Web development",
+      "Product delivery"
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Do I need a complete specification before contacting a developer?",
+      "answer": "No. Bring the problem, the people affected, and any examples of the current process. Discovery can clarify the scope, dependencies, and unresolved questions before a larger implementation commitment."
+    },
+    {
+      "question": "How do we decide which features belong in the first release?",
+      "answer": "Start with the chosen user task and include what is needed to complete it reliably. Review each additional feature against that task, the available budget, and what you need to learn from the first users."
+    },
+    {
+      "question": "Can we improve an existing website instead of replacing it?",
+      "answer": "Yes. Review what already works and identify the specific constraint. A change to content, navigation, an integration, or a workflow may be a more useful first milestone than a complete rebuild."
+    },
+    {
+      "question": "What should a project handover include?",
+      "answer": "The agreed source and account ownership, setup and deployment instructions, guidance for common tasks, and operational responsibilities. The level of documentation should match the system and the people who will maintain it."
+    }
+  ],
+  "seo": {
+    "metaTitle": "From idea to first release: a practical web project checklist",
+    "metaDescription": "Define the users, workflow, content, and handover before building your next website or application. A practical checklist for a useful first release."
+  },
+  "editorContent": null
+}

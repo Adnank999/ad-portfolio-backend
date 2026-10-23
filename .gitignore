@@ -1,0 +1,33 @@
+# Rust build output
+/target/
+**/*.rs.bk
+
+# Local environment files (keep credential-free examples)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# Logs, coverage, and profiling output
+*.log
+/coverage/
+*.profraw
+*.profdata
+*.lcov
+
+# Private database backups
+/backups/
+*.dump
+*.backup
+
+# Editor and operating system files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

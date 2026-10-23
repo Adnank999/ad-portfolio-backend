@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+    <title>AD Portfolio API · Swagger UI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.32.15/swagger-ui.css">
+    <style>
+      body { margin: 0; background: #fafafa; }
+      #swagger-ui:empty { padding: 2rem; font: 1rem system-ui, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="swagger-ui">Loading API documentation…</div>
+    <noscript>Enable JavaScript to view the API. The raw specification is available at <a href="/openapi.json">/openapi.json</a>.</noscript>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.32.15/swagger-ui-bundle.js" crossorigin="anonymous"></script>
+    <script>
+      if (window.SwaggerUIBundle) {
+        window.SwaggerUIBundle({
+          url: "/openapi.json",
+          dom_id: "#swagger-ui",
+          deepLinking: true,
+          displayRequestDuration: true,
+          validatorUrl: null
+        });
+      } else {
+        document.getElementById("swagger-ui").textContent = "Swagger UI could not load. Check your internet connection or open /openapi.json directly.";
+      }
+    </script>
+  </body>
+</html>

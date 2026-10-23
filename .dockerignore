@@ -1,0 +1,10 @@
+target
+.git
+.env
+.env.*
+assets
+.sqlx
+db-seed
+backups
+**/*.dump
+**/*.backup

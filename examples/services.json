@@ -1,0 +1,3002 @@
+[
+  {
+    "slug": "web-development",
+    "title": "Custom Web Development Services",
+    "description": "Turn visitors into enquiries, bookings, and customers with a fast, accessible website that connects to the tools behind your business.",
+    "status": "published",
+    "fields": {
+      "category": "Software & product",
+      "artwork": "web",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Web Development",
+      "navDescription": "Websites and portals for enquiries, bookings, and purchases.",
+      "navGroup": "Software & Product",
+      "navOrder": 0,
+      "navVisual": "grid",
+      "navPopular": true,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "A website should make the next step easy.",
+          "text": "Your website is often where someone decides whether to contact you, buy from you, or keep looking. I design and build websites that explain your offer clearly and help visitors complete that decision. From a service website to a customer portal, the work connects content, interface design, and the systems that need to respond when someone takes action.",
+          "definitions": [
+            {
+              "title": "A public face for your business",
+              "text": "For service pages, launches, and content sites, the priority is a clear message, useful navigation, and a straightforward path to an enquiry or purchase."
+            },
+            {
+              "title": "A place to get things done",
+              "text": "For portals and web applications, the priority is the task: sign in, find information, make a booking, manage an account, or complete a workflow."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Make every visit easier to complete.",
+          "before": [
+            "Visitors have to piece together what you offer and who it is for.",
+            "Slow pages, awkward mobile forms, or broken handoffs interrupt enquiries.",
+            "Simple content updates require a developer to edit several pages."
+          ],
+          "after": [
+            "Page structure follows the questions visitors ask before taking action.",
+            "Important journeys are checked across mobile, desktop, keyboard, and error states.",
+            "Reusable page patterns and an agreed editing workflow simplify ongoing changes."
+          ]
+        },
+        "offerings": {
+          "title": "Web development from the first page to the final handoff.",
+          "items": [
+            {
+              "title": "Business & marketing websites",
+              "text": "Service pages, product launches, and company websites with a clear content hierarchy, responsive layouts, and focused calls to action."
+            },
+            {
+              "title": "Customer portals",
+              "text": "Account areas, dashboards, and self-service tools with role-based access, understandable navigation, and useful loading and empty states."
+            },
+            {
+              "title": "Booking & commerce journeys",
+              "text": "Product browsing, availability, checkout, and confirmation flows connected to the providers your business uses."
+            },
+            {
+              "title": "Content management",
+              "text": "Reusable templates and structured content fields so editors can publish consistently without changing the layout each time."
+            },
+            {
+              "title": "Forms & integrations",
+              "text": "Connect enquiries, payments, and bookings to your CRM or backend, with validation and a recovery path when a provider fails."
+            },
+            {
+              "title": "Website improvements",
+              "text": "Investigate slow templates, confusing journeys, accessibility barriers, and maintenance problems in an existing website."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A website you can launch, use, and maintain.",
+          "items": [
+            {
+              "title": "Page & content plan",
+              "text": "An agreed sitemap, key visitor journeys, reusable page types, and a list of content needed before launch."
+            },
+            {
+              "title": "Tested website",
+              "text": "The scoped pages and integrations, with responsive checks, keyboard testing, form validation, and a record of any known limitations."
+            },
+            {
+              "title": "Launch & editing handover",
+              "text": "Deployment instructions, editing guidance, redirect requirements for replaced pages, and clear ownership of hosting and ongoing maintenance."
+            }
+          ],
+          "acceptance": "We walk through the agreed visitor journeys on representative devices: finding a service, submitting a valid enquiry, recovering from an error, or completing a booking. Launch readiness includes content approval and integration checks."
+        },
+        "spotlight": {
+          "title": "Connect the enquiry to what happens next.",
+          "text": "A successful form submission should reach the right person with enough context to respond. I plan the full journey, including confirmation messages, CRM delivery, failed submissions, and the information your team needs to follow up.",
+          "points": [
+            "Clear actions on the pages that matter",
+            "Useful confirmation and error messages",
+            "A defined destination for every enquiry or booking"
+          ]
+        },
+        "sectors": [
+          "Service businesses",
+          "SaaS products",
+          "Retail & commerce",
+          "Travel & hospitality",
+          "Education",
+          "Content publishers"
+        ],
+        "tools": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Laravel",
+          "REST APIs",
+          "Content management"
+        ],
+        "approach": {
+          "title": "Start with the change your visitors need.",
+          "items": [
+            {
+              "title": "Launching a new offer",
+              "text": "Turn an agreed service or product proposition into pages that explain the value, answer likely questions, and provide a direct next step."
+            },
+            {
+              "title": "Replacing a difficult website",
+              "text": "Keep useful content and URLs where practical, simplify navigation, and plan redirects for pages that move."
+            },
+            {
+              "title": "Adding self-service",
+              "text": "Give customers a place to manage information or requests while connecting their actions to the existing business workflow."
+            }
+          ]
+        },
+        "process": [
+          "Discuss your audience, the main action visitors should take, existing content, and the people who will maintain the site. Agree on the first release and its boundaries.",
+          "Review the current site or brief, identify missing content, and check integration access, hosting constraints, and the journeys that need the most attention.",
+          "Plan page structure and prototype the important screens. Agree on reusable components, mobile behavior, editing needs, and acceptance checks.",
+          "Build the pages and integrations in reviewable stages. Check forms, permissions, keyboard use, responsive layouts, metadata, and production configuration before launch.",
+          "Complete the handover and review the first feedback. Any further improvements or maintenance follow an agreed backlog and support arrangement."
+        ],
+        "engagement": {
+          "title": "Choose the next useful website release.",
+          "items": [
+            {
+              "title": "A focused website",
+              "text": "A defined set of marketing or service pages, with content responsibilities and a practical launch checklist."
+            },
+            {
+              "title": "A connected web application",
+              "text": "A phased build for accounts, bookings, customer workflows, or integrations that need more than a public website."
+            },
+            {
+              "title": "An improvement sprint",
+              "text": "A prioritized set of fixes for an existing site, with clear before-and-after checks for the issues being addressed."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring your goal, your content, and one important journey.",
+          "text": "A finished specification is not required. A description of who visits the site and what they should do gives us a useful starting point. These details help me assess the scope and identify missing decisions.",
+          "items": [
+            "Your current website or a short description of the new offer",
+            "The pages, content, and brand assets you already have",
+            "Required integrations, target launch date, and budget range"
+          ]
+        },
+        "faqTitle": "Web development questions, answered.",
+        "related": [
+          "custom-software-development",
+          "seo",
+          "crm-implementation"
+        ],
+        "projectSlugs": [
+          "hotel-booking-platform",
+          "commerce-studio"
+        ],
+        "articles": [
+          {
+            "title": "What belongs in a useful website brief?",
+            "text": "Define your audience, key journeys, content responsibilities, and launch requirements before designing the first screen."
+          },
+          {
+            "title": "The enquiry journey after the submit button",
+            "text": "Plan confirmations, CRM delivery, and failure handling so useful enquiries reach the people who need them."
+          },
+          {
+            "title": "Redesigning without losing useful pages",
+            "text": "Inventory content and URLs, plan redirects, and decide what should survive the move to a new website."
+          }
+        ]
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Custom Web Development Services | Adnan Hossain Khan",
+      "metaDescription": "Turn visitors into enquiries, bookings, and customers with a fast, accessible website that connects to the tools behind your business."
+    },
+    "faqs": [
+      {
+        "question": "Can you redesign my existing website?",
+        "answer": "Yes. I begin with the content, URLs, features, and integrations that need to stay. The redesign scope then covers what changes, how existing pages are redirected, and how the new site will be reviewed before replacing the current one."
+      },
+      {
+        "question": "Will the website work on mobile and with a keyboard?",
+        "answer": "Responsive layouts and keyboard checks are part of the implementation. We agree on the important browsers and devices, then check navigation, forms, focus states, and content at those sizes. A formal accessibility audit can be scoped if you need one."
+      },
+      {
+        "question": "Can I update the website myself?",
+        "answer": "Yes, when content management is included. We identify which areas need editing, who will publish, and whether changes require approval. The handover covers those tasks so routine updates do not depend on remembering how the code works."
+      },
+      {
+        "question": "Can you work from an existing design?",
+        "answer": "Yes. I can build from supplied designs after checking responsive states, interactions, content, and reusable patterns. Missing error, empty, or mobile states are clarified before implementation so the build has a complete set of requirements."
+      },
+      {
+        "question": "Can the website connect to my CRM, booking system, or payment provider?",
+        "answer": "I review the provider's supported interfaces, account access, and test environment first. The integration scope includes field mapping, successful and failed requests, and who resolves exceptions after launch."
+      },
+      {
+        "question": "What determines the price and delivery schedule?",
+        "answer": "The main factors are page templates, content readiness, custom interactions, integrations, and review cycles. I use those details to propose milestones and a fee. Hosting, licenses, and other third-party costs are identified separately."
+      },
+      {
+        "question": "Is SEO included in the build?",
+        "answer": "The build can include descriptive metadata, semantic headings, crawlable links, and an agreed redirect plan. Keyword research, ongoing content work, and a wider technical SEO engagement are separate scope decisions."
+      },
+      {
+        "question": "What happens after launch?",
+        "answer": "You receive the agreed deployment and editing handover. We also define who handles hosting, updates, backups, and incoming issues. Ongoing maintenance or additional features can be arranged separately with explicit availability and response expectations."
+      }
+    ]
+  },
+  {
+    "slug": "nearshore-software-development",
+    "title": "Remote Software Development Support",
+    "description": "Add a hands-on developer to your delivery process, with clear ownership, reviewable code, and working hours agreed around your team.",
+    "status": "published",
+    "fields": {
+      "category": "Software & product",
+      "artwork": "software",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Nearshore Software Development",
+      "navDescription": "Direct remote support for your product backlog.",
+      "navGroup": "Software & Product",
+      "navOrder": 1,
+      "navVisual": "orbit",
+      "navPopular": true,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Extra engineering capacity with a clear place in your team.",
+          "text": "You may have a feature waiting for development, an integration nobody has time to own, or a product backlog moving too slowly. I contribute directly to an existing team as an independent full-stack developer based in Bangladesh. If you are comparing nearshore partners, we first establish whether my location, availability, and working-hour overlap fit your needs.",
+          "definitions": [
+            {
+              "title": "An individual contributor",
+              "text": "You work with me on an agreed area of the product. The scope reflects my availability and skills, with a named person on your side for decisions and review."
+            },
+            {
+              "title": "A working agreement",
+              "text": "We set expectations for access, communication, review windows, and delivery before onboarding. Geography alone does not establish how a collaboration will work."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Make it easy for an outside developer to contribute.",
+          "before": [
+            "Tickets arrive without enough product or technical context.",
+            "Pull requests wait because review ownership is unclear.",
+            "Knowledge leaves the team when a milestone ends."
+          ],
+          "after": [
+            "Start with the user problem, existing conventions, and acceptance criteria.",
+            "Agree on a reviewer, a feedback window, and escalation for blockers.",
+            "Keep setup notes, decisions, and operational details in your workspace."
+          ]
+        },
+        "offerings": {
+          "title": "Engineering support for the work already on your roadmap.",
+          "items": [
+            {
+              "title": "React & TypeScript delivery",
+              "text": "Build responsive interfaces, account areas, and product features using your existing components and frontend patterns."
+            },
+            {
+              "title": "Laravel & API development",
+              "text": "Implement business logic, endpoints, validation, and background jobs with contracts the rest of the team can review."
+            },
+            {
+              "title": "Third-party integrations",
+              "text": "Own a defined provider connection, including data mapping, retries, limits, and failure handling."
+            },
+            {
+              "title": "End-to-end feature work",
+              "text": "Take a bounded feature through implementation, verification, pull-request review, and release preparation."
+            },
+            {
+              "title": "Codebase improvements",
+              "text": "Address an identified performance issue or maintenance problem without turning it into an unrelated rewrite."
+            },
+            {
+              "title": "Release & handover support",
+              "text": "Prepare release notes, setup guidance, and the technical context needed for another developer to continue the work."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "Contributions your team can review and keep.",
+          "items": [
+            {
+              "title": "An onboarding plan",
+              "text": "An initial backlog, access requirements, communication schedule, and agreed ownership of implementation, review, and release."
+            },
+            {
+              "title": "Reviewable increments",
+              "text": "Pull requests with a clear purpose, relevant checks, and notes explaining decisions or remaining limitations."
+            },
+            {
+              "title": "Continuity for your team",
+              "text": "Updated documentation, handover notes, and a visible status of finished work, open questions, and follow-up tasks."
+            }
+          ],
+          "acceptance": "Your team reviews each contribution against its definition of done. We look at accepted functionality, review turnaround, unresolved blockers, and the clarity of the handover when deciding whether the collaboration is working."
+        },
+        "spotlight": {
+          "title": "Start with one well-defined milestone.",
+          "text": "A focused feature or integration gives us a practical way to establish the working relationship. It reveals how we communicate, how reviews happen, and what access is missing before we make a longer commitment.",
+          "points": [
+            "One owner for product decisions",
+            "A small, agreed first backlog",
+            "A review of both delivery and collaboration"
+          ]
+        },
+        "sectors": [
+          "Product teams",
+          "SaaS businesses",
+          "Web agencies",
+          "Commerce platforms",
+          "Internal engineering",
+          "Integration-heavy products"
+        ],
+        "tools": [
+          "React",
+          "TypeScript",
+          "Laravel",
+          "REST APIs",
+          "Git workflows",
+          "Issue tracking"
+        ],
+        "approach": {
+          "title": "Where an independent developer can fit.",
+          "items": [
+            {
+              "title": "A feature needs an owner",
+              "text": "Delegate a bounded piece of the product while your core team stays focused on its existing commitments."
+            },
+            {
+              "title": "An agency needs delivery support",
+              "text": "Add implementation capacity for a defined client milestone while retaining your own design, review, and client relationships."
+            },
+            {
+              "title": "An integration is holding up a release",
+              "text": "Assign the investigation and implementation to one contributor, with explicit inputs, dependencies, and acceptance checks."
+            }
+          ]
+        },
+        "process": [
+          "Discuss your product, stack, current backlog, expected capacity, and location. Confirm that the skills and working-hour overlap suit the collaboration.",
+          "Review repository conventions, development setup, access needs, and the first task. Identify blockers before promising a delivery date.",
+          "Agree on ownership, communication channels, review expectations, and a small initial milestone with a clear definition of done.",
+          "Contribute through your issue tracker and repository. Share progress, raise blockers early, and deliver changes through your normal review process.",
+          "Review the milestone and handover. Adjust priorities or capacity for further work only after checking availability and the team's needs."
+        ],
+        "engagement": {
+          "title": "A defined contribution or an ongoing working rhythm.",
+          "items": [
+            {
+              "title": "A delivery milestone",
+              "text": "A feature, integration, or technical improvement with an agreed outcome and review process."
+            },
+            {
+              "title": "Regular contribution",
+              "text": "A recurring allocation against a shared backlog, with capacity and communication expectations agreed in advance."
+            },
+            {
+              "title": "A focused investigation",
+              "text": "A bounded codebase review or technical spike that answers a question before the team commits to implementation."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring a backlog item and your team's working hours.",
+          "text": "We can assess the fit without access to a private repository at the first conversation. A description of the stack, the work, and how your team reviews changes is enough to begin.",
+          "items": [
+            "Your stack and the feature or problem you want help with",
+            "Your location, required overlap, and expected weekly capacity",
+            "Your onboarding, review, confidentiality, and release requirements"
+          ]
+        },
+        "faqTitle": "Questions about remote development support.",
+        "related": [
+          "custom-software-development",
+          "web-development",
+          "legacy-modernization"
+        ],
+        "articles": [
+          {
+            "title": "A practical onboarding brief for an external developer",
+            "text": "Share enough product context, setup guidance, and review expectations to make the first contribution useful."
+          },
+          {
+            "title": "Working-hour overlap is only part of collaboration",
+            "text": "Plan decisions, feedback windows, and written updates around the way your team actually delivers."
+          },
+          {
+            "title": "Make the handover useful before the final day",
+            "text": "Keep decisions and operational knowledge with the team throughout an engagement."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Remote Software Development Support | Adnan Hossain Khan",
+      "metaDescription": "Add a hands-on developer to your delivery process, with clear ownership, reviewable code, and working hours agreed around your team."
+    },
+    "faqs": [
+      {
+        "question": "Are you a nearshore agency or an individual developer?",
+        "answer": "I am an independent developer based in Bangladesh. Whether that location is nearshore to you depends on where your team works. This service is a direct collaboration with me; staffing a larger team is outside the standard scope."
+      },
+      {
+        "question": "Can you work in our time zone?",
+        "answer": "We agree on realistic overlap before starting. Planned meetings can be combined with written updates and review windows, but I do not assume full-day coverage in your time zone. Required hours and availability are part of the initial discussion."
+      },
+      {
+        "question": "Can you use our existing tools and coding conventions?",
+        "answer": "Yes, where the stack and access requirements fit my experience. Onboarding covers your local setup, coding patterns, issue tracker, tests, pull-request process, and deployment responsibilities so contributions fit the codebase."
+      },
+      {
+        "question": "How much management will our team need to provide?",
+        "answer": "I need a person who can clarify priorities and accept the work, plus access to technical context and review. The goal is ownership of a defined contribution, with blockers raised early rather than passed back as unexplained delays."
+      },
+      {
+        "question": "Can we begin with a small engagement?",
+        "answer": "Yes. A clearly scoped first milestone is a useful way to assess code quality, communication, and review practices. Its deliverables and commercial terms are agreed before work starts."
+      },
+      {
+        "question": "How do you handle confidentiality and code ownership?",
+        "answer": "We review confidentiality, intellectual property, repository access, and account requirements before sharing sensitive material. Those terms belong in the working agreement, along with the handover expected when the engagement ends."
+      },
+      {
+        "question": "How are fees and availability agreed?",
+        "answer": "The arrangement depends on the scope, expected capacity, and duration. I confirm availability before committing, and we agree on how work is estimated, reported, and reviewed. Additional capacity is discussed explicitly."
+      },
+      {
+        "question": "What happens when the engagement finishes?",
+        "answer": "Open work, implementation notes, setup instructions, and relevant decisions are handed back through your systems. We review any remaining questions and remove access according to your offboarding process."
+      }
+    ]
+  },
+  {
+    "slug": "custom-software-development",
+    "title": "Custom Software Development",
+    "description": "Build a product, internal tool, or business platform around your actual workflow, with a clear first release and room to grow.",
+    "status": "published",
+    "fields": {
+      "category": "Software & product",
+      "artwork": "software",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Custom Software Development",
+      "navDescription": "Products and internal tools built around your workflow.",
+      "navGroup": "Software & Product",
+      "navOrder": 2,
+      "navVisual": "signal",
+      "navPopular": false,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Software shaped around the work you need to do.",
+          "text": "When spreadsheets, disconnected tools, or repeated workarounds start to limit a process, custom software can bring it into one usable system. I work with you to define the users, business rules, and integrations, then build a focused release that solves an identifiable problem. The aim is software your team can use, support, and change as the business develops.",
+          "definitions": [
+            {
+              "title": "A product for your customers",
+              "text": "Build the core experience of a SaaS product, customer platform, or booking service around the job people need to complete."
+            },
+            {
+              "title": "A tool for your operation",
+              "text": "Give your team a shared workspace for requests, approvals, records, or reporting that existing software cannot handle cleanly."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Turn hidden business rules into dependable workflows.",
+          "before": [
+            "Important decisions live in spreadsheets, inboxes, or one person's memory.",
+            "Teams re-enter the same data because existing tools do not connect.",
+            "A growing feature list makes the first release difficult to finish."
+          ],
+          "after": [
+            "Capture rules, roles, and exceptions before implementing them.",
+            "Give each record an owner and each integration a clear responsibility.",
+            "Define a complete first workflow with explicit acceptance criteria."
+          ]
+        },
+        "offerings": {
+          "title": "Custom software for customers and the teams behind them.",
+          "items": [
+            {
+              "title": "Product discovery & MVPs",
+              "text": "Define the smallest release that can test a useful product assumption, including the core journey and a way to collect feedback."
+            },
+            {
+              "title": "SaaS applications",
+              "text": "Build accounts, permissions, workspaces, subscriptions, and administrative tools around the product's actual requirements."
+            },
+            {
+              "title": "Internal business tools",
+              "text": "Replace repeated manual work with focused screens for requests, approvals, scheduling, or record management."
+            },
+            {
+              "title": "Backend systems & APIs",
+              "text": "Implement business rules, validation, background jobs, and documented interfaces for the applications that depend on them."
+            },
+            {
+              "title": "System integrations",
+              "text": "Connect external providers with clear data mappings, error handling, retry behavior, and visibility into failed operations."
+            },
+            {
+              "title": "Existing product development",
+              "text": "Add capabilities, improve performance, or simplify difficult parts of a live application through bounded changes."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A working release with the knowledge to maintain it.",
+          "items": [
+            {
+              "title": "Defined release scope",
+              "text": "User journeys, business rules, data relationships, integration assumptions, and acceptance criteria for the agreed milestone."
+            },
+            {
+              "title": "Application & verification",
+              "text": "The scoped source code and configuration, relevant automated checks, and a reviewed walkthrough of complete user workflows."
+            },
+            {
+              "title": "Technical handover",
+              "text": "Setup and deployment guidance, environment requirements, interface documentation, and a prioritized list of remaining work."
+            }
+          ],
+          "acceptance": "We validate complete tasks using representative data and user roles. Acceptance covers normal use, permission boundaries, important failure cases, and the agreed operational checks rather than a feature count alone."
+        },
+        "spotlight": {
+          "title": "Build the first complete workflow.",
+          "text": "For a request-management tool, that might mean submission, review, approval, and a recorded outcome. Completing one coherent journey gives users something useful to test and exposes missing rules before the project expands.",
+          "points": [
+            "One clearly defined user problem",
+            "A complete journey through the system",
+            "Feedback that informs the next release"
+          ]
+        },
+        "sectors": [
+          "SaaS products",
+          "Travel platforms",
+          "Commerce operations",
+          "Service teams",
+          "Logistics",
+          "Internal operations"
+        ],
+        "tools": [
+          "React",
+          "TypeScript",
+          "Laravel",
+          "SQL",
+          "Redis",
+          "REST APIs"
+        ],
+        "approach": {
+          "title": "Three practical starting points for a custom build.",
+          "items": [
+            {
+              "title": "A spreadsheet has become a system",
+              "text": "Turn shared records and approval rules into a controlled workspace with permissions, validation, and a reliable history of changes."
+            },
+            {
+              "title": "A product idea needs a first release",
+              "text": "Identify the main customer task, test the riskiest assumptions, and choose the capabilities needed to support an initial user group."
+            },
+            {
+              "title": "Existing software leaves a gap",
+              "text": "Build an integration or focused extension around the tools already in use, with clear boundaries and maintenance responsibilities."
+            }
+          ]
+        },
+        "process": [
+          "Map users, recurring tasks, business rules, and the outcome the software needs to support. Compare a custom build with adapting tools you already have.",
+          "Review data, integration access, operational constraints, and uncertain requirements. Identify what needs a small technical investigation before estimating the build.",
+          "Design the first release: journeys, screens, data model, permissions, and API contracts. Agree on acceptance criteria and the order of delivery.",
+          "Implement and review working increments. Check representative workflows, edge cases, access rules, and deployment requirements before release.",
+          "Hand over the code and operating knowledge. Use feedback and observed issues to prioritize maintenance and the next release."
+        ],
+        "engagement": {
+          "title": "A clear boundary for each stage of the build.",
+          "items": [
+            {
+              "title": "Discovery & feasibility",
+              "text": "Resolve uncertain requirements or integration risks and leave with a proposed architecture and release plan."
+            },
+            {
+              "title": "A product milestone",
+              "text": "Deliver an agreed workflow or release with defined users, acceptance criteria, and a handover."
+            },
+            {
+              "title": "Ongoing product development",
+              "text": "Work through a prioritized backlog with regular reviews, explicit scope decisions, and capacity agreed in advance."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Show me how the work happens today.",
+          "text": "A walkthrough of the current process is often more useful than a long feature list. It helps reveal where the rules live, which steps need judgment, and what a useful first version should accomplish.",
+          "items": [
+            "A sample workflow, spreadsheet, or existing application",
+            "The users involved and the rules they need to follow",
+            "The first outcome you need, plus budget and timing constraints"
+          ]
+        },
+        "faqTitle": "Questions about building custom software.",
+        "related": [
+          "web-development",
+          "ai-automation",
+          "digital-transformation"
+        ],
+        "projectSlugs": [
+          "hotel-booking-platform",
+          "saas-command-center"
+        ],
+        "articles": [
+          {
+            "title": "Define an MVP around one complete task",
+            "text": "Choose the journey that proves the product's value and decide what can wait until the next release."
+          },
+          {
+            "title": "Finding business rules inside a spreadsheet",
+            "text": "Turn formulas, exceptions, and informal approvals into requirements people can review."
+          },
+          {
+            "title": "What a useful software handover includes",
+            "text": "Go beyond the repository with setup instructions, deployment knowledge, and clear operating responsibilities."
+          }
+        ]
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Custom Software Development | Adnan Hossain Khan",
+      "metaDescription": "Build a product, internal tool, or business platform around your actual workflow, with a clear first release and room to grow."
+    },
+    "faqs": [
+      {
+        "question": "Should I build custom software or use an existing product?",
+        "answer": "We compare the workflow fit, integration effort, licensing, and ongoing ownership costs. An existing product may cover most of the need. Custom development makes sense when a specific requirement justifies the cost of building and maintaining it."
+      },
+      {
+        "question": "Can we start with an MVP?",
+        "answer": "Yes. We define the assumption the MVP needs to test and a complete journey for its first users. Features that do not support that learning can wait, while essential permissions, data handling, and operational needs stay in scope."
+      },
+      {
+        "question": "Can you take over an existing application?",
+        "answer": "I start with a review of the stack, code structure, dependencies, deployment, and current issues. That review establishes whether I can contribute effectively and what must be addressed before committing to new features."
+      },
+      {
+        "question": "Who owns the source code and accounts?",
+        "answer": "Code ownership, usage rights, and account access are recorded in the agreement before work begins. The handover identifies third-party licenses, services, and dependencies so you can understand what you own and what needs an ongoing subscription."
+      },
+      {
+        "question": "How do you handle changing requirements?",
+        "answer": "We keep a visible backlog and discuss changes against the current milestone. If a new requirement affects cost, timing, or another feature, we agree on the trade-off before treating it as part of the delivery commitment."
+      },
+      {
+        "question": "How is quality checked?",
+        "answer": "Checks follow the risk and scope of the application: relevant automated tests, manual workflow reviews, permission checks, and deployment validation. You review working software against agreed acceptance criteria throughout the build."
+      },
+      {
+        "question": "How are cost and timing estimated?",
+        "answer": "The estimate depends on workflows, integrations, data complexity, and unresolved decisions. For uncertain projects, a discovery phase can establish a realistic first milestone. Larger builds are split into releases that can be estimated and reviewed individually."
+      },
+      {
+        "question": "Can you maintain the software after delivery?",
+        "answer": "Maintenance and further development can be agreed separately. The arrangement should define availability, issue reporting, release responsibilities, and the difference between correcting an issue and adding a new capability."
+      }
+    ]
+  },
+  {
+    "slug": "legacy-modernization",
+    "title": "Legacy System Modernization",
+    "description": "Make an existing application easier to change and support through focused upgrades, stronger tests, and a staged modernization plan.",
+    "status": "published",
+    "fields": {
+      "category": "Software & product",
+      "artwork": "software",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Legacy Modernization",
+      "navDescription": "Focused upgrades for the software you already rely on.",
+      "navGroup": "Software & Product",
+      "navOrder": 3,
+      "navVisual": "grid",
+      "navPopular": false,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Keep valuable business behavior. Improve what gets in the way.",
+          "text": "An older application often contains years of business knowledge as well as technical debt. I help identify which parts make releases risky, support difficult, or new features expensive. The result is a practical modernization plan: preserve behavior people rely on, improve the most limiting components, and replace capabilities in stages when replacement is justified.",
+          "definitions": [
+            {
+              "title": "Improve an existing capability",
+              "text": "Dependency updates, targeted refactoring, query improvements, or a clearer interface can address a specific problem without replacing the whole application."
+            },
+            {
+              "title": "Replace a bounded part",
+              "text": "When a component has reached its limits, a stable boundary lets a new implementation take over a defined responsibility while the rest of the system continues to operate."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Make the next change safer to deliver.",
+          "before": [
+            "A small change can break a workflow nobody documented.",
+            "Deployments depend on manual steps and one person's knowledge.",
+            "A replacement project grows while the old system still needs support."
+          ],
+          "after": [
+            "Capture the critical journeys and unusual cases before changing behavior.",
+            "Document environments and add repeatable verification around releases.",
+            "Give each modernization stage a boundary, acceptance check, and retirement plan."
+          ]
+        },
+        "offerings": {
+          "title": "Modernization focused on the constraint you need to remove.",
+          "items": [
+            {
+              "title": "Application assessment",
+              "text": "Review architecture, dependencies, data flows, deployment, and recurring incidents to identify a prioritized set of changes."
+            },
+            {
+              "title": "Framework & dependency upgrades",
+              "text": "Map compatibility requirements, breaking changes, and validation steps for an agreed upgrade path."
+            },
+            {
+              "title": "Regression protection",
+              "text": "Add tests and representative fixtures around business behavior that must survive the modernization."
+            },
+            {
+              "title": "API & integration boundaries",
+              "text": "Create stable interfaces between older components, new functionality, and external systems."
+            },
+            {
+              "title": "Interface & workflow renewal",
+              "text": "Improve difficult screens and repeated tasks while keeping validated business rules and permissions intact."
+            },
+            {
+              "title": "Incremental replacement",
+              "text": "Move a capability into a new implementation with a controlled transition, data checks, and a plan to remove the old path."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A modernization plan you can execute in stages.",
+          "items": [
+            {
+              "title": "Risk & dependency map",
+              "text": "An inventory of the relevant components, unsupported dependencies, critical workflows, and areas where knowledge is missing."
+            },
+            {
+              "title": "A verified improvement",
+              "text": "The agreed upgrade or replacement, with regression checks, compatibility notes, and explicit release conditions."
+            },
+            {
+              "title": "Transition & maintenance notes",
+              "text": "Deployment steps, fallback limits, data reconciliation checks, and the work needed to retire superseded components."
+            }
+          ],
+          "acceptance": "We compare critical workflows before and after the change, inspect the agreed performance or maintenance issue, and verify release and recovery procedures. Any behavior change is reviewed explicitly with the people who own it."
+        },
+        "spotlight": {
+          "title": "Let old and new components meet at a clear boundary.",
+          "text": "A booking flow, reporting module, or provider integration can often be understood independently of the whole system. Establishing that boundary makes it possible to validate one change at a time and keep the transition visible.",
+          "points": [
+            "Document inputs, outputs, and important side effects",
+            "Check data consistency across both implementations",
+            "Define when the old path can be retired"
+          ]
+        },
+        "sectors": [
+          "Business applications",
+          "Commerce platforms",
+          "Customer portals",
+          "Supplier integrations",
+          "Internal tools",
+          "Operational reporting"
+        ],
+        "tools": [
+          "PHP",
+          "Laravel",
+          "React",
+          "SQL",
+          "API contracts",
+          "Regression tests"
+        ],
+        "approach": {
+          "title": "Choose a response that matches the problem.",
+          "items": [
+            {
+              "title": "Releases have become fragile",
+              "text": "Start with environment documentation, critical-path tests, and smaller release steps so routine changes are easier to verify."
+            },
+            {
+              "title": "A dependency blocks progress",
+              "text": "Isolate the compatibility work, review supported upgrade steps, and test the behavior affected by the change."
+            },
+            {
+              "title": "One module limits the product",
+              "text": "Define a replacement boundary and transition plan for that capability while preserving the remaining application."
+            }
+          ]
+        },
+        "process": [
+          "Walk through the application with users and maintainers. Record the business-critical tasks, recurring problems, deployment process, and reasons for modernizing.",
+          "Review the relevant code and dependencies. Identify undocumented behavior, test gaps, data risks, and the changes most likely to unblock useful work.",
+          "Choose a bounded first stage. Define compatibility requirements, regression checks, data handling, and the conditions for release or fallback.",
+          "Implement the change in reviewable steps and compare behavior against representative cases. Coordinate the release with ongoing product development.",
+          "Complete the handover, remove obsolete paths when safe, and use the findings to update the remaining modernization priorities."
+        ],
+        "engagement": {
+          "title": "Start with the part of the system that needs attention.",
+          "items": [
+            {
+              "title": "Modernization assessment",
+              "text": "A review of a defined application or module, with risks, options, and recommended sequencing."
+            },
+            {
+              "title": "A targeted upgrade",
+              "text": "An agreed dependency, interface, performance issue, or integration boundary improved and verified."
+            },
+            {
+              "title": "A staged replacement",
+              "text": "A series of bounded releases with explicit ownership of old and new components during the transition."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring the recurring problem and the workflow it affects.",
+          "text": "Useful starting material includes an example of a difficult release or a task users regularly struggle with. Existing documentation helps, but missing documentation can itself be part of the assessment.",
+          "items": [
+            "The application stack, versions, and hosting arrangement",
+            "The workflows that must keep working and any known failure cases",
+            "Your release constraints, maintainers, and priorities for the next change"
+          ]
+        },
+        "faqTitle": "Legacy modernization questions, answered.",
+        "related": [
+          "cloud-migration",
+          "custom-software-development",
+          "digital-transformation"
+        ],
+        "articles": [
+          {
+            "title": "Choose the first modernization boundary",
+            "text": "Identify a component that can be improved and verified without making the whole application a moving target."
+          },
+          {
+            "title": "Capture the behavior your users depend on",
+            "text": "Use representative cases and regression checks to preserve the knowledge hidden in a long-running system."
+          },
+          {
+            "title": "Plan retirement as well as replacement",
+            "text": "Decide when old code, integrations, and operational steps can actually be removed."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Legacy System Modernization | Adnan Hossain Khan",
+      "metaDescription": "Make an existing application easier to change and support through focused upgrades, stronger tests, and a staged modernization plan."
+    },
+    "faqs": [
+      {
+        "question": "Do we need to rewrite the whole application?",
+        "answer": "That decision follows the assessment. Targeted upgrades, refactoring, or replacing a module may resolve the main constraint. A full rewrite needs a clear benefit, a realistic transition plan, and a way to preserve business behavior throughout the move."
+      },
+      {
+        "question": "Can feature development continue during modernization?",
+        "answer": "It can, if responsibilities and dependencies are planned together. We agree on which parts are changing, how releases are coordinated, and how compatibility is checked so product work does not invalidate the modernization effort."
+      },
+      {
+        "question": "What if there are no tests or useful documentation?",
+        "answer": "I begin with walkthroughs, representative data, and a bounded set of checks around critical behavior. The initial work may focus on understanding the system and establishing a safety net before making structural changes."
+      },
+      {
+        "question": "Can you work with older PHP or Laravel applications?",
+        "answer": "I can assess them after reviewing the versions, dependencies, codebase, and hosting. The review establishes viable upgrade paths and any constraints that need additional specialist support before committing to the implementation."
+      },
+      {
+        "question": "How do you protect existing data?",
+        "answer": "We plan backups, migration rehearsals, mapping rules, and reconciliation checks for the affected data. Changes that alter stored information need a recovery strategy that accounts for new writes, not only a code rollback."
+      },
+      {
+        "question": "Will users need to change how they work?",
+        "answer": "Only where the agreed scope changes their workflow. I involve users in reviewing those changes and document the new process. Training and the switch from old to new behavior are considered before rollout."
+      },
+      {
+        "question": "How do we choose the first modernization step?",
+        "answer": "Prioritize a bounded change that addresses business risk or repeatedly blocks useful work. Dependencies, release constraints, and the ability to verify the result all influence the order."
+      },
+      {
+        "question": "How are cost and timing estimated for an unfamiliar system?",
+        "answer": "An assessment helps uncover the parts that are difficult to estimate from a brief alone. I then propose a first milestone with explicit assumptions and review points. Further stages are updated as the system becomes better understood."
+      }
+    ]
+  },
+  {
+    "slug": "cloud-migration",
+    "title": "Cloud Migration Services",
+    "description": "Move applications and data with a plan for dependencies, downtime, recovery, and the people who will run the new environment.",
+    "status": "published",
+    "fields": {
+      "category": "Cloud, data & AI",
+      "artwork": "cloud",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Cloud Migration",
+      "navDescription": "Planned moves with cutover, recovery, and handover checks.",
+      "navGroup": "Cloud, Data & AI",
+      "navOrder": 4,
+      "navVisual": "orbit",
+      "navPopular": false,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Move the workload with its dependencies understood.",
+          "text": "A migration involves more than copying an application to a new server. Databases, uploaded files, scheduled jobs, external connections, and deployment habits all need a destination. I help assess a defined workload, plan the move, and validate the important journeys before the new environment takes over. The scope includes how the application will be operated after the switch.",
+          "definitions": [
+            {
+              "title": "A move with limited application changes",
+              "text": "Rehosting can suit a workload whose current behavior meets the need. Configuration, compatibility, deployment, and operational checks still require attention."
+            },
+            {
+              "title": "A move with targeted improvements",
+              "text": "Replatforming changes selected services or deployment patterns alongside the move. Each change should have a clear reason and its own validation requirements."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Know what must work before you switch traffic.",
+          "before": [
+            "Background jobs, file storage, or integrations are missing from the inventory.",
+            "The cutover plan assumes data will stop changing at the right moment.",
+            "Costs, alerts, and operational ownership are left until after the move."
+          ],
+          "after": [
+            "Trace dependencies across the whole application and its environments.",
+            "Agree on write handling, final synchronization, and recovery conditions.",
+            "Plan capacity, monitoring, access, and responsibilities before cutover."
+          ]
+        },
+        "offerings": {
+          "title": "Migration support from assessment to operational handover.",
+          "items": [
+            {
+              "title": "Workload assessment",
+              "text": "Inventory the application, data stores, files, jobs, integrations, and current operating constraints."
+            },
+            {
+              "title": "Destination & cost planning",
+              "text": "Compare the requirements of the target environment, including capacity assumptions, access, backups, and expected running costs."
+            },
+            {
+              "title": "Application migration",
+              "text": "Prepare compatible application configuration, deployment steps, scheduled tasks, and external connections."
+            },
+            {
+              "title": "Data & file transfer",
+              "text": "Define mappings, transfer methods, rehearsal steps, integrity checks, and the handling of changes during the move."
+            },
+            {
+              "title": "Cutover preparation",
+              "text": "Create a sequenced runbook with owners, go/no-go checks, acceptable disruption, and a recovery plan."
+            },
+            {
+              "title": "Post-migration review",
+              "text": "Check the agreed journeys, monitoring, backup configuration, costs, and operational handover after the destination is live."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A migration runbook with a verifiable destination.",
+          "items": [
+            {
+              "title": "Inventory & migration plan",
+              "text": "A dependency map, destination assumptions, scoped workloads, and a sequence that accounts for integrations and data movement."
+            },
+            {
+              "title": "Rehearsal & validation record",
+              "text": "Results from agreed transfer and application checks, with outstanding risks and the criteria for proceeding to cutover."
+            },
+            {
+              "title": "Operating handover",
+              "text": "Environment and deployment notes, access ownership, backup and recovery procedures, and the checks needed during the initial live period."
+            }
+          ],
+          "acceptance": "We verify the agreed user journeys, transferred records and files, background tasks, and external integrations. The handover also checks that the designated operator can deploy, inspect failures, and follow the recovery instructions."
+        },
+        "spotlight": {
+          "title": "Rehearse the move while there is time to adjust.",
+          "text": "A rehearsal can reveal missing permissions, transfer limits, configuration differences, or slow validation steps. Those findings become changes to the runbook, so the live cutover follows a process that has already been exercised where practical.",
+          "points": [
+            "Representative application and data checks",
+            "Named owners for each cutover step",
+            "Clear stop conditions and recovery limits"
+          ]
+        },
+        "sectors": [
+          "SaaS applications",
+          "Commerce platforms",
+          "Internal systems",
+          "Content & media",
+          "Data services",
+          "Customer portals"
+        ],
+        "tools": [
+          "Linux",
+          "Containers",
+          "Managed databases",
+          "Object storage",
+          "CI/CD",
+          "Monitoring"
+        ],
+        "approach": {
+          "title": "Match the migration to the reason for moving.",
+          "items": [
+            {
+              "title": "The hosting environment is limiting releases",
+              "text": "Review deployment, access, and environment requirements before choosing which parts of the operating model to change."
+            },
+            {
+              "title": "An application needs a new home",
+              "text": "Plan a focused move around compatibility and continuity, keeping unrelated product changes outside the cutover."
+            },
+            {
+              "title": "Migration and modernization overlap",
+              "text": "Separate the stages where possible so application behavior and infrastructure changes can be checked independently."
+            }
+          ]
+        },
+        "process": [
+          "Inventory the workload and discuss why it needs to move. Identify critical journeys, data owners, existing backups, and acceptable service disruption.",
+          "Review destination compatibility, external dependencies, access, and cost assumptions. Identify any specialist infrastructure requirements early.",
+          "Design the transfer, deployment, and cutover sequence. Agree on data validation, write handling, go/no-go criteria, and recovery responsibilities.",
+          "Prepare the environment, rehearse the agreed steps, and execute the approved cutover. Record validation results and resolve exceptions before closing the move.",
+          "Review live operation and complete the handover. Retire old resources only after retention, recovery, and remaining dependencies have been checked."
+        ],
+        "engagement": {
+          "title": "Scope the move around a defined workload.",
+          "items": [
+            {
+              "title": "Migration readiness review",
+              "text": "An inventory, compatibility assessment, and proposed sequence before committing to execution."
+            },
+            {
+              "title": "Application migration",
+              "text": "A specified application and environment, with preparation, cutover, validation, and handover."
+            },
+            {
+              "title": "A phased transition",
+              "text": "Multiple bounded migration stages when application changes or shared dependencies require a longer sequence."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring the workload and the reason it needs to move.",
+          "text": "An initial discussion should establish what is running, what is difficult today, and how much interruption the business can tolerate. A useful assessment can then be scoped around the unknowns.",
+          "items": [
+            "Application stack, hosting, data stores, and approximate data volumes",
+            "External integrations, scheduled jobs, and current backup arrangements",
+            "Target environment, deadline, and acceptable disruption"
+          ]
+        },
+        "faqTitle": "Questions before a cloud migration.",
+        "related": [
+          "legacy-modernization",
+          "custom-software-development",
+          "data-analytics"
+        ],
+        "articles": [
+          {
+            "title": "Inventory the dependencies before choosing a migration date",
+            "text": "Find the jobs, files, permissions, and provider connections that keep an application working."
+          },
+          {
+            "title": "What a cutover rehearsal should prove",
+            "text": "Test the sequence, data checks, and recovery decisions before switching the live workload."
+          },
+          {
+            "title": "The handover after a cloud move",
+            "text": "Make ownership of deployment, backups, alerts, and costs explicit."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Cloud Migration Services | Adnan Hossain Khan",
+      "metaDescription": "Move applications and data with a plan for dependencies, downtime, recovery, and the people who will run the new environment."
+    },
+    "faqs": [
+      {
+        "question": "Can the application move without downtime?",
+        "answer": "The achievable cutover window depends on the architecture, data store, and synchronization options. We establish a realistic target during planning and test the steps that affect it. Zero downtime is not assumed as part of every migration."
+      },
+      {
+        "question": "Will moving to the cloud lower our costs?",
+        "answer": "It may or may not. We compare the current setup with destination costs such as compute, storage, transfer, backups, and monitoring. Expected usage and ongoing operating effort matter as much as the advertised price of a server."
+      },
+      {
+        "question": "Do we need to rewrite the application?",
+        "answer": "Some workloads can move with configuration and deployment changes; others need application changes. The assessment separates migration requirements from optional modernization so the cutover does not take on unnecessary complexity."
+      },
+      {
+        "question": "Which provider will you use?",
+        "answer": "We review your existing accounts, team skills, regional requirements, integrations, and workload needs. Implementation scope is confirmed for the chosen environment, including any work that needs a dedicated infrastructure specialist."
+      },
+      {
+        "question": "How do you check the transferred data?",
+        "answer": "Checks are agreed for each data type. They may include counts, checksums, relationship checks, sample records, and application workflows. We also plan how to reconcile data written during the transition."
+      },
+      {
+        "question": "What happens if the cutover fails?",
+        "answer": "The runbook includes stop conditions, recovery owners, and a fallback path. If new writes have reached the destination, recovery must account for those changes. A code rollback alone is not treated as a complete data recovery plan."
+      },
+      {
+        "question": "Who runs the environment after migration?",
+        "answer": "We name the operational owner before cutover and hand over the agreed deployment, monitoring, backup, and escalation procedures. Ongoing managed operations or on-call coverage require a separate arrangement."
+      },
+      {
+        "question": "What determines the migration schedule?",
+        "answer": "Dependencies, data volume, transfer limits, destination readiness, and rehearsal findings all affect timing. A fixed business deadline should be discussed early so the sequence and cutover window can be planned around it."
+      }
+    ]
+  },
+  {
+    "slug": "data-analytics",
+    "title": "Data Analytics Consulting",
+    "description": "Connect scattered data, agree on the numbers that matter, and build reporting that helps your team decide what to do next.",
+    "status": "published",
+    "fields": {
+      "category": "Cloud, data & AI",
+      "artwork": "data",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Data & Analytics",
+      "navDescription": "Connected data and reporting built around a decision.",
+      "navGroup": "Cloud, Data & AI",
+      "navOrder": 5,
+      "navVisual": "signal",
+      "navPopular": false,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Build reporting around a decision your team needs to make.",
+          "text": "When teams rely on repeated exports or disagree about the same number, another dashboard will not resolve the underlying problem by itself. I connect source data, define calculations with the people who own them, and build reporting around specific questions. The work makes freshness, exclusions, and data quality visible so the person reading a report understands what it can support.",
+          "definitions": [
+            {
+              "title": "Data foundations",
+              "text": "Bring records together through repeatable imports and transformations, with clear ownership and checks for missing, duplicate, or stale information."
+            },
+            {
+              "title": "Reporting people can use",
+              "text": "Present the relevant measures, trends, and exceptions in a dashboard designed for a particular role and decision."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Give the same number the same meaning.",
+          "before": [
+            "Teams calculate revenue, bookings, or active users differently.",
+            "A manual export and spreadsheet formula are the only reporting process.",
+            "Charts look current even when the source refresh has failed."
+          ],
+          "after": [
+            "Document the calculation, time period, exclusions, and owner of each metric.",
+            "Build repeatable data flows with reconciliation and failure reporting.",
+            "Show update times, missing information, and limitations beside the result."
+          ]
+        },
+        "offerings": {
+          "title": "From source records to useful operational reporting.",
+          "items": [
+            {
+              "title": "Analytics discovery",
+              "text": "Map the decisions, users, sources, existing reports, and access needed for the first reporting milestone."
+            },
+            {
+              "title": "Data pipelines",
+              "text": "Create scheduled imports and transformations with clear handling for missing records, retries, and source changes."
+            },
+            {
+              "title": "Metric definitions",
+              "text": "Document business calculations, filters, time zones, and exclusions so teams can review the meaning before implementation."
+            },
+            {
+              "title": "Operational dashboards",
+              "text": "Build focused views for trends, exceptions, and drill-downs, with access appropriate to each user role."
+            },
+            {
+              "title": "Quality & reconciliation checks",
+              "text": "Compare outputs with source records and make stale, invalid, or incomplete data visible."
+            },
+            {
+              "title": "Analytics in your application",
+              "text": "Add reporting to an existing product or workspace so users can act without moving between disconnected tools."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "Reporting with a traceable path back to the source.",
+          "items": [
+            {
+              "title": "Source & metric reference",
+              "text": "A source inventory and definitions for the agreed metrics, including owners, refresh expectations, and known gaps."
+            },
+            {
+              "title": "Pipeline & dashboard",
+              "text": "The scoped data flows and reporting views, with representative reconciliation checks and user access rules."
+            },
+            {
+              "title": "Reporting handover",
+              "text": "Refresh and failure-handling instructions, calculation notes, and guidance for interpreting the data and its limitations."
+            }
+          ],
+          "acceptance": "We reconcile sample outputs with agreed source records, review calculations with business owners, and check refresh failures and access restrictions. Users should be able to answer the questions that defined the reporting scope."
+        },
+        "spotlight": {
+          "title": "Make the next action visible.",
+          "text": "A booking report might help operations investigate failed confirmations. A support view might reveal unresolved requests by age. Choosing the action first makes it easier to decide which data, filters, and level of detail belong in the interface.",
+          "points": [
+            "One audience and purpose for each view",
+            "A visible update time and clear definitions",
+            "Enough detail to investigate an exception"
+          ]
+        },
+        "sectors": [
+          "SaaS operations",
+          "Commerce reporting",
+          "Travel & booking",
+          "Customer support",
+          "Sales operations",
+          "Internal reporting"
+        ],
+        "tools": [
+          "SQL",
+          "REST APIs",
+          "TypeScript",
+          "React",
+          "Scheduled jobs",
+          "Data validation"
+        ],
+        "approach": {
+          "title": "Useful analytics starts with a recurring question.",
+          "items": [
+            {
+              "title": "Operations needs an exception queue",
+              "text": "Bring together the records that require attention, with status, age, ownership, and a route back to the original task."
+            },
+            {
+              "title": "Sales and delivery disagree on performance",
+              "text": "Align definitions and source ownership before presenting a shared view of pipeline, completed work, or customer activity."
+            },
+            {
+              "title": "A product needs usage reporting",
+              "text": "Define meaningful events and user groups, then build a view that supports a specific product decision."
+            }
+          ]
+        },
+        "process": [
+          "Identify the report's users and the decisions it should support. Collect existing definitions, sample reports, sources, and access requirements.",
+          "Inspect representative records for missing fields, duplicates, inconsistent values, and refresh limitations. Agree on which gaps must be resolved first.",
+          "Define the metrics and transformations with business owners. Design the dashboard, access rules, reconciliation checks, and refresh schedule.",
+          "Build the data flow and reporting views. Compare results with representative source records and review the answers with the intended users.",
+          "Hand over calculations and operational procedures. Review usage and recurring data issues before adding more metrics or reports."
+        ],
+        "engagement": {
+          "title": "Start with one reporting problem worth solving.",
+          "items": [
+            {
+              "title": "Data & reporting review",
+              "text": "A source map, definition gaps, and recommended priorities for a reliable first reporting release."
+            },
+            {
+              "title": "A focused dashboard",
+              "text": "A defined set of questions, metrics, and sources delivered as a usable reporting workspace."
+            },
+            {
+              "title": "Data foundation improvements",
+              "text": "Work on ingestion, reconciliation, or metric consistency before expanding the reporting interface."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring a question and the report you currently use.",
+          "text": "A sample export, screenshot, or anonymized set of records helps explain the current process. The most useful brief states who needs the answer and what they will do differently once they have it.",
+          "items": [
+            "The recurring decision and the person responsible for it",
+            "Existing reports, source systems, and sample data formats",
+            "Metric definitions, refresh needs, and access restrictions"
+          ]
+        },
+        "faqTitle": "Data analytics questions, answered.",
+        "related": [
+          "ai-automation",
+          "cloud-migration",
+          "custom-software-development"
+        ],
+        "projectSlugs": [
+          "saas-command-center"
+        ],
+        "articles": [
+          {
+            "title": "Write the metric definition before the dashboard",
+            "text": "Agree on calculations, exclusions, and ownership so the same number means the same thing."
+          },
+          {
+            "title": "Show when a report cannot answer the question",
+            "text": "Make freshness, incomplete records, and source limitations visible to the people using the data."
+          },
+          {
+            "title": "From an operational question to a reporting view",
+            "text": "Choose the audience, action, and level of detail before choosing charts."
+          }
+        ]
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Data Analytics Consulting | Adnan Hossain Khan",
+      "metaDescription": "Connect scattered data, agree on the numbers that matter, and build reporting that helps your team decide what to do next."
+    },
+    "faqs": [
+      {
+        "question": "Can you work with the systems and data we already have?",
+        "answer": "Yes, after reviewing access, formats, source ownership, and quality. The first milestone can use existing databases, exports, or APIs where they are suitable. Replacing every source system is not a prerequisite."
+      },
+      {
+        "question": "Do we need a data warehouse?",
+        "answer": "That depends on the number of sources, data volume, transformations, access patterns, and refresh needs. We choose an architecture for the actual reporting requirements rather than adding a warehouse by default."
+      },
+      {
+        "question": "Can the reports update automatically?",
+        "answer": "Where sources provide reliable access, scheduled ingestion and refreshes can be included. The design defines update frequency, failure alerts, retry behavior, and how users know when the latest refresh did not succeed."
+      },
+      {
+        "question": "What if our data is incomplete or inconsistent?",
+        "answer": "The assessment records the issues and separates what can be corrected in a pipeline from what requires a source-system decision. Missing data and exclusions stay visible; the dashboard does not silently manufacture a complete picture."
+      },
+      {
+        "question": "Who decides how a business metric is calculated?",
+        "answer": "Your business owner approves the definition. I help document the calculation, filters, time period, and exclusions, then implement it consistently. If two teams need different measures, we label that distinction clearly."
+      },
+      {
+        "question": "Can AI answer questions about our data?",
+        "answer": "A bounded interface can be explored after the underlying data and permissions are understood. It needs validated queries, restricted access, and a way to inspect the records behind an answer. It should not replace agreed metric definitions."
+      },
+      {
+        "question": "How is access to sensitive data handled?",
+        "answer": "We define who can view which records and fields before building the reporting layer. The scope can include restricted views, data minimization, and masked development samples. Provider access and retention requirements are reviewed with you."
+      },
+      {
+        "question": "How do you estimate the work?",
+        "answer": "Source access, data quality, metric complexity, refresh frequency, and the number of reporting views drive the scope. Starting with one question and a representative dataset helps establish a realistic first milestone."
+      }
+    ]
+  },
+  {
+    "slug": "ai-automation",
+    "title": "AI Automation Services",
+    "description": "Reduce repetitive document and workflow tasks with connected systems, reviewable AI output, and clear control over what happens next.",
+    "status": "published",
+    "fields": {
+      "category": "Cloud, data & AI",
+      "artwork": "automation",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "AI Automation",
+      "navDescription": "Document and workflow automation with review controls.",
+      "navGroup": "Cloud, Data & AI",
+      "navOrder": 6,
+      "navVisual": "cube",
+      "navPopular": false,
+      "navAi": true,
+      "pageContent": {
+        "overview": {
+          "title": "Put automation around a task your team already understands.",
+          "text": "Sorting incoming requests, extracting information from documents, and moving records between tools can consume time every day. I help map that work, separate predictable steps from tasks that need interpretation, and build a bounded workflow around it. AI can assist with language-heavy work while validation, permissions, and human review determine what the system is allowed to do with the result.",
+          "definitions": [
+            {
+              "title": "Rules for predictable work",
+              "text": "Use explicit logic for required fields, calculations, routing, and known system updates. Those steps should have clear inputs and expected outcomes."
+            },
+            {
+              "title": "AI for interpretation",
+              "text": "Use a model to assist with extraction, classification, summaries, or drafts, then check the output before it drives the next action."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Reduce the manual work without hiding the exceptions.",
+          "before": [
+            "People repeatedly copy information between inboxes, documents, and business tools.",
+            "A convincing AI answer is accepted without checking its source or structure.",
+            "Failed jobs disappear into a log nobody owns."
+          ],
+          "after": [
+            "Connect the repeated steps and keep a record of what moved through them.",
+            "Validate output and route uncertain or consequential cases for review.",
+            "Make failures visible, recoverable, and assigned to an operational owner."
+          ]
+        },
+        "offerings": {
+          "title": "Practical automation for repeatable business tasks.",
+          "items": [
+            {
+              "title": "Workflow discovery",
+              "text": "Observe the current process, its volume, exceptions, and review effort to identify a worthwhile first use case."
+            },
+            {
+              "title": "Document intake",
+              "text": "Extract agreed fields from supported documents and present the results alongside the source for verification."
+            },
+            {
+              "title": "Request classification",
+              "text": "Suggest categories, priorities, or destinations for incoming work, with an exception path for ambiguous inputs."
+            },
+            {
+              "title": "Drafts & summaries",
+              "text": "Prepare a first draft or concise summary for an authorized person to review before publication or sending."
+            },
+            {
+              "title": "System connections",
+              "text": "Move validated records through APIs, webhooks, and background jobs with bounded permissions and failure handling."
+            },
+            {
+              "title": "Review & monitoring tools",
+              "text": "Provide queues, logs, retry controls, and visibility into processing volume, errors, review effort, and running costs."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A workflow with a clear boundary and a way to inspect it.",
+          "items": [
+            {
+              "title": "Workflow & permissions map",
+              "text": "The inputs, steps, systems, allowed actions, review points, and conditions that stop the workflow."
+            },
+            {
+              "title": "Pilot & evaluation cases",
+              "text": "A working implementation tested against representative inputs, including difficult examples and expected failure behavior."
+            },
+            {
+              "title": "Operational controls",
+              "text": "Review and exception handling, monitoring instructions, cost assumptions, and a documented way to pause or adjust the workflow."
+            }
+          ],
+          "acceptance": "We compare the pilot with an agreed manual baseline: task completion, output errors, review time, failures, and running costs. A useful result accounts for the effort needed to check and operate the automation."
+        },
+        "spotlight": {
+          "title": "Start with one intake-to-review workflow.",
+          "text": "For example, an incoming document can be checked, processed into suggested fields, and placed in a review queue. Only approved data moves into the destination system. That gives you a complete process to evaluate before extending what the automation can do.",
+          "points": [
+            "Source material remains available for review",
+            "Validation happens before a system update",
+            "Exceptions have a clear owner and next step"
+          ]
+        },
+        "sectors": [
+          "Customer operations",
+          "Document-heavy teams",
+          "Commerce workflows",
+          "Content operations",
+          "Internal support",
+          "Data processing"
+        ],
+        "tools": [
+          "REST APIs",
+          "Webhooks",
+          "Laravel queues",
+          "TypeScript",
+          "Redis",
+          "Model APIs"
+        ],
+        "approach": {
+          "title": "Choose a first task with a visible result.",
+          "items": [
+            {
+              "title": "Documents need repeated data entry",
+              "text": "Extract a defined set of fields, highlight missing information, and let a reviewer approve the record before it enters the business system."
+            },
+            {
+              "title": "Requests need sorting",
+              "text": "Help a team categorize incoming work and suggest a destination, while keeping unusual requests in a review queue."
+            },
+            {
+              "title": "Information needs summarizing",
+              "text": "Prepare a concise draft from approved source material so a person can verify the details and decide what to share."
+            }
+          ]
+        },
+        "process": [
+          "Walk through the current task, including its volume, exceptions, sensitive fields, and manual review time. Identify who owns the outcome.",
+          "Assess integration access and sample inputs. Decide which steps need explicit rules and whether AI adds enough value to justify its cost and review effort.",
+          "Define output formats, permissions, validation, approval points, and fallback behavior. Agree on representative evaluation cases and a useful pilot result.",
+          "Build the bounded workflow and test normal, ambiguous, and failed cases. Review the results with the people who will operate it before enabling live actions.",
+          "Hand over the controls and review pilot evidence. Extend the scope only after checking errors, operating effort, user feedback, and ongoing costs."
+        ],
+        "engagement": {
+          "title": "A practical path from one task to a controlled rollout.",
+          "items": [
+            {
+              "title": "Automation assessment",
+              "text": "A process map, feasibility findings, integration requirements, and a proposed first workflow."
+            },
+            {
+              "title": "A bounded pilot",
+              "text": "One use case with evaluation cases, review controls, and a decision point before wider use."
+            },
+            {
+              "title": "A workflow extension",
+              "text": "Add a connected step to an established automation with updated permissions, monitoring, and operating guidance."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring the task people keep repeating.",
+          "text": "A walkthrough and a few anonymized examples help establish whether the task is suitable for automation. The awkward cases matter: they show where a workflow needs a person, a rule, or a safe way to stop.",
+          "items": [
+            "The current steps, approximate task volume, and time spent reviewing",
+            "Anonymized examples of normal inputs and difficult exceptions",
+            "The systems involved, allowed actions, and data-handling requirements"
+          ]
+        },
+        "faqTitle": "Questions about AI automation.",
+        "related": [
+          "data-analytics",
+          "custom-software-development",
+          "crm-implementation"
+        ],
+        "projectSlugs": [
+          "ai-vision-lab"
+        ],
+        "articles": [
+          {
+            "title": "Choose an automation pilot you can evaluate",
+            "text": "Start with a bounded task, representative examples, and a baseline that includes manual review effort."
+          },
+          {
+            "title": "Design the exception queue before the happy path",
+            "text": "Give failed and uncertain cases an owner, a reason, and a clear next action."
+          },
+          {
+            "title": "Calculate the cost of the whole workflow",
+            "text": "Include processing, subscriptions, review time, and support when judging whether automation is useful."
+          }
+        ]
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "AI Automation Services | Adnan Hossain Khan",
+      "metaDescription": "Reduce repetitive document and workflow tasks with connected systems, reviewable AI output, and clear control over what happens next."
+    },
+    "faqs": [
+      {
+        "question": "Does my workflow need AI?",
+        "answer": "Not necessarily. If inputs and decisions are predictable, rules and standard integrations may be enough. I consider AI where interpretation is useful and assess whether its accuracy, review effort, and operating costs suit the task."
+      },
+      {
+        "question": "Can you connect the tools we already use?",
+        "answer": "I first review supported APIs, webhooks, authentication, permissions, rate limits, and test access. The workflow can only promise actions those systems allow. Where a supported connection is missing, that constraint is made explicit before implementation."
+      },
+      {
+        "question": "How do you deal with incorrect AI output?",
+        "answer": "The design uses structured outputs, business-rule checks, representative evaluations, and review queues where needed. Formatting checks alone cannot establish factual accuracy, so source verification and the impact of an error influence how much review is required."
+      },
+      {
+        "question": "Can the automation make changes without asking a person?",
+        "answer": "Only for actions explicitly approved in the scope. Consequential changes can require human approval, and the workflow's access is limited to the operations it needs. Pause controls and a clear exception path are part of the design."
+      },
+      {
+        "question": "What happens to the data sent to a model provider?",
+        "answer": "We review what information is necessary, which provider is involved, and your requirements for processing and retention before implementation. Redaction or a different deployment approach may be needed. Production data is not the default starting material for a pilot."
+      },
+      {
+        "question": "How will we know if the pilot is worth continuing?",
+        "answer": "We agree on a manual baseline and compare completion, errors, review effort, and running costs. The pilot should show whether the complete workflow is useful, including the human work required to keep it dependable."
+      },
+      {
+        "question": "What ongoing costs should we plan for?",
+        "answer": "Possible costs include model usage, hosting, storage, integration subscriptions, and operational review. I document the usage assumptions and monitoring needs so the cost of running the workflow is visible alongside the build fee."
+      },
+      {
+        "question": "Can the workflow be changed or paused after launch?",
+        "answer": "Yes, within the controls included in the implementation. The handover explains how to pause processing, review failed jobs, and change agreed settings. Larger changes to prompts, models, or permissions should be checked against the evaluation cases before release."
+      }
+    ]
+  },
+  {
+    "slug": "digital-transformation",
+    "title": "Digital Transformation Consulting",
+    "description": "Turn disconnected tools and manual handoffs into a practical improvement plan, then build the first change your team can put to use.",
+    "status": "published",
+    "fields": {
+      "category": "Business systems",
+      "artwork": "systems",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Digital Transformation",
+      "navDescription": "Turn operational bottlenecks into working improvements.",
+      "navGroup": "Business Systems",
+      "navOrder": 7,
+      "navVisual": "grid",
+      "navPopular": false,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Start with the way work moves through your business.",
+          "text": "When the same information is entered several times or a handoff depends on chasing a message, the problem often crosses more than one tool. I help map the process, identify the points of friction, and connect a realistic improvement plan to implementation. The starting point can be one operational workflow, with responsibilities and measures agreed before choosing new software.",
+          "definitions": [
+            {
+              "title": "An operating problem",
+              "text": "Look at the whole journey: who starts the work, which information is needed, where it waits, and who can decide that it is complete."
+            },
+            {
+              "title": "An implementable roadmap",
+              "text": "Turn findings into sequenced changes with owners, dependencies, acceptance criteria, and a useful first release."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Give each improvement an owner and a route into daily use.",
+          "before": [
+            "Departments optimize separate tools while handoffs remain manual.",
+            "A broad technology plan has no agreed first implementation.",
+            "People expected to use a new process see it only at launch."
+          ],
+          "after": [
+            "Trace the workflow across roles, systems, and shared information.",
+            "Prioritize a bounded change with an accountable decision-maker.",
+            "Review the new process with its users before rolling it out."
+          ]
+        },
+        "offerings": {
+          "title": "Connect discovery, implementation, and adoption.",
+          "items": [
+            {
+              "title": "Process discovery",
+              "text": "Map a real workflow, including delays, exceptions, duplicate entry, and the information needed at each handoff."
+            },
+            {
+              "title": "Systems & data review",
+              "text": "Identify the tools, records, owners, and integration constraints that influence how the process can improve."
+            },
+            {
+              "title": "Prioritized roadmap",
+              "text": "Compare opportunities by usefulness, effort, dependencies, and readiness, then define a practical first milestone."
+            },
+            {
+              "title": "Integration & automation",
+              "text": "Connect systems and repeated steps where supported interfaces and clear rules make the change feasible."
+            },
+            {
+              "title": "Focused custom tools",
+              "text": "Build an interface or application for a requirement that existing tools cannot satisfy cleanly."
+            },
+            {
+              "title": "Rollout & adoption support",
+              "text": "Document the new workflow, review it with users, and agree on training, ownership, and feedback after launch."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A clear picture of today and a working next step.",
+          "items": [
+            {
+              "title": "Current-state map",
+              "text": "The selected workflow, people, systems, recurring friction, and unresolved questions captured in one reviewable view."
+            },
+            {
+              "title": "Prioritized delivery plan",
+              "text": "A sequence of proposed improvements with dependencies, owners, scope boundaries, and acceptance criteria for the first release."
+            },
+            {
+              "title": "Implemented milestone & handover",
+              "text": "For a delivery engagement, the agreed change, user walkthroughs, operating notes, and a way to review adoption after rollout."
+            }
+          ],
+          "acceptance": "We establish a baseline for the chosen workflow, such as completion time, repeated entry, exception volume, or handoff delays. Reviews consider both the working system and whether the intended users can carry out the new process."
+        },
+        "spotlight": {
+          "title": "Improve one handoff from beginning to end.",
+          "text": "A sales-to-delivery handoff might need shared fields, a clear approval, and an automatically created task. Fixing that complete journey provides a useful result and reveals dependencies that a tool-by-tool review can miss.",
+          "points": [
+            "A shared definition of the finished task",
+            "Clear ownership at each transition",
+            "A feedback loop with the people doing the work"
+          ]
+        },
+        "sectors": [
+          "Service operations",
+          "Commerce operations",
+          "Customer management",
+          "Reporting teams",
+          "Logistics",
+          "Growing product teams"
+        ],
+        "tools": [
+          "Workflow mapping",
+          "APIs",
+          "React",
+          "Laravel",
+          "SQL",
+          "Automation"
+        ],
+        "approach": {
+          "title": "Find the change that removes a recurring obstacle.",
+          "items": [
+            {
+              "title": "Teams repeat the same data entry",
+              "text": "Identify the source of truth and connect the handoff, with validation and an owner for records that cannot be transferred."
+            },
+            {
+              "title": "Approvals live in messages",
+              "text": "Make requests, decisions, and status visible in a workflow people can follow and operational owners can review."
+            },
+            {
+              "title": "Several tools describe different realities",
+              "text": "Agree on shared records and definitions before deciding whether to integrate, configure, or replace a system."
+            }
+          ]
+        },
+        "process": [
+          "Walk through a real business process with the people involved. Record the goal, handoffs, systems, delays, and current measures.",
+          "Identify root causes, dependencies, access constraints, and readiness for change. Separate process decisions from software requirements.",
+          "Prioritize improvements and define the first release. Agree on responsibilities, baseline measures, acceptance criteria, and adoption needs.",
+          "Implement the agreed change, test complete workflows, and review it with users. Prepare instructions and ownership before rollout.",
+          "Review actual use and operational results. Adjust the roadmap using what the first release revealed rather than treating the original plan as fixed."
+        ],
+        "engagement": {
+          "title": "Choose a starting point your team can support.",
+          "items": [
+            {
+              "title": "Workflow & systems review",
+              "text": "Investigate one operating area and leave with a current-state map and prioritized recommendations."
+            },
+            {
+              "title": "A delivery milestone",
+              "text": "Implement a defined process improvement, integration, or tool with user acceptance and handover."
+            },
+            {
+              "title": "A phased improvement program",
+              "text": "Connect a series of agreed milestones through a roadmap reviewed against capacity, dependencies, and feedback."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring a bottleneck and the people who understand it.",
+          "text": "A broad transformation brief becomes useful when it is grounded in an actual task. Pick a process that repeatedly causes delays or duplicate work and identify the people who can explain how it operates.",
+          "items": [
+            "One workflow, its users, and the main problem to solve",
+            "The tools and records involved, including manual workarounds",
+            "A decision-maker, an operational owner, and any timing constraints"
+          ]
+        },
+        "faqTitle": "Questions about a digital transformation project.",
+        "related": [
+          "cloud-migration",
+          "ai-automation",
+          "custom-software-development"
+        ],
+        "articles": [
+          {
+            "title": "Turn an operational bottleneck into a delivery brief",
+            "text": "Describe the task, the handoffs, and the result before choosing a tool."
+          },
+          {
+            "title": "What makes a transformation roadmap usable?",
+            "text": "Give each improvement an owner, dependencies, acceptance criteria, and a realistic first step."
+          },
+          {
+            "title": "Include adoption in the implementation plan",
+            "text": "Plan user reviews, instructions, and operational ownership before rollout."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Digital Transformation Consulting | Adnan Hossain Khan",
+      "metaDescription": "Turn disconnected tools and manual handoffs into a practical improvement plan, then build the first change your team can put to use."
+    },
+    "faqs": [
+      {
+        "question": "Where should we start?",
+        "answer": "Choose a recurring problem that matters to the business and can be described through a real workflow. Discovery should establish who is affected, why the problem occurs, and what a useful first improvement would look like."
+      },
+      {
+        "question": "Do we have to replace our existing software?",
+        "answer": "No. A configuration change, integration, or focused extension may be enough. The review compares those options with replacement using workflow fit, effort, ongoing ownership, and disruption."
+      },
+      {
+        "question": "What does the roadmap actually contain?",
+        "answer": "It records proposed improvements, dependencies, decision owners, assumptions, and a delivery sequence. The first milestone has a defined scope and acceptance criteria so the roadmap can lead directly into implementation."
+      },
+      {
+        "question": "Can you implement the recommendations?",
+        "answer": "I can implement agreed work that fits my development and integration capabilities. Discovery also identifies dependencies or specialist work that should be owned by your team or another provider before a delivery commitment is made."
+      },
+      {
+        "question": "How do you involve our team?",
+        "answer": "The people doing the work contribute examples during discovery and review the proposed workflow. An operational owner approves decisions, while users test the tasks they will perform after rollout."
+      },
+      {
+        "question": "Can we work in phases?",
+        "answer": "Yes. Each phase should improve a complete workflow and make its dependencies clear. The next milestone is reviewed against what has been learned, team capacity, and the business priorities at that point."
+      },
+      {
+        "question": "How is progress measured?",
+        "answer": "We choose measures relevant to the problem before implementation, such as fewer repeated entries, shorter handoff delays, or clearer exception ownership. Adoption and user feedback are considered alongside the technical delivery."
+      },
+      {
+        "question": "What determines the scope and cost?",
+        "answer": "The number of workflows, systems, decision-makers, integrations, and unresolved process questions affect the effort. A discovery engagement can clarify these first, followed by a separately agreed implementation milestone."
+      }
+    ]
+  },
+  {
+    "slug": "erp-implementation",
+    "title": "ERP Implementation Services",
+    "description": "Connect inventory, orders, and operational records through a carefully scoped ERP rollout, with clear data ownership and workflow checks.",
+    "status": "published",
+    "fields": {
+      "category": "Business systems",
+      "artwork": "systems",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "ERP Implementation",
+      "navDescription": "Workflow, data, and integrations for a scoped rollout.",
+      "navGroup": "Business Systems",
+      "navOrder": 8,
+      "navVisual": "cube",
+      "navPopular": false,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Make shared operational data useful across the business.",
+          "text": "When purchasing, inventory, and order processing depend on separate records, teams spend time reconciling information before they can act. An ERP implementation brings those workflows into a connected operating system. I help with requirements, data preparation, integrations, and scoped technical delivery after assessing the selected platform and identifying any vendor-specific work that needs a specialist.",
+          "definitions": [
+            {
+              "title": "Shared records and responsibilities",
+              "text": "Agree on what products, customers, suppliers, and transactions mean, which system owns them, and who is responsible for their accuracy."
+            },
+            {
+              "title": "A complete operational workflow",
+              "text": "Plan the rollout around tasks such as receiving stock or fulfilling an order, including approvals, exceptions, and the records each task changes."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Agree on the process before configuring the system.",
+          "before": [
+            "Different departments maintain conflicting versions of the same records.",
+            "A broad rollout begins before workflows and approval rules are settled.",
+            "Imports appear successful, but relationships and balances do not reconcile."
+          ],
+          "after": [
+            "Assign source ownership and agree on shared definitions.",
+            "Choose a coherent first workflow with the people who operate it.",
+            "Rehearse mappings and validate complete tasks using representative records."
+          ]
+        },
+        "offerings": {
+          "title": "Technical support across the ERP implementation journey.",
+          "items": [
+            {
+              "title": "Operational requirements",
+              "text": "Map workflows, roles, approvals, exceptions, and reporting needs before translating them into system requirements."
+            },
+            {
+              "title": "Platform fit review",
+              "text": "Assess the proposed system's supported workflows, interfaces, licensing assumptions, and gaps against the agreed scope."
+            },
+            {
+              "title": "Data preparation & migration",
+              "text": "Define source fields, record mappings, cleanup responsibilities, import rehearsals, and reconciliation checks."
+            },
+            {
+              "title": "Operational integrations",
+              "text": "Connect supported interfaces to commerce, warehouse, customer, or reporting systems with clear ownership of each data flow."
+            },
+            {
+              "title": "Scoped extensions",
+              "text": "Build an interface or integration where supported configuration leaves a necessary gap and the maintenance cost is understood."
+            },
+            {
+              "title": "Rollout & handover",
+              "text": "Prepare workflow tests, operating instructions, cutover responsibilities, and a plan for handling issues after the first users go live."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A rollout your operational owners can validate.",
+          "items": [
+            {
+              "title": "Workflow & fit document",
+              "text": "The agreed processes, roles, source records, platform gaps, and decisions needed before implementation."
+            },
+            {
+              "title": "Mappings & verified connections",
+              "text": "The scoped imports or integrations, with field definitions, exception handling, and reconciliation results from representative records."
+            },
+            {
+              "title": "Rollout & operating pack",
+              "text": "A cutover checklist, user acceptance scenarios, operating notes, and named owners for administration and support."
+            }
+          ],
+          "acceptance": "Business owners walk through the complete agreed tasks, including exceptions and approvals. Data is reconciled against approved source records, and specialist owners sign off any rules that depend on their domain expertise."
+        },
+        "spotlight": {
+          "title": "Follow one order through every handoff.",
+          "text": "An order may affect stock, fulfilment, customer communication, and reporting. Walking that journey through the proposed system exposes missing fields, unclear ownership, and integration gaps before separate modules are treated as finished.",
+          "points": [
+            "Consistent record identifiers and definitions",
+            "Clear rules for updates and corrections",
+            "User acceptance across departmental handoffs"
+          ]
+        },
+        "sectors": [
+          "Inventory operations",
+          "Retail & commerce",
+          "Distribution",
+          "Service businesses",
+          "Manufacturing workflows",
+          "Purchasing teams"
+        ],
+        "tools": [
+          "ERP APIs",
+          "SQL",
+          "Data migration",
+          "Workflow mapping",
+          "Access control",
+          "Integration testing"
+        ],
+        "approach": {
+          "title": "Start with a workflow the business can own.",
+          "items": [
+            {
+              "title": "Stock records need reconciling",
+              "text": "Identify the source of truth and document receipts, adjustments, and transfers before connecting the records."
+            },
+            {
+              "title": "Orders cross disconnected tools",
+              "text": "Map the order and its status changes, then define the supported exchanges between the ERP and surrounding systems."
+            },
+            {
+              "title": "A rollout needs a narrower first stage",
+              "text": "Choose a complete process and user group, with a clear boundary between the new workflow and operations that remain unchanged."
+            }
+          ]
+        },
+        "process": [
+          "Map operational tasks with process owners. Identify shared records, approval rules, reporting needs, and the first workflow the rollout should support.",
+          "Review the selected platform, data quality, integration interfaces, licensing assumptions, and gaps that require vendor or specialist input.",
+          "Define mappings, permissions, configuration requirements, and acceptance scenarios. Plan the rollout sequence and responsibilities for data cleanup and sign-off.",
+          "Implement the agreed technical scope, rehearse imports, and validate complete workflows with users. Resolve reconciliation issues before approving cutover.",
+          "Hand over operating instructions and issue ownership. Review the first period of use before adding modules, customizations, or further integrations."
+        ],
+        "engagement": {
+          "title": "A defined implementation boundary at each stage.",
+          "items": [
+            {
+              "title": "Requirements & fit review",
+              "text": "Clarify the operating requirements, platform constraints, and technical work needed for a proposed rollout."
+            },
+            {
+              "title": "An integration milestone",
+              "text": "Connect a defined system or data flow, with mapping, exception handling, and acceptance checks."
+            },
+            {
+              "title": "A phased technical rollout",
+              "text": "Deliver agreed configuration, migration, or extension work alongside the process owners and any required platform specialists."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring one operational workflow and the records behind it.",
+          "text": "The first discussion should establish whether you are selecting a platform or improving an existing implementation. Process owners and sample record structures help make the requirements concrete.",
+          "items": [
+            "The selected ERP, or the business requirements guiding selection",
+            "The first workflow, user roles, and source systems involved",
+            "Sample data structures, decision owners, and rollout constraints"
+          ]
+        },
+        "faqTitle": "Questions before an ERP implementation.",
+        "related": [
+          "crm-implementation",
+          "digital-transformation",
+          "data-analytics"
+        ],
+        "articles": [
+          {
+            "title": "Map a complete workflow before selecting ERP modules",
+            "text": "Trace the records, approvals, and exceptions that connect departments."
+          },
+          {
+            "title": "A successful import still needs reconciliation",
+            "text": "Check record relationships and operational behavior before approving migrated data."
+          },
+          {
+            "title": "The maintenance cost of an ERP extension",
+            "text": "Consider upgrades, ownership, and support when standard configuration leaves a gap."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "ERP Implementation Services | Adnan Hossain Khan",
+      "metaDescription": "Connect inventory, orders, and operational records through a carefully scoped ERP rollout, with clear data ownership and workflow checks."
+    },
+    "faqs": [
+      {
+        "question": "Which ERP platforms do you implement?",
+        "answer": "Platform coverage is confirmed through a fit review rather than assumed. I assess the supported interfaces, configuration needs, and technical scope, then identify work that needs a vendor-certified implementer or another specialist."
+      },
+      {
+        "question": "Can we move from spreadsheets into an ERP?",
+        "answer": "That can be scoped after reviewing the records, relationships, duplicate handling, and business definitions. Data cleanup has a named owner, and the migration is rehearsed and reconciled before the imported records are treated as operational."
+      },
+      {
+        "question": "Can we introduce the system in phases?",
+        "answer": "Yes, where the dependencies allow a complete workflow to operate in each phase. We define how data moves between old and new processes during the transition so a partial rollout does not create competing records."
+      },
+      {
+        "question": "Can you integrate the ERP with our website or CRM?",
+        "answer": "I review the platform's supported APIs, authentication, limits, and event capabilities first. The scope defines which records move, which system owns them, and what happens when an update fails or conflicts."
+      },
+      {
+        "question": "How much custom development will we need?",
+        "answer": "We assess standard configuration and supported integrations before building extensions. Any customization should solve a necessary requirement and account for upgrades, administration, and the people who will maintain it."
+      },
+      {
+        "question": "Who validates financial or specialist business rules?",
+        "answer": "Your designated domain owners define and approve those rules. I implement the agreed technical behavior and verification steps, while platform specialists participate where the system or module requires their expertise."
+      },
+      {
+        "question": "What drives implementation cost and timing?",
+        "answer": "The number of workflows, data quality, integrations, customizations, user groups, and readiness of decision-makers all affect scope. A bounded first stage helps make estimates and acceptance criteria more dependable."
+      },
+      {
+        "question": "Who supports the system after launch?",
+        "answer": "We agree on ownership of platform administration, integrations, user questions, and escalation before rollout. The handover covers the implemented scope; ongoing support and vendor services are arranged separately."
+      }
+    ]
+  },
+  {
+    "slug": "crm-implementation",
+    "title": "CRM Implementation Services",
+    "description": "Give your team a clear pipeline, useful customer records, and connected follow-ups through a CRM implementation shaped around daily work.",
+    "status": "published",
+    "fields": {
+      "category": "Business systems",
+      "artwork": "systems",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "CRM Implementation",
+      "navDescription": "Clear pipelines and connected customer handoffs.",
+      "navGroup": "Business Systems",
+      "navOrder": 9,
+      "navVisual": "orbit",
+      "navPopular": false,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Make the next customer action easy to see.",
+          "text": "A CRM becomes useful when a person can open it and understand who owns a relationship, what has happened, and what needs to happen next. I help translate your sales and customer workflows into fields, stages, permissions, and integrations. The scope can cover a new rollout or improvements to a CRM that already holds data but is difficult for the team to use.",
+          "definitions": [
+            {
+              "title": "A shared customer process",
+              "text": "Define how enquiries arrive, when a lead changes stage, who owns the next action, and what information must be available at each handoff."
+            },
+            {
+              "title": "An everyday working tool",
+              "text": "Give each role useful views and purposeful fields so the CRM supports their tasks without requiring a second record in a spreadsheet."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Make customer information easier to trust and act on.",
+          "before": [
+            "Sales stages have different meanings for different people.",
+            "Duplicates and missing fields make customer history difficult to follow.",
+            "Website enquiries arrive without an owner or a reliable next step."
+          ],
+          "after": [
+            "Use shared stage definitions and explicit entry and exit conditions.",
+            "Plan field mapping, duplicate rules, and record ownership before import.",
+            "Connect intake, assignment, reminders, and confirmation as one workflow."
+          ]
+        },
+        "offerings": {
+          "title": "CRM implementation from pipeline design to daily use.",
+          "items": [
+            {
+              "title": "Workflow & platform review",
+              "text": "Map lead sources, sales stages, customer handoffs, user roles, and the requirements a platform needs to support."
+            },
+            {
+              "title": "Pipeline & field design",
+              "text": "Define stages, required information, relationships, permissions, and views that reflect the real process."
+            },
+            {
+              "title": "Customer data migration",
+              "text": "Prepare mappings, duplicate handling, source ownership, and test imports that preserve useful relationships and history."
+            },
+            {
+              "title": "Website & application integrations",
+              "text": "Connect forms and supported systems with validated fields, assignment rules, and handling for failed deliveries."
+            },
+            {
+              "title": "Reminders & routing",
+              "text": "Set up agreed rules for ownership, tasks, and follow-up, with clear conditions and a way to handle exceptions."
+            },
+            {
+              "title": "User adoption & handover",
+              "text": "Review common tasks with users, document the operating process, and agree on administration and support after rollout."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A CRM your team can use with a shared understanding.",
+          "items": [
+            {
+              "title": "Pipeline & data reference",
+              "text": "Stage definitions, field meanings, ownership rules, and mappings for records included in the rollout."
+            },
+            {
+              "title": "Configured workflow & integrations",
+              "text": "The agreed pipeline, views, permissions, and connections, verified through representative customer journeys."
+            },
+            {
+              "title": "Migration & adoption handover",
+              "text": "Import reconciliation, instructions for frequent tasks, and clear ownership of data quality, system administration, and follow-up issues."
+            }
+          ],
+          "acceptance": "We trace an enquiry from capture to assignment and the next agreed sales stage. Users check everyday tasks, imported records are reconciled, and integration failures are visible to the person responsible for resolving them."
+        },
+        "spotlight": {
+          "title": "Connect the first enquiry to a responsible person.",
+          "text": "A website form, imported lead, and referral should each arrive with enough context to be useful. Planning the route into the CRM helps prevent duplicate records, missing source information, and enquiries that nobody realizes they own.",
+          "points": [
+            "Consistent capture and duplicate rules",
+            "A clear assignment and next action",
+            "Visibility when a form or integration fails"
+          ]
+        },
+        "sectors": [
+          "Professional services",
+          "B2B sales",
+          "Commerce",
+          "Customer support",
+          "Property services",
+          "SaaS businesses"
+        ],
+        "tools": [
+          "CRM APIs",
+          "Webhooks",
+          "Data mapping",
+          "Forms",
+          "Reporting",
+          "Workflow rules"
+        ],
+        "approach": {
+          "title": "Improve the part of the customer journey that needs attention.",
+          "items": [
+            {
+              "title": "Enquiries are spread across inboxes",
+              "text": "Bring them into a shared pipeline with source context, an owner, and a clear follow-up task."
+            },
+            {
+              "title": "An installed CRM is underused",
+              "text": "Review the required fields, views, and daily tasks with users to find what makes the system difficult to keep current."
+            },
+            {
+              "title": "Sales and delivery lose context",
+              "text": "Define the handoff and transfer the information the next team needs when an opportunity reaches the agreed stage."
+            }
+          ]
+        },
+        "process": [
+          "Walk through lead capture, qualification, sales stages, and customer handoffs. Identify the people using the CRM and the decisions they need it to support.",
+          "Review the current platform, source data, licensing constraints, integration access, and reasons users leave the system to finish their work.",
+          "Agree on stage definitions, fields, permissions, record ownership, and import rules. Design the first rollout and its acceptance scenarios.",
+          "Configure and connect the scoped workflow. Rehearse imports and test representative journeys with users, including duplicates and failed submissions.",
+          "Complete the handover and review early adoption. Use actual questions and data-quality issues to prioritize the next improvements."
+        ],
+        "engagement": {
+          "title": "A new pipeline, a better connection, or a more usable CRM.",
+          "items": [
+            {
+              "title": "A focused implementation",
+              "text": "One defined pipeline or team, with agreed fields, migration needs, and user acceptance."
+            },
+            {
+              "title": "An integration project",
+              "text": "Connect a website, application, or operational system to an existing CRM with clear data ownership."
+            },
+            {
+              "title": "An adoption improvement",
+              "text": "Refine a live CRM's workflows, views, or data quality based on the tasks users struggle to complete."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring a lead journey and the places customer data lives.",
+          "text": "A few sample stages and a walkthrough of a recent enquiry help establish the real process. If you already use a CRM, the tasks people avoid are useful clues to what needs to change.",
+          "items": [
+            "Your CRM platform or the requirements for a new one",
+            "Lead sources, sales stages, user roles, and existing data formats",
+            "The handoffs, reports, and integrations the team needs most"
+          ]
+        },
+        "faqTitle": "CRM implementation questions, answered.",
+        "related": [
+          "erp-implementation",
+          "data-analytics",
+          "ai-automation"
+        ],
+        "articles": [
+          {
+            "title": "Define sales stages people can apply consistently",
+            "text": "Give each stage a clear meaning, owner, and condition for moving forward."
+          },
+          {
+            "title": "Plan the enquiry journey into your CRM",
+            "text": "Connect field mapping, assignment, duplicate handling, and failed-delivery checks."
+          },
+          {
+            "title": "Find out why a team avoids its CRM",
+            "text": "Review daily tasks and unnecessary data entry before adding more automation."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "CRM Implementation Services | Adnan Hossain Khan",
+      "metaDescription": "Give your team a clear pipeline, useful customer records, and connected follow-ups through a CRM implementation shaped around daily work."
+    },
+    "faqs": [
+      {
+        "question": "Which CRM should we choose?",
+        "answer": "We compare your workflows, user roles, current tools, integration requirements, and ongoing costs. I confirm the technical scope against the selected platform before committing to implementation. The decision should include the people who will administer and use it."
+      },
+      {
+        "question": "Can you improve a CRM we already use?",
+        "answer": "Yes. Discovery can focus on a specific problem such as low adoption, inconsistent stages, duplicate records, or missing integrations. A focused improvement may be enough without moving to a different platform."
+      },
+      {
+        "question": "Can we import existing contacts and sales history?",
+        "answer": "I review the available formats, relationships, required fields, and destination limits first. We agree on duplicate handling, test a representative import, and reconcile the result before moving the full agreed dataset."
+      },
+      {
+        "question": "Can the CRM connect to our website?",
+        "answer": "Where supported, forms and applications can send validated information through an API or webhook. The scope covers field mapping, ownership, confirmation, and failed delivery so submitting a form does not silently lose an enquiry."
+      },
+      {
+        "question": "Can follow-ups be automated?",
+        "answer": "Reminders, assignments, and supported actions can follow agreed rules. Outbound messaging needs explicit decisions about permissions, opt-outs, content approval, and ownership before it is enabled."
+      },
+      {
+        "question": "How do you help the team adopt the CRM?",
+        "answer": "I involve users in the workflow review, keep required fields purposeful, and test common tasks with them. The handover documents those tasks and gives administration and data quality a named owner."
+      },
+      {
+        "question": "What affects the price and timeline?",
+        "answer": "The number of pipelines, user roles, imports, integrations, and custom requirements drives the work. Platform subscriptions and third-party charges are separate from implementation unless the written scope says otherwise."
+      },
+      {
+        "question": "Who keeps the CRM and integrations working after launch?",
+        "answer": "Before rollout, we agree on platform administration, integration monitoring, data cleanup, and escalation. Ongoing support or improvements can be scoped separately around those responsibilities."
+      }
+    ]
+  },
+  {
+    "slug": "seo",
+    "title": "Technical SEO Services",
+    "description": "Find and fix the technical issues that make important pages harder to discover, then improve their structure, clarity, and user experience.",
+    "status": "published",
+    "fields": {
+      "category": "Growth & discoverability",
+      "artwork": "growth",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "SEO",
+      "navDescription": "Technical search reviews and verified website fixes.",
+      "navGroup": "Growth (AI-era)",
+      "navOrder": 10,
+      "navVisual": "device",
+      "navPopular": true,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Help people find the pages that answer their questions.",
+          "text": "A useful service page can still be difficult to discover if its links, rendering, or indexing setup are incomplete. I review those technical foundations alongside the page's purpose and content structure, then turn the findings into changes that can be implemented and checked. The focus is on important pages and real visitor journeys, with reporting that separates completed work from search outcomes.",
+          "definitions": [
+            {
+              "title": "Technical access and structure",
+              "text": "Review how pages are served, linked, identified, and organized so important content has a clear place in the site."
+            },
+            {
+              "title": "Useful page content",
+              "text": "Make the offer, audience, and next step understandable through specific titles, meaningful headings, and information that answers the visitor's question."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Turn an SEO review into a clear implementation plan.",
+          "before": [
+            "Important pages are difficult to reach or return the wrong response.",
+            "Multiple pages cover the same purpose without a clear structure.",
+            "An audit lists issues without showing where or how to fix them."
+          ],
+          "after": [
+            "Trace important URLs through navigation, rendering, and indexability checks.",
+            "Give each page a distinct role and connect related information.",
+            "Document affected templates, evidence, priorities, and verification steps."
+          ]
+        },
+        "offerings": {
+          "title": "Technical SEO work from diagnosis through implementation.",
+          "items": [
+            {
+              "title": "Crawl & indexability review",
+              "text": "Inspect representative URLs, response codes, robots directives, internal links, and the content exposed by important templates."
+            },
+            {
+              "title": "Page titles & structure",
+              "text": "Refine titles, descriptions, headings, and internal links around the purpose of each agreed page."
+            },
+            {
+              "title": "Canonical & redirect handling",
+              "text": "Review duplicate URL patterns, moved pages, and preferred URLs so changes have an explicit technical plan."
+            },
+            {
+              "title": "Rendering & performance",
+              "text": "Investigate content availability and loading or interaction problems in the templates visitors rely on."
+            },
+            {
+              "title": "Structured data",
+              "text": "Implement applicable markup that describes visible page content and validate the types used for the agreed pages."
+            },
+            {
+              "title": "Measurement & follow-up",
+              "text": "Establish a reporting baseline, record changes, and review relevant discovery and visitor signals over an agreed observation period."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "An actionable backlog and evidence of the work completed.",
+          "items": [
+            {
+              "title": "Prioritized findings",
+              "text": "Affected URLs or templates, supporting evidence, likely impact, dependencies, and a recommended sequence of changes."
+            },
+            {
+              "title": "Verified implementation",
+              "text": "The agreed template, metadata, link, or performance fixes, with checks showing whether each issue was addressed."
+            },
+            {
+              "title": "Baseline & change record",
+              "text": "Available reporting before the work, a dated delivery log, known limitations, and the items to monitor after release."
+            }
+          ],
+          "acceptance": "Technical changes are checked against the issue they address: response behavior, accessible content, metadata, links, or loading performance. Search impressions, clicks, and enquiries are observed separately, with no fixed ranking outcome assumed."
+        },
+        "spotlight": {
+          "title": "Start with the pages closest to a useful customer action.",
+          "text": "A service page, product category, or important guide may deserve attention before a low-value template issue. Reviewing page purpose alongside technical evidence helps prioritize work the business can explain and the developer can deliver.",
+          "points": [
+            "A clear purpose for each priority page",
+            "Evidence attached to technical findings",
+            "A recorded check after implementation"
+          ]
+        },
+        "sectors": [
+          "Service businesses",
+          "SaaS websites",
+          "Commerce",
+          "Content publishers",
+          "Local service websites",
+          "Professional portfolios"
+        ],
+        "tools": [
+          "Search Console",
+          "Semantic HTML",
+          "Sitemaps",
+          "PageSpeed Insights",
+          "Structured data",
+          "Crawl diagnostics"
+        ],
+        "approach": {
+          "title": "Choose the review around what has changed or stopped working.",
+          "items": [
+            {
+              "title": "A site has just been redesigned",
+              "text": "Review moved URLs, redirects, template metadata, and internal links so the launch has a clear technical follow-up."
+            },
+            {
+              "title": "Important pages are difficult to discover",
+              "text": "Inspect their purpose, links, response behavior, and indexing signals before deciding which changes to make."
+            },
+            {
+              "title": "A growing site needs better structure",
+              "text": "Organize related pages and reusable templates so new content can be published with consistent technical foundations."
+            }
+          ]
+        },
+        "process": [
+          "Identify the site's business goals, priority pages, intended audience, recent changes, and available search reporting. Agree on the area to review.",
+          "Inspect representative templates and URLs. Capture evidence of technical issues, content overlap, missing information, and relevant performance constraints.",
+          "Prioritize the findings and define an implementation scope. Agree on content ownership, dependencies, and how each change will be verified.",
+          "Implement the agreed fixes and recheck the affected pages. Record completed changes, unresolved items, and anything that requires another owner.",
+          "Review available reporting after release and account for other site or market changes. Use the findings to decide whether further technical or content work is warranted."
+        ],
+        "engagement": {
+          "title": "Start with a review or a defined set of fixes.",
+          "items": [
+            {
+              "title": "Technical SEO assessment",
+              "text": "A scoped site review with actionable findings, priorities, and verification guidance for your developer or team."
+            },
+            {
+              "title": "Implementation sprint",
+              "text": "Delivery of an agreed set of template, metadata, rendering, redirect, or performance changes."
+            },
+            {
+              "title": "Ongoing technical review",
+              "text": "Periodic checks around new templates, content releases, or site changes, with a prioritized backlog."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring the website and the pages that matter most.",
+          "text": "The first conversation can start with public URLs and your business goals. Existing reporting helps establish context, especially if visibility changed after a release, migration, or content update.",
+          "items": [
+            "Your website, priority pages, and recent technical or content changes",
+            "The actions you want visitors to take and the audience you serve",
+            "Available search reports, analytics, and publishing responsibilities"
+          ]
+        },
+        "faqTitle": "Technical SEO questions, answered.",
+        "related": [
+          "web-development",
+          "geo-aeo",
+          "paid-media"
+        ],
+        "articles": [
+          {
+            "title": "Make an SEO audit useful to a developer",
+            "text": "Attach evidence, affected templates, dependencies, and a verification step to each finding."
+          },
+          {
+            "title": "What to check when a website changes its URLs",
+            "text": "Plan redirects and internal links before a redesign goes live."
+          },
+          {
+            "title": "Separate technical delivery from search outcomes",
+            "text": "Record what changed and interpret reporting without claiming every movement has one cause."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Technical SEO Services | Adnan Hossain Khan",
+      "metaDescription": "Find and fix the technical issues that make important pages harder to discover, then improve their structure, clarity, and user experience."
+    },
+    "faqs": [
+      {
+        "question": "What is included in a technical SEO review?",
+        "answer": "The scope identifies which templates and URLs are reviewed and which checks are relevant. Typical areas include response codes, rendering, internal links, metadata, indexability, redirects, and performance. Findings include evidence and a practical next step."
+      },
+      {
+        "question": "Will you implement the recommendations?",
+        "answer": "Implementation can be included as a separate, defined milestone. I can work in a compatible codebase or provide a backlog for your developer. Responsibilities for content approval, platform access, and release are agreed before changes begin."
+      },
+      {
+        "question": "Can you work on a React or JavaScript website?",
+        "answer": "Yes. I review route behavior, rendered content, links, metadata, and the important templates. The implementation approach depends on the existing framework and hosting rather than assuming the whole site needs to be rebuilt."
+      },
+      {
+        "question": "Can you guarantee rankings or a date for traffic growth?",
+        "answer": "No. The engagement commits to defined work and verification. Search systems determine indexing and ranking, and outcomes also depend on content, competition, and other changes. Reporting describes observed results without promising a position or deadline."
+      },
+      {
+        "question": "Will you write or rewrite website content?",
+        "answer": "Content planning and editing can be scoped for agreed pages. Your subject-matter input is needed for accurate services, examples, and claims. A full ongoing publishing program is discussed separately from a technical implementation."
+      },
+      {
+        "question": "Is a high performance score the goal?",
+        "answer": "Performance work targets the problems affecting the agreed pages and interactions. Lab tests help diagnose issues, while available real-user data adds context. We review the actual experience and relevant measurements rather than treating one score as the entire result."
+      },
+      {
+        "question": "Can you support a website redesign or migration?",
+        "answer": "Yes. The scope can include URL inventories, redirect mapping, template checks, and post-launch verification. Involving the review before launch makes it easier to preserve useful page relationships and catch technical gaps."
+      },
+      {
+        "question": "How do we measure progress?",
+        "answer": "Completed fixes and their verification are recorded directly. Where reporting is available, we also review discovery, clicks, and relevant visitor actions over time, noting releases or other factors that may affect the numbers."
+      }
+    ]
+  },
+  {
+    "slug": "geo-aeo",
+    "title": "GEO & AEO Services",
+    "description": "Make your expertise easier to understand across search and AI answers through specific explanations, consistent information, and evidence.",
+    "status": "published",
+    "fields": {
+      "category": "Growth & discoverability",
+      "artwork": "growth",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "GEO / AEO",
+      "navDescription": "Clear answers backed by specific expertise and evidence.",
+      "navGroup": "Growth (AI-era)",
+      "navOrder": 11,
+      "navVisual": "grid",
+      "navPopular": true,
+      "navAi": true,
+      "pageContent": {
+        "overview": {
+          "title": "Give people a clear, well-supported answer about what you do.",
+          "text": "When someone compares services through search or an AI assistant, vague website copy gives them little to work with. GEO and AEO describe efforts to make information more useful in those discovery experiences. I focus on the parts your business can improve directly: accurate descriptions, direct answers, supporting examples, technical access, and a review process that keeps the information current.",
+          "definitions": [
+            {
+              "title": "GEO: generative engine optimization",
+              "text": "Improve how your organization, services, and expertise are explained for discovery experiences that generate answers from information across the web."
+            },
+            {
+              "title": "AEO: answer engine optimization",
+              "text": "Organize content around specific audience questions, with an immediate answer and enough detail to explain the reasoning, limits, or next step."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Make your expertise easier to understand and evaluate.",
+          "before": [
+            "Service descriptions use broad claims without explaining scope or delivery.",
+            "The same business or product is described inconsistently across pages.",
+            "Large amounts of content repeat answers without adding useful evidence."
+          ],
+          "after": [
+            "Answer specific buying and implementation questions with concrete detail.",
+            "Keep names, capabilities, people, and page relationships consistent.",
+            "Support important statements with approved examples and subject-matter review."
+          ]
+        },
+        "offerings": {
+          "title": "Content and technical work for clearer answers.",
+          "items": [
+            {
+              "title": "Question & content review",
+              "text": "Map the questions prospects ask and inspect whether existing pages provide a specific, useful answer."
+            },
+            {
+              "title": "Service & product explanations",
+              "text": "Improve descriptions of scope, use cases, delivery, limitations, and the choices a visitor needs to make."
+            },
+            {
+              "title": "Answer-focused content",
+              "text": "Structure agreed FAQs, comparisons, and guides with concise answers followed by supporting context."
+            },
+            {
+              "title": "Business information consistency",
+              "text": "Align the way your business, services, people, and products are described across the pages you control."
+            },
+            {
+              "title": "Technical page structure",
+              "text": "Review semantic headings, crawlable links, content availability, and appropriate structured data."
+            },
+            {
+              "title": "Editorial & observation process",
+              "text": "Define who verifies claims, when content is reviewed, and how discovery observations are recorded consistently."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "Better answers with a clear source of truth.",
+          "items": [
+            {
+              "title": "Question & evidence map",
+              "text": "Priority audience questions, the pages intended to answer them, missing information, and the sources or people needed to verify it."
+            },
+            {
+              "title": "Reviewed page improvements",
+              "text": "The agreed content and structural changes, with approved descriptions, useful examples, and coherent links between related topics."
+            },
+            {
+              "title": "Review & observation record",
+              "text": "An editorial checklist and a repeatable log of queries, dates, sources, and limitations for any discovery checks included in scope."
+            }
+          ],
+          "acceptance": "We check whether the agreed questions are answered clearly, claims have been reviewed, and the page structure is working. External mentions or citations are recorded as observations; they are not treated as guaranteed deliverables."
+        },
+        "spotlight": {
+          "title": "Explain the detail a buyer needs to compare their options.",
+          "text": "A useful service page can say who the work suits, what is delivered, what the client needs to provide, and where the scope ends. Those answers help a person evaluate the offer directly and give discovery systems clearer information to interpret.",
+          "points": [
+            "Specific services and implementation detail",
+            "Examples and claims approved by the business",
+            "Answers that stay connected to their context"
+          ]
+        },
+        "sectors": [
+          "B2B services",
+          "SaaS products",
+          "Technical businesses",
+          "Educational content",
+          "Commerce guides",
+          "Professional expertise"
+        ],
+        "tools": [
+          "Content audits",
+          "Semantic HTML",
+          "Structured data",
+          "Question mapping",
+          "Editorial review",
+          "Discovery observations"
+        ],
+        "approach": {
+          "title": "Work on the questions your website leaves unanswered.",
+          "items": [
+            {
+              "title": "A service is difficult to distinguish",
+              "text": "Add concrete scope, deliverables, fit criteria, and implementation detail so a visitor can understand how the offering applies to them."
+            },
+            {
+              "title": "Product information is scattered",
+              "text": "Create a consistent explanation of capabilities and limitations, with clear links to the pages that provide the detail."
+            },
+            {
+              "title": "Expert knowledge has not reached the website",
+              "text": "Turn approved subject-matter input into useful guides, comparisons, and answers that can be maintained by an identified owner."
+            }
+          ]
+        },
+        "process": [
+          "Discuss the audience, services, frequent questions, and information the business can substantiate. Identify the pages and topics in the initial scope.",
+          "Review gaps in answers, conflicting descriptions, unsupported statements, and technical access. Record the input needed from subject-matter owners.",
+          "Plan the page improvements and answer structure. Agree on sources, review responsibilities, and how any external observations will be documented.",
+          "Implement the agreed content and structural changes. Review accuracy, readability, internal links, and visible information before publishing.",
+          "Keep an agreed review record and update content when the offer or evidence changes. Use discovery observations cautiously when choosing the next improvements."
+        ],
+        "engagement": {
+          "title": "Begin with a defined set of questions and pages.",
+          "items": [
+            {
+              "title": "GEO / AEO content review",
+              "text": "An assessment of answer clarity, business information, supporting evidence, and relevant technical gaps."
+            },
+            {
+              "title": "Page improvement project",
+              "text": "Rewrite and implement an agreed set of service, product, comparison, or FAQ content."
+            },
+            {
+              "title": "Editorial review cycle",
+              "text": "Maintain priority explanations and review new claims or topic gaps as the business changes."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring the questions prospects keep asking.",
+          "text": "Sales conversations, support questions, and existing product documentation can reveal the information your website is missing. The work is strongest when someone can verify the details and approve what is published.",
+          "items": [
+            "Your priority services or products and the audience you want to reach",
+            "Frequent customer questions and existing pages or documentation",
+            "Approved examples, evidence, and a subject-matter reviewer"
+          ]
+        },
+        "faqTitle": "Questions about GEO and AEO.",
+        "related": [
+          "seo",
+          "web-development",
+          "data-analytics"
+        ],
+        "articles": [
+          {
+            "title": "Turn a vague service page into useful buying guidance",
+            "text": "Explain who the work suits, what arrives at handover, and what the client needs to prepare."
+          },
+          {
+            "title": "Keep claims and evidence together",
+            "text": "Build an editorial review process that makes specific expertise easier to explain."
+          },
+          {
+            "title": "Record AI discovery observations with context",
+            "text": "Keep the query, date, and source details so a changing answer is not mistaken for a guaranteed result."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "GEO & AEO Services | Adnan Hossain Khan",
+      "metaDescription": "Make your expertise easier to understand across search and AI answers through specific explanations, consistent information, and evidence."
+    },
+    "faqs": [
+      {
+        "question": "How is this different from SEO?",
+        "answer": "There is substantial overlap. SEO addresses discovery and website foundations; this engagement places additional emphasis on clear answers, consistent business information, and supporting evidence. The same pages should remain useful to people who visit them directly."
+      },
+      {
+        "question": "Can you guarantee that an AI assistant will cite my website?",
+        "answer": "No. External systems select their own sources and generate their own answers. I can improve and verify your content, but a citation or recommendation cannot be promised as the result of a page change."
+      },
+      {
+        "question": "Do we need special AI files or schema?",
+        "answer": "Google's guidance for AI Overviews and AI Mode does not require extra AI-specific files or special schema. I focus on accessible, useful pages and appropriate markup that matches their visible content. Other platforms are assessed against their own published requirements."
+      },
+      {
+        "question": "Will you generate large numbers of pages with AI?",
+        "answer": "The scope starts with a defined audience need and a set of useful questions. Drafting tools can assist if agreed, but the business information, examples, and claims still need a human reviewer. Page volume is not the delivery goal."
+      },
+      {
+        "question": "Can you improve the pages we already have?",
+        "answer": "Yes. Existing service and product pages are often a useful place to begin. We can clarify scope, add missing answers, resolve inconsistent descriptions, and improve structure before deciding whether new pages are needed."
+      },
+      {
+        "question": "What evidence do you need from us?",
+        "answer": "Useful inputs include product documentation, verified examples, process details, and subject-matter interviews. I identify claims that need support or a more precise explanation. Client outcomes, qualifications, or endorsements are only included when you can substantiate them."
+      },
+      {
+        "question": "How do you measure progress?",
+        "answer": "We record published improvements, question coverage, approved evidence, and technical checks. If discovery checks are included, we log the query, date, platform, and sources shown. Results can vary, so a single answer is not treated as a stable visibility score."
+      },
+      {
+        "question": "How do you scope and price the work?",
+        "answer": "The scope depends on the number of pages and topics, the quality of existing material, technical changes, and the input needed from reviewers. A content review can establish a prioritized implementation brief before a larger commitment."
+      }
+    ]
+  },
+  {
+    "slug": "paid-media",
+    "title": "Paid Media & Conversion Foundations",
+    "description": "Connect campaign landing pages, lead capture, and measurement so the journey after an ad click is ready for real customers.",
+    "status": "published",
+    "fields": {
+      "category": "Growth & discoverability",
+      "artwork": "growth",
+      "enabled": true,
+      "navEnabled": true,
+      "navTitle": "Paid Media",
+      "navDescription": "Campaign pages, lead delivery, and conversion measurement.",
+      "navGroup": "Growth (AI-era)",
+      "navOrder": 12,
+      "navVisual": "signal",
+      "navPopular": true,
+      "navAi": false,
+      "pageContent": {
+        "overview": {
+          "title": "Make the experience after the click ready for the campaign.",
+          "text": "An ad sets an expectation. The landing page, form, confirmation, and follow-up need to carry it through. I build the technical side of that journey: focused pages, reliable lead delivery, and agreed conversion measurement. This service can sit alongside your marketer or agency, with media buying, creative production, and campaign management owned explicitly by the people responsible for them.",
+          "definitions": [
+            {
+              "title": "A connected conversion journey",
+              "text": "Match the landing page to the offer, make the next action clear, and ensure the resulting enquiry or registration reaches the right destination."
+            },
+            {
+              "title": "Measurement with a defined meaning",
+              "text": "Agree on what counts as a conversion, when an event should fire, and how it relates to the customer outcome you care about."
+            }
+          ]
+        },
+        "challenge": {
+          "title": "Check the full journey before sending more traffic.",
+          "before": [
+            "The ad and landing page make different promises.",
+            "Forms accept an enquiry, but nobody can confirm it reached the CRM.",
+            "Button clicks and successful submissions are counted as the same result."
+          ],
+          "after": [
+            "Keep the offer, audience, and next step consistent across the journey.",
+            "Validate delivery, assignment, confirmation, and failure handling.",
+            "Define and test distinct events for the actions the business needs to measure."
+          ]
+        },
+        "offerings": {
+          "title": "Technical delivery for the journey after an ad click.",
+          "items": [
+            {
+              "title": "Campaign landing pages",
+              "text": "Build responsive pages around an approved audience, offer, message, and primary action."
+            },
+            {
+              "title": "Forms & conversion flows",
+              "text": "Implement field validation, error recovery, confirmation states, and the steps needed to complete an enquiry or registration."
+            },
+            {
+              "title": "Lead delivery & CRM integration",
+              "text": "Route validated submissions into the agreed customer workflow, with source context and a visible failure path."
+            },
+            {
+              "title": "Event implementation",
+              "text": "Add the agreed measurement events and parameters, then test firing conditions, duplicate handling, and consent-dependent behavior."
+            },
+            {
+              "title": "Experiment setup",
+              "text": "Prepare an agreed page variant or test with a clear hypothesis, primary measure, and operational owner."
+            },
+            {
+              "title": "Reporting connections",
+              "text": "Connect available campaign and customer signals in a view that distinguishes clicks, enquiries, and later business outcomes."
+            }
+          ]
+        },
+        "deliverables": {
+          "title": "A campaign journey that has been checked end to end.",
+          "items": [
+            {
+              "title": "Page & measurement brief",
+              "text": "An approved offer, page structure, conversion definition, event map, and ownership of creative, tracking, and campaign decisions."
+            },
+            {
+              "title": "Landing experience & connections",
+              "text": "The scoped page, form, confirmation, and integrations, checked across relevant devices and success and failure states."
+            },
+            {
+              "title": "Launch & reporting handover",
+              "text": "Event validation notes, campaign source conventions, integration operating instructions, and known measurement limitations."
+            }
+          ],
+          "acceptance": "We complete a test conversion from the landing page through the agreed destination. Checks cover field validation, confirmation, duplicate events, lead delivery, and the tracking behavior expected under the approved consent settings."
+        },
+        "spotlight": {
+          "title": "A useful lead should arrive with useful context.",
+          "text": "An enquiry needs more than a name and email address. The receiving team may need the service requested, the landing page, and the relevant campaign source. Planning those fields helps connect acquisition work to a practical follow-up.",
+          "points": [
+            "A clear offer and primary page action",
+            "Source information carried through the handoff",
+            "Confirmation that the destination received the enquiry"
+          ]
+        },
+        "sectors": [
+          "Service enquiries",
+          "SaaS acquisition",
+          "Commerce campaigns",
+          "Product launches",
+          "Event registration",
+          "B2B lead generation"
+        ],
+        "tools": [
+          "Landing pages",
+          "Event tracking",
+          "CRM APIs",
+          "Analytics",
+          "Consent workflows",
+          "Experiment planning"
+        ],
+        "approach": {
+          "title": "Focus on the gap between the click and the customer.",
+          "items": [
+            {
+              "title": "A campaign needs a dedicated landing page",
+              "text": "Build a page that continues the approved message and gives visitors the information needed to take one clear action."
+            },
+            {
+              "title": "Leads are difficult to trace",
+              "text": "Review form delivery, source fields, duplicate records, and assignment so the team can see where an enquiry came from and who owns it."
+            },
+            {
+              "title": "Conversion counts are confusing",
+              "text": "Separate interaction events from completed submissions and review when each event fires before using the numbers to make campaign decisions."
+            }
+          ]
+        },
+        "process": [
+          "Discuss the campaign audience, offer, primary action, and the people responsible for media, creative, approvals, and technical delivery.",
+          "Review the current landing journey, form behavior, event setup, consent requirements, and destination workflow. Identify gaps that affect launch readiness.",
+          "Agree on the page content, conversion definition, field mappings, event plan, and acceptance checks before implementation.",
+          "Build and test the scoped experience across relevant devices. Verify successful and failed submissions, lead delivery, and the agreed tracking behavior.",
+          "Complete the handover and review available visitor and lead-quality feedback. Further experiments follow an agreed hypothesis and measurement plan."
+        ],
+        "engagement": {
+          "title": "A focused build around your campaign's next step.",
+          "items": [
+            {
+              "title": "Landing page launch",
+              "text": "An agreed campaign page with its form, confirmation, and required destination connections."
+            },
+            {
+              "title": "Measurement & integration project",
+              "text": "A defined set of events or lead-delivery changes, with validation and operating notes."
+            },
+            {
+              "title": "Conversion journey improvement",
+              "text": "A bounded set of changes to an existing page or flow based on observed friction and a clear review measure."
+            }
+          ]
+        },
+        "preparation": {
+          "title": "Bring the offer and the action you want a visitor to take.",
+          "text": "An approved campaign message and a clear destination for enquiries make the first milestone easier to define. If a marketer or agency owns the campaign, include their launch and measurement requirements in the brief.",
+          "items": [
+            "The campaign audience, offer, approved copy, and creative assets",
+            "The conversion action, form fields, and CRM or registration destination",
+            "Launch timing, tracking requirements, and approval owners"
+          ]
+        },
+        "faqTitle": "Questions about paid media and conversion support.",
+        "related": [
+          "web-development",
+          "seo",
+          "crm-implementation"
+        ],
+        "articles": [
+          {
+            "title": "Check the full journey after the ad click",
+            "text": "Review the offer, form, confirmation, and lead destination before launching traffic."
+          },
+          {
+            "title": "Define the conversion before implementing the event",
+            "text": "Separate visitor interactions from completed actions the business can verify."
+          },
+          {
+            "title": "Keep campaign context with the lead",
+            "text": "Plan source fields and CRM ownership so useful enquiries reach the right follow-up."
+          }
+        ],
+        "projectSlugs": []
+      },
+      "media": []
+    },
+    "seo": {
+      "metaTitle": "Paid Media & Conversion Foundations | Adnan Hossain Khan",
+      "metaDescription": "Connect campaign landing pages, lead capture, and measurement so the journey after an ad click is ready for real customers."
+    },
+    "faqs": [
+      {
+        "question": "Do you manage advertising accounts and budgets?",
+        "answer": "My primary scope here is landing pages, integrations, and technical measurement. Media buying, budget decisions, and ongoing account management need a separate, explicit agreement. I can work alongside the person or agency already responsible for those activities."
+      },
+      {
+        "question": "Can you build a landing page for an existing campaign?",
+        "answer": "Yes. We agree on the audience, approved offer, content, primary action, and launch requirements. The page can connect to your current forms, CRM, or other supported destination systems."
+      },
+      {
+        "question": "Can leads go directly into our CRM?",
+        "answer": "Where the CRM provides a suitable integration, the flow can include field mapping, validation, source information, and assignment. Failed deliveries need a visible recovery path so a successful form response does not hide a lost enquiry."
+      },
+      {
+        "question": "What counts as a conversion?",
+        "answer": "We define that together before adding tracking. It may be a confirmed enquiry, completed registration, or another meaningful action. A button click is recorded separately when it does not prove that the intended outcome happened."
+      },
+      {
+        "question": "Will reporting match perfectly across every platform?",
+        "answer": "Not necessarily. Different event definitions, attribution rules, consent choices, and incomplete data can produce differences. The implementation documents what each signal represents and which limitations need to be considered when comparing reports."
+      },
+      {
+        "question": "How do you handle consent and tracking requirements?",
+        "answer": "You provide the approved tracking and data-handling requirements. I implement the agreed behavior and verify event firing under the relevant consent states. Decisions about what data may be collected are established before tags or integrations are enabled."
+      },
+      {
+        "question": "Can you guarantee more leads or a return on ad spend?",
+        "answer": "No fixed return is promised. The offer, audience, creative, campaign settings, follow-up, and market conditions also influence results. The engagement is scoped around the technical work, its validation, and any agreed experiment."
+      },
+      {
+        "question": "Are media spend, creative, and software subscriptions included?",
+        "answer": "They are separate unless explicitly listed in the agreement. The proposal identifies the development scope and dependencies, including campaign assets, tracking tools, CRM access, hosting, and any required paid services."
+      }
+    ]
+  }
+]
