@@ -4,7 +4,7 @@ umask 077
 
 NEW_TAG="${1:?Missing immutable image tag}"
 IMAGE_REPO="${2:?Missing image repository}"
-APP_DIR="${3:-/apps/ad-portfolio-backend}"
+APP_DIR="${3:-/root/apps/ad-portfolio-backend}"
 PROJECT="${4:-ad-portfolio-backend}"
 HEALTH_URL="${5:-http://127.0.0.1:8080/health/ready}"
 
@@ -36,6 +36,38 @@ dc() {
     -f docker-compose.yml -f deploy/docker-compose.registry.yml "$@"
 }
 
+verify_private_api_port() {
+  command -v python3 > /dev/null || { echo 'DEPLOY BLOCKED: python3 is required to inspect API ports' >&2; exit 1; }
+  dc config --format json | python3 -c '
+import json
+import sys
+
+try:
+    api = json.load(sys.stdin)["services"]["api"]
+    ports = api.get("ports", [])
+    port = ports[0] if isinstance(ports, list) and len(ports) == 1 else None
+except (KeyError, ValueError, TypeError, AttributeError):
+    print("DEPLOY BLOCKED: Cannot inspect effective API port configuration", file=sys.stderr)
+    sys.exit(1)
+
+if (
+    api.get("network_mode") == "host"
+    or not isinstance(port, dict)
+    or port.get("host_ip") != "127.0.0.1"
+    or port.get("protocol", "tcp") != "tcp"
+    or not str(port.get("published", "")).isdigit()
+    or not 1 <= int(port["published"]) <= 65535
+):
+    print(
+        "DEPLOY BLOCKED: API must publish exactly one TCP port bound to 127.0.0.1 without host networking",
+        file=sys.stderr,
+    )
+    sys.exit(1)
+
+print("Private API port verified: 127.0.0.1:" + str(port["published"]))
+'
+}
+
 save_state() {
   local state_file
   state_file="$(mktemp "$APP_DIR/.env.deploy.XXXXXX")"
@@ -56,6 +88,7 @@ healthy() {
 }
 
 dc config --quiet
+verify_private_api_port
 DATABASE_CONTAINER="$(dc ps -q db)"
 [[ -n "$DATABASE_CONTAINER" ]] || { echo 'Existing database container is not running in this Compose project' >&2; exit 1; }
 [[ "$(docker inspect "$DATABASE_CONTAINER" --format '{{.State.Health.Status}}')" == healthy ]] ||

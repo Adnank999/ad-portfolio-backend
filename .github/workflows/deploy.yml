@@ -118,6 +118,8 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.BACKEND_DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      BACKEND_APP_DIR: ${{ vars.BACKEND_APP_DIR || '/root/apps/ad-portfolio-backend' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -141,19 +143,23 @@ jobs:
           printf 'Host portfolio-vps\n  HostName %s\n  User %s\n  Port %s\n  IdentityFile %s/.ssh/id_ed25519\n  IdentitiesOnly yes\n  BatchMode yes\n  StrictHostKeyChecking yes\n' "$VPS_HOST" "$VPS_USER" "$VPS_PORT" "$HOME" > "$HOME/.ssh/config"
           chmod 600 "$HOME/.ssh/config"
 
+      - name: Sync production Compose configuration
+        run: |
+          [[ "$BACKEND_APP_DIR" =~ ^/[a-zA-Z0-9._/-]+$ && "$BACKEND_APP_DIR" != / ]] || exit 2
+          printf -v PREPARE_COMMAND 'mkdir -p -- %q' "$BACKEND_APP_DIR/deploy"
+          ssh portfolio-vps "$PREPARE_COMMAND"
+          scp -q docker-compose.yml "portfolio-vps:$BACKEND_APP_DIR/docker-compose.yml"
+          scp -q deploy/docker-compose.registry.yml "portfolio-vps:$BACKEND_APP_DIR/deploy/docker-compose.registry.yml"
+
       - name: Deploy API without touching PostgreSQL
         env:
           IMAGE_REPOSITORY: ${{ needs.publish.outputs.repository }}
           DEPLOY_SHA: ${{ github.sha }}
-          BACKEND_APP_DIR: ${{ vars.BACKEND_APP_DIR || '/apps/ad-portfolio-backend' }}
           BACKEND_COMPOSE_PROJECT: ${{ vars.BACKEND_COMPOSE_PROJECT || 'ad-portfolio-backend' }}
           BACKEND_HEALTH_URL: ${{ vars.BACKEND_HEALTH_URL || 'http://127.0.0.1:8080/health/ready' }}
         run: |
           [[ "$BACKEND_APP_DIR" =~ ^/[a-zA-Z0-9._/-]+$ && "$BACKEND_APP_DIR" != / ]] || exit 2
           [[ "$BACKEND_COMPOSE_PROJECT" =~ ^[a-z0-9][a-z0-9_-]*$ ]] || exit 2
-          printf -v PREPARE_COMMAND 'mkdir -p -- %q' "$BACKEND_APP_DIR/deploy"
-          ssh portfolio-vps "$PREPARE_COMMAND"
-          scp -q deploy/docker-compose.registry.yml "portfolio-vps:$BACKEND_APP_DIR/deploy/docker-compose.registry.yml"
           printf -v DEPLOY_COMMAND 'bash -s -- %q %q %q %q %q' "sha-$DEPLOY_SHA" "$IMAGE_REPOSITORY" "$BACKEND_APP_DIR" "$BACKEND_COMPOSE_PROJECT" "$BACKEND_HEALTH_URL"
           DEPLOY_LOG="$(mktemp)"
           trap 'rm -f -- "$DEPLOY_LOG"' EXIT
