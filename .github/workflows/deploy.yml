@@ -50,7 +50,12 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Check deployment script syntax
-        run: bash -n deploy/update-api.sh
+        run: |
+          bash -n deploy/update-api.sh
+          bash -n deploy/test-update-api.sh
+
+      - name: Test streamed deployment activation
+        run: bash deploy/test-update-api.sh
 
       - name: Check Rust formatting
         run: cargo fmt --all -- --check
@@ -150,4 +155,10 @@ jobs:
           ssh portfolio-vps "$PREPARE_COMMAND"
           scp -q deploy/docker-compose.registry.yml "portfolio-vps:$BACKEND_APP_DIR/deploy/docker-compose.registry.yml"
           printf -v DEPLOY_COMMAND 'bash -s -- %q %q %q %q %q' "sha-$DEPLOY_SHA" "$IMAGE_REPOSITORY" "$BACKEND_APP_DIR" "$BACKEND_COMPOSE_PROJECT" "$BACKEND_HEALTH_URL"
-          ssh portfolio-vps "$DEPLOY_COMMAND" < deploy/update-api.sh
+          DEPLOY_LOG="$(mktemp)"
+          trap 'rm -f -- "$DEPLOY_LOG"' EXIT
+          ssh portfolio-vps "$DEPLOY_COMMAND" < deploy/update-api.sh | tee "$DEPLOY_LOG"
+          grep -Fxq -- "API deployed successfully: sha-$DEPLOY_SHA" "$DEPLOY_LOG" || {
+            echo 'Remote script exited without confirming API activation' >&2
+            exit 1
+          }

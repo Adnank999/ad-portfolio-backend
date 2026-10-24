@@ -69,7 +69,7 @@ if [[ -n "$API_CONTAINER" ]]; then
 fi
 
 dc pull api
-dc run --rm --no-deps --pull never -T api migrate
+dc run --rm --no-deps --pull never -T --interactive=false api migrate
 
 rollback() {
   local failure="$?"

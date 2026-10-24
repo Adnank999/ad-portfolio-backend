@@ -76,6 +76,8 @@ The script:
 
 If pulling or migrating fails, the script stops before recreating the running API. Failed deployments remain failed even if application-image rollback succeeds. Database schema migrations are not automatically reversed; migrations must remain compatible with the previous API during the rollback window. This process can briefly interrupt API traffic during recreation.
 
+The script is streamed to Bash over SSH. The migration container explicitly disables interactive stdin so it cannot consume the remaining deployment commands; `-T` alone only disables the pseudo-terminal. The workflow also requires the final `API deployed successfully: sha-...` message before reporting success. Run `bash deploy/test-update-api.sh` to exercise streamed activation and migration failure with mocked Docker commands, without a database or Docker daemon.
+
 The override retains the base API build configuration, but deployment pulls first and never requests a build. The `db` service and volume settings are not overridden. Deployment never runs `down`, volume deletion, or `--remove-orphans`.
 
 ## Manual operation and rollback
