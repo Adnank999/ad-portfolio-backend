@@ -1,6 +1,6 @@
-# Clean Axum Demo
+# AD Portfolio API
 
-This checkout now includes the AD Portfolio backend. Start with [PORTFOLIO.md](PORTFOLIO.md) for its setup, authentication, roles, blog/project APIs, editor schema, SEO contract, and tests. Cargo builds `portfolio-api` from `src/portfolio/`. The upstream demo below is preserved as reference and is not the active application.
+The Cargo package is `ad-portfolio-api`. Start with [PORTFOLIO.md](PORTFOLIO.md) for its setup, authentication, roles, blog/project APIs, editor schema, SEO contract, and tests. Cargo builds the `portfolio-api` executable and `portfolio_api` library from `src/portfolio/`. The upstream demo below is preserved as reference and is not the active application.
 
 A minimalist, domain-driven Rust API server template using Axum and SQLx.  
 Designed for clarity, scalability, and rapid development.

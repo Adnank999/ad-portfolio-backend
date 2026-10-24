@@ -245,7 +245,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "clean_axum_demo"
+name = "ad-portfolio-api"
 version = "0.1.0"
 dependencies = [
  "ammonia",

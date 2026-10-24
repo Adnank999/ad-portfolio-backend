@@ -1,0 +1,153 @@
+name: Rust API CI and Deploy
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-${{ github.ref }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: portfolio
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: portfolio
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U portfolio -d portfolio"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql://portfolio:ci-only-password@127.0.0.1:5432/portfolio
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Rust 1.97
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.97.0'
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Check deployment script syntax
+        run: bash -n deploy/update-api.sh
+
+      - name: Check Rust formatting
+        run: cargo fmt --all -- --check
+
+      - name: Lint Rust targets
+        run: cargo clippy --locked --all-targets
+
+      - name: Apply migrations to temporary CI database
+        run: cargo run --locked --bin portfolio-api -- migrate
+
+      - name: Run all Rust tests including PostgreSQL integration tests
+        run: cargo test --locked --all-targets -- --include-ignored
+
+  publish:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    outputs:
+      repository: ${{ steps.image.outputs.repository }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Docker Hub image name
+        id: image
+        env:
+          DOCKERHUB_IMAGE: ${{ vars.DOCKERHUB_IMAGE }}
+          DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+        run: |
+          IMAGE="${DOCKERHUB_IMAGE,,}"
+          if [[ ! "$IMAGE" =~ ^[a-z0-9][a-z0-9._-]*/[a-z0-9][a-z0-9._-]*$ || -z "$DOCKERHUB_USERNAME" ]]; then
+            echo 'Set DOCKERHUB_USERNAME and DOCKERHUB_IMAGE=namespace/repository' >&2
+            exit 1
+          fi
+          echo "repository=docker.io/$IMAGE" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and publish the API image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: ${{ vars.DOCKER_PLATFORM || 'linux/amd64' }}
+          push: true
+          tags: |
+            ${{ steps.image.outputs.repository }}:production
+            ${{ steps.image.outputs.repository }}:sha-${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: publish
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.BACKEND_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure verified SSH access
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PORT: ${{ vars.VPS_SSH_PORT || '22' }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          [[ "$VPS_HOST" =~ ^[a-zA-Z0-9._:-]+$ ]] || exit 2
+          [[ "$VPS_USER" =~ ^[a-zA-Z_][a-zA-Z0-9_-]*$ ]] || exit 2
+          [[ "$VPS_PORT" =~ ^[0-9]+$ ]] && ((10#$VPS_PORT >= 1 && 10#$VPS_PORT <= 65535)) || exit 2
+          test -n "$VPS_SSH_KEY" && test -n "$VPS_KNOWN_HOSTS"
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$VPS_SSH_KEY" > "$HOME/.ssh/id_ed25519"
+          chmod 600 "$HOME/.ssh/id_ed25519"
+          printf '%s\n' "$VPS_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+          printf 'Host portfolio-vps\n  HostName %s\n  User %s\n  Port %s\n  IdentityFile %s/.ssh/id_ed25519\n  IdentitiesOnly yes\n  BatchMode yes\n  StrictHostKeyChecking yes\n' "$VPS_HOST" "$VPS_USER" "$VPS_PORT" "$HOME" > "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
+
+      - name: Deploy API without touching PostgreSQL
+        env:
+          IMAGE_REPOSITORY: ${{ needs.publish.outputs.repository }}
+          DEPLOY_SHA: ${{ github.sha }}
+          BACKEND_APP_DIR: ${{ vars.BACKEND_APP_DIR || '/apps/ad-portfolio-backend' }}
+          BACKEND_COMPOSE_PROJECT: ${{ vars.BACKEND_COMPOSE_PROJECT || 'ad-portfolio-backend' }}
+          BACKEND_HEALTH_URL: ${{ vars.BACKEND_HEALTH_URL || 'http://127.0.0.1:8080/health/ready' }}
+        run: |
+          [[ "$BACKEND_APP_DIR" =~ ^/[a-zA-Z0-9._/-]+$ && "$BACKEND_APP_DIR" != / ]] || exit 2
+          [[ "$BACKEND_COMPOSE_PROJECT" =~ ^[a-z0-9][a-z0-9_-]*$ ]] || exit 2
+          printf -v PREPARE_COMMAND 'mkdir -p -- %q' "$BACKEND_APP_DIR/deploy"
+          ssh portfolio-vps "$PREPARE_COMMAND"
+          scp -q deploy/docker-compose.registry.yml "portfolio-vps:$BACKEND_APP_DIR/deploy/docker-compose.registry.yml"
+          printf -v DEPLOY_COMMAND 'bash -s -- %q %q %q %q %q' "sha-$DEPLOY_SHA" "$IMAGE_REPOSITORY" "$BACKEND_APP_DIR" "$BACKEND_COMPOSE_PROJECT" "$BACKEND_HEALTH_URL"
+          ssh portfolio-vps "$DEPLOY_COMMAND" < deploy/update-api.sh

@@ -24,11 +24,11 @@ Blogs and projects use a common publication record with typed, separately valida
 
 ## Database and application setup
 
-The Ubuntu deployment runs PostgreSQL 17 directly on the operating system and only the API in Docker. Follow [Ubuntu deployment and database migration](docs/ubuntu-deployment.md) to install PostgreSQL, transfer an existing Docker database, and start the API. `docker-compose.yml` contains only the `api` service and uses Linux host networking to connect to PostgreSQL at `127.0.0.1:5432`. Both PostgreSQL and the API stay on loopback; a reverse proxy on Ubuntu serves public HTTPS traffic.
+The current `docker-compose.yml` runs PostgreSQL 17 and the API in Docker. PostgreSQL uses the existing `portfolio_pgdata` volume and the private Compose network; only the API is published on host loopback. Follow [backend CI/CD setup](deploy/README.md) to publish API images to Docker Hub and update only the API while preserving the deployed database and Compose project. A reverse proxy on Ubuntu serves public traffic.
 
-For a fresh checkout, copy `.env.portfolio.example` to `.env.portfolio`, set the database password and origins, and provision the database using the guide. Existing private environment files are not changed automatically. The previous Docker database used `127.0.0.1:55432`; change that URL only after restoring and verifying the native database. Do not remove the old database container or volume during migration.
+Existing private environment files are not changed automatically. Keep the deployed `.env.portfolio`, database container, volume, and Compose project name intact when enabling CI/CD. Moving PostgreSQL onto the operating system is a separate optional migration described in [Ubuntu deployment and database migration](docs/ubuntu-deployment.md); it is not required by this pipeline.
 
-For development with Rust installed, the API can also run directly against a provisioned PostgreSQL database:
+For development with Rust installed, the API can also run directly against a provisioned PostgreSQL database reachable from the host. Set its connection URL in `.env.portfolio`; the Compose hostname `db` is only reachable inside the Docker network:
 
 ```powershell
 cd Backend
@@ -190,6 +190,8 @@ cargo test --test portfolio_api -- --include-ignored
 The suite covers publication visibility, scheduling, optimistic locking, slug redirects, sitemap exclusions, frontend-shaped data, editor safety, effective RBAC, owner protection, refresh rotation/replay, password changes, logout, rate limiting, and response headers. Each SQLx test uses its own database. The upstream demo tests remain present but are not Cargo targets.
 
 ## Deployment
+
+For GitHub Actions tests, Docker Hub image publishing, and API-only updates of the current Compose deployment, follow [backend CI/CD setup](deploy/README.md). That pipeline preserves the existing Docker PostgreSQL container and volume. The native PostgreSQL guide below describes a separate migration option and is not a CI/CD prerequisite.
 
 Follow [Ubuntu deployment and database migration](docs/ubuntu-deployment.md) for the native PostgreSQL setup, backup/restore commands, verification, and rollback procedure. Build and start only the API:
 

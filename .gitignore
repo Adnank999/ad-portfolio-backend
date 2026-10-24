@@ -18,6 +18,7 @@
 
 # Private database backups
 /backups/
+/.deploy.lock
 *.dump
 *.backup
 
