@@ -10,7 +10,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let command = std::env::args().nth(1).unwrap_or_else(|| "serve".into());
     if matches!(command.as_str(), "--help" | "-h") {
         println!(
-            "portfolio-api [serve|migrate|bootstrap-owner|prune-sessions|import-case-studies|import-services]"
+            "portfolio-api [serve|migrate|bootstrap-owner|prune-sessions|cleanup-media|import-case-studies|import-services]"
         );
         return Ok(());
     }
@@ -20,6 +20,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
             | "migrate"
             | "bootstrap-owner"
             | "prune-sessions"
+            | "cleanup-media"
             | "import-case-studies"
             | "import-services"
     ) {
@@ -60,6 +61,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         return Ok(());
     }
     let state = AppState::new(pool, config.clone()).await?;
+    if command == "cleanup-media" {
+        state.media.cleanup(&state.pool).await?;
+        tracing::info!("Media cleanup completed");
+        return Ok(());
+    }
     if command == "bootstrap-owner" {
         bootstrap_owner(
             &state,
@@ -70,6 +76,23 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         .await?;
         tracing::info!("Owner created; credentials were not logged");
         return Ok(());
+    }
+    if state.config.r2.is_some() {
+        let cleanup_state = state.clone();
+        tokio::spawn(async move {
+            let mut interval = tokio::time::interval(std::time::Duration::from_secs(15 * 60));
+            loop {
+                interval.tick().await;
+                if cleanup_state
+                    .media
+                    .cleanup(&cleanup_state.pool)
+                    .await
+                    .is_err()
+                {
+                    tracing::warn!("Media cleanup failed; retained records will be retried");
+                }
+            }
+        });
     }
     let address = format!("{}:{}", config.host, config.port);
     let listener = tokio::net::TcpListener::bind(&address).await?;

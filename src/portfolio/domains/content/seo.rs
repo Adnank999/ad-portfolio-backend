@@ -129,7 +129,7 @@ pub fn structured_data(record: &Record, config: &Config) -> AppResult<Value> {
 }
 
 pub async fn sitemap(pool: &sqlx::PgPool, config: &Config) -> AppResult<String> {
-    let rows=sqlx::query_as::<_,Record>("SELECT c.*,u.name AS author_name,u.headline AS author_headline FROM content_items c JOIN users u ON u.id=c.author_id WHERE c.status='published' AND c.published_at<=now() AND c.deleted_at IS NULL AND COALESCE((c.seo->>'noIndex')::boolean,false)=false ORDER BY c.kind,c.slug").fetch_all(pool).await?;
+    let rows=sqlx::query_as::<_,Record>(&format!("{} WHERE c.status='published' AND c.published_at<=now() AND c.deleted_at IS NULL AND COALESCE((c.seo->>'noIndex')::boolean,false)=false ORDER BY c.kind,c.slug", super::repository::SELECT)).fetch_all(pool).await?;
     let mut xml=String::from("<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
     for record in rows {
         if record.kind == "service" && record.fields["enabled"] != true {

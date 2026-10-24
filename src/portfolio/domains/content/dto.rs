@@ -85,6 +85,8 @@ pub struct Faq {
 #[derive(Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
 pub struct ContentWrite {
+    #[serde(default)]
+    pub asset_ids: Vec<uuid::Uuid>,
     pub slug: String,
     pub title: String,
     pub description: String,

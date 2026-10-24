@@ -19,6 +19,9 @@ use serde_json::{json, Value};
 use sqlx::{postgres::PgPoolOptions, PgPool};
 use tower::ServiceExt;
 
+#[path = "portfolio_media.rs"]
+mod media;
+
 const PASSWORD: &str = "test-only-password-123!";
 fn config() -> Config {
     Config {
@@ -33,6 +36,7 @@ fn config() -> Config {
         refresh_days: 7,
         reset_email: None,
         ai: None,
+        r2: None,
     }
 }
 struct Reply {

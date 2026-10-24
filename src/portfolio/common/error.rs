@@ -19,10 +19,16 @@ pub enum AppError {
     Conflict(String),
     #[error("Too many authentication attempts; try again later")]
     RateLimited,
+    #[error("Too many image uploads; wait before trying again")]
+    UploadRateLimited,
     #[error("Internal server error")]
     Internal,
     #[error("This service is not configured")]
     Unavailable,
+    #[error("Image storage is temporarily unavailable. Retry completion if the upload already succeeded")]
+    StorageUnavailable,
+    #[error("Upload session expired; select the image again")]
+    UploadExpired,
     #[error("AI generation is not configured on the server")]
     AiUnconfigured,
     #[error("The AI provider is unavailable. Please try again later")]
@@ -63,8 +69,11 @@ impl IntoResponse for AppError {
             Self::NotFound => (StatusCode::NOT_FOUND, "not_found"),
             Self::Conflict(_) => (StatusCode::CONFLICT, "conflict"),
             Self::RateLimited => (StatusCode::TOO_MANY_REQUESTS, "rate_limited"),
+            Self::UploadRateLimited => (StatusCode::TOO_MANY_REQUESTS, "too_many_uploads"),
             Self::Internal => (StatusCode::INTERNAL_SERVER_ERROR, "internal_error"),
             Self::Unavailable => (StatusCode::SERVICE_UNAVAILABLE, "unavailable"),
+            Self::StorageUnavailable => (StatusCode::BAD_GATEWAY, "storage_unavailable"),
+            Self::UploadExpired => (StatusCode::GONE, "upload_expired"),
             Self::AiUnconfigured => (StatusCode::SERVICE_UNAVAILABLE, "ai_unconfigured"),
             Self::AiUnavailable => (StatusCode::BAD_GATEWAY, "ai_unavailable"),
             Self::AiTimeout => (StatusCode::GATEWAY_TIMEOUT, "ai_timeout"),

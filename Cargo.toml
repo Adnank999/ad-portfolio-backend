@@ -31,6 +31,9 @@ argon2 = "0.5.3"
 rand = "0.9"
 sha2 = "0.10"
 hex = "0.4"
+async-trait = "0.1.89"
+aws-sdk-s3 = { version = "=1.155.0", default-features = false, features = ["rt-tokio", "rustls", "default-https-client"] }
+image = { version = "=0.25.10", default-features = false, features = ["webp"] }
 ammonia = "4"
 regex = "1"
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }

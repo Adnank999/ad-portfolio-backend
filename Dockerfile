@@ -1,6 +1,6 @@
 FROM rust:1.97-slim-bookworm AS builder
 WORKDIR /app
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential pkg-config && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential pkg-config cmake && rm -rf /var/lib/apt/lists/*
 COPY Cargo.toml Cargo.lock build.rs ./
 COPY src/portfolio ./src/portfolio
 COPY migrations ./migrations

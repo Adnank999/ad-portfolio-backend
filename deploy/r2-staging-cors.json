@@ -1,0 +1,9 @@
+[
+  {
+    "AllowedOrigins": ["http://localhost:3000", "http://localhost:5173", "https://adnanhk.dev"],
+    "AllowedMethods": ["PUT"],
+    "AllowedHeaders": ["Content-Type", "If-None-Match"],
+    "ExposeHeaders": ["ETag"],
+    "MaxAgeSeconds": 3600
+  }
+]

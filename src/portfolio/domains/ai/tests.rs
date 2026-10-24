@@ -292,6 +292,7 @@ async fn state() -> AppState {
         refresh_days: 7,
         reset_email: None,
         ai: None,
+        r2: None,
     };
     AppState::new(
         PgPoolOptions::new()

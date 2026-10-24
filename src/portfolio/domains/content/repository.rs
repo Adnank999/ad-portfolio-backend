@@ -12,10 +12,11 @@ use serde_json::{json, Value};
 use sqlx::{FromRow, PgPool, Postgres, QueryBuilder};
 use uuid::Uuid;
 
-const SELECT: &str = "SELECT c.*,u.name AS author_name,u.headline AS author_headline FROM content_items c JOIN users u ON u.id=c.author_id ";
+pub(super) const SELECT: &str = "SELECT c.*,u.name AS author_name,u.headline AS author_headline,ARRAY(SELECT asset_id FROM content_media_assets WHERE content_id=c.id) AS media_asset_ids FROM content_items c JOIN users u ON u.id=c.author_id ";
 
 #[derive(Clone, FromRow)]
 pub struct Record {
+    pub media_asset_ids: Vec<Uuid>,
     pub id: Uuid,
     pub kind: String,
     pub slug: String,
@@ -203,6 +204,23 @@ pub async fn save(
         ));
     }
     let content_id = id.unwrap_or_else(Uuid::new_v4);
+    let previous_assets = current
+        .as_ref()
+        .map(|record| record.media_asset_ids.clone())
+        .unwrap_or_default();
+    let used_assets = crate::domains::media::service::validate_references(
+        &mut transaction,
+        &input,
+        current.as_ref(),
+        kind,
+        user,
+        state
+            .config
+            .r2
+            .as_ref()
+            .map(|config| config.public_base_url.as_str()),
+    )
+    .await?;
     let published_at = input
         .published_at
         .or_else(|| current.as_ref().and_then(|record| record.published_at))
@@ -226,6 +244,13 @@ pub async fn save(
             .execute(&mut *transaction)
             .await?;
     }
+    crate::domains::media::service::save_references(
+        &mut transaction,
+        content_id,
+        &previous_assets,
+        &used_assets,
+    )
+    .await?;
     transaction.commit().await?;
     by_id(&state.pool, kind, content_id).await
 }
@@ -287,6 +312,7 @@ pub fn present(
             .max(1)),
     );
     if admin {
+        object.insert("assetIds".into(), json!(record.media_asset_ids));
         object.insert("publishedAt".into(), json!(record.published_at));
         object.insert("updatedAt".into(), json!(record.updated_at));
         object.insert("status".into(), json!(record.status));

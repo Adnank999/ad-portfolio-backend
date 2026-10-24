@@ -51,6 +51,7 @@ pub fn create_router(state: AppState) -> AppResult<Router> {
         .merge(content::api::admin_routes(Kind::CaseStudy))
         .merge(content::api::admin_routes(Kind::Service))
         .merge(ai::api::routes())
+        .merge(crate::domains::media::api::routes())
         .route_layer(middleware::from_fn_with_state(
             state.clone(),
             auth::api::require_auth,
@@ -147,5 +148,6 @@ async fn openapi() -> Json<Value> {
         serde_json::from_str(include_str!("../../docs/openapi.json")).unwrap_or_else(|_| json!({}));
     ai::openapi::extend(&mut document);
     content::openapi::extend(&mut document);
+    crate::domains::media::openapi::extend(&mut document);
     Json(document)
 }

@@ -19,12 +19,16 @@ pub struct AppState {
     pub password_jobs: Arc<Semaphore>,
     pub dummy_hash: Arc<String>,
     pub ai: Arc<crate::domains::ai::service::AiService>,
+    pub media: Arc<crate::domains::media::service::MediaService>,
     attempts: Arc<Mutex<HashMap<IpAddr, (Instant, u32)>>>,
 }
 
 impl AppState {
     pub async fn new(pool: PgPool, config: Config) -> AppResult<Self> {
         Ok(Self {
+            media: Arc::new(crate::domains::media::service::MediaService::new(
+                config.r2.clone(),
+            )?),
             ai: Arc::new(crate::domains::ai::service::AiService::new(
                 config.ai.clone(),
             )?),

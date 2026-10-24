@@ -15,6 +15,7 @@ pub struct Config {
     pub refresh_days: i64,
     pub reset_email: Option<ResetEmailConfig>,
     pub ai: Option<crate::domains::ai::config::AiConfig>,
+    pub r2: Option<crate::domains::media::config::R2Config>,
 }
 
 #[derive(Clone)]
@@ -75,6 +76,7 @@ impl Config {
                 Err(_) => None,
             },
             ai: crate::domains::ai::config::AiConfig::from_env()?,
+            r2: crate::domains::media::config::R2Config::from_env()?,
         };
         if !(1..=100).contains(&config.max_connections)
             || !(1..=120).contains(&config.access_minutes)
