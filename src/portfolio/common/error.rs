@@ -25,6 +25,8 @@ pub enum AppError {
     Internal,
     #[error("This service is not configured")]
     Unavailable,
+    #[error("Shader activation is unavailable. Apply pending backend database migrations, restart the API, then retry")]
+    ShaderSchemaUnavailable,
     #[error("Image storage is temporarily unavailable. Retry completion if the upload already succeeded")]
     StorageUnavailable,
     #[error("Upload session expired; select the image again")]
@@ -72,6 +74,9 @@ impl IntoResponse for AppError {
             Self::UploadRateLimited => (StatusCode::TOO_MANY_REQUESTS, "too_many_uploads"),
             Self::Internal => (StatusCode::INTERNAL_SERVER_ERROR, "internal_error"),
             Self::Unavailable => (StatusCode::SERVICE_UNAVAILABLE, "unavailable"),
+            Self::ShaderSchemaUnavailable => {
+                (StatusCode::SERVICE_UNAVAILABLE, "shader_schema_unavailable")
+            }
             Self::StorageUnavailable => (StatusCode::BAD_GATEWAY, "storage_unavailable"),
             Self::UploadExpired => (StatusCode::GONE, "upload_expired"),
             Self::AiUnconfigured => (StatusCode::SERVICE_UNAVAILABLE, "ai_unconfigured"),

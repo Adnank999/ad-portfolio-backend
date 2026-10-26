@@ -353,7 +353,9 @@ impl MediaService {
 fn image_urls(value: &Value, output: &mut HashSet<String>) {
     match value {
         Value::String(text)
-            if url::Url::parse(text).is_ok_and(|url| matches!(url.scheme(), "http" | "https")) =>
+            if (text.starts_with('/') && !text.starts_with("//"))
+                || url::Url::parse(text)
+                    .is_ok_and(|url| matches!(url.scheme(), "http" | "https")) =>
         {
             output.insert(text.clone());
         }
@@ -420,6 +422,35 @@ pub async fn validate_references(
     .fetch_all(&mut **transaction)
     .await?;
     let requested: HashSet<Uuid> = input.asset_ids.iter().chain(current).copied().collect();
+    if kind == Kind::Service {
+        if let Some(visuals) = input.fields.get("visuals").and_then(Value::as_object) {
+            for visual in visuals.values() {
+                if visual["type"] == "shader"
+                    && visual.get("poster").is_none_or(|poster| poster == "")
+                {
+                    continue;
+                }
+                let image = visual
+                    .get(if visual["type"] == "shader" {
+                        "poster"
+                    } else {
+                        "src"
+                    })
+                    .and_then(Value::as_str)
+                    .ok_or_else(|| AppError::Invalid("Missing service visual image".into()))?;
+                if !legacy_urls.contains(image)
+                    && !assets
+                        .iter()
+                        .any(|asset| asset.public_url == image && requested.contains(&asset.id))
+                {
+                    return Err(AppError::Invalid(
+                        "New service images and shader posters require a verified media asset ID"
+                            .into(),
+                    ));
+                }
+            }
+        }
+    }
     if requested
         .iter()
         .any(|id| !assets.iter().any(|asset| &asset.id == id))
@@ -478,6 +509,9 @@ pub async fn validate_references(
             }
             Purpose::ServiceImage => {
                 if let Some(value) = input.fields.get("media") {
+                    image_urls(value, &mut allowed_urls);
+                }
+                if let Some(value) = input.fields.get("visuals") {
                     image_urls(value, &mut allowed_urls);
                 }
             }

@@ -50,6 +50,7 @@ pub fn create_router(state: AppState) -> AppResult<Router> {
         .merge(content::api::admin_routes(Kind::Project))
         .merge(content::api::admin_routes(Kind::CaseStudy))
         .merge(content::api::admin_routes(Kind::Service))
+        .merge(content::visuals::routes())
         .merge(ai::api::routes())
         .merge(crate::domains::media::api::routes())
         .route_layer(middleware::from_fn_with_state(

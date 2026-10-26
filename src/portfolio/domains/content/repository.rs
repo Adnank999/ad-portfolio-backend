@@ -204,6 +204,14 @@ pub async fn save(
         ));
     }
     let content_id = id.unwrap_or_else(Uuid::new_v4);
+    if kind == Kind::Service {
+        super::visuals::validate_assignments(
+            &mut transaction,
+            &input.fields,
+            current.as_ref().map(|record| &record.fields),
+        )
+        .await?;
+    }
     let previous_assets = current
         .as_ref()
         .map(|record| record.media_asset_ids.clone())

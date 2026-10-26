@@ -2,7 +2,8 @@ target
 .git
 .env
 .env.*
-assets
+/assets/*
+!/assets/shaders.manifest.json
 .sqlx
 db-seed
 backups

@@ -5,6 +5,7 @@ COPY Cargo.toml Cargo.lock build.rs ./
 COPY src/portfolio ./src/portfolio
 COPY migrations ./migrations
 COPY examples ./examples
+COPY assets ./assets
 COPY docs/openapi.json docs/swagger-ui.html ./docs/
 RUN cargo build --locked --release --bin portfolio-api
 

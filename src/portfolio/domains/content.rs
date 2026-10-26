@@ -7,6 +7,7 @@ pub mod repository;
 pub mod seo;
 pub mod service;
 pub mod services;
+pub mod visuals;
 
 #[cfg(test)]
 mod gallery_tests;

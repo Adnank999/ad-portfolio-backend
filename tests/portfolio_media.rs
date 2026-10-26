@@ -131,6 +131,155 @@ async fn setup(pool: PgPool) -> (AppState, Router, String, Arc<MemoryStorage>) {
     (state, app, token, storage)
 }
 
+#[sqlx::test(migrations = "./migrations")]
+#[ignore = "Requires disposable PostgreSQL with CREATEDB; run in CI"]
+async fn shader_activation_reports_missing_migration_and_recovers_after_migrating(pool: PgPool) {
+    let (state, app, token, _storage) = setup(pool).await;
+    let initial = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    assert_eq!(initial.status, StatusCode::OK);
+    let entry = &initial.body["shaders"][0];
+    sqlx::raw_sql(
+        "DROP TABLE shader_activations; DELETE FROM _sqlx_migrations WHERE version=202610270001;",
+    )
+    .execute(&state.pool)
+    .await
+    .unwrap();
+    let missing = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    assert_eq!(missing.status, StatusCode::SERVICE_UNAVAILABLE);
+    assert_eq!(missing.body["error"]["code"], "shader_schema_unavailable");
+    assert!(missing.body["error"]["message"]
+        .as_str()
+        .unwrap()
+        .contains("Apply pending backend database migrations"));
+    assert!(!missing.body.to_string().contains("SELECT"));
+    assert_eq!(
+        call(&app, "GET", "/api/v1/admin/shaders", None, None)
+            .await
+            .status,
+        StatusCode::UNAUTHORIZED
+    );
+    let path = format!(
+        "/api/v1/admin/shaders/{}/activation",
+        entry["id"].as_str().unwrap()
+    );
+    let input = json!({"version":entry["version"],"contract":entry["contract"],"active":false});
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(input.clone()))
+            .await
+            .status,
+        StatusCode::SERVICE_UNAVAILABLE
+    );
+    let mut transaction = state.pool.begin().await.unwrap();
+    assert!(matches!(
+        portfolio_api::domains::content::visuals::validate_assignments(
+            &mut transaction,
+            &json!({"visuals":{"hero":{"type":"shader","shader":entry["id"],"version":entry["version"]}}}),
+            None,
+        ).await,
+        Err(AppError::ShaderSchemaUnavailable)
+    ));
+    transaction.rollback().await.unwrap();
+    assert_eq!(
+        call(&app, "GET", "/api/v1/services", None, None)
+            .await
+            .status,
+        StatusCode::OK
+    );
+    portfolio_api::MIGRATOR.run(&state.pool).await.unwrap();
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(input))
+            .await
+            .status,
+        StatusCode::OK
+    );
+    let recovered = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    assert_eq!(recovered.status, StatusCode::OK);
+    assert_eq!(recovered.body["shaders"][0]["active"], false);
+}
+
+#[sqlx::test(migrations = "./migrations")]
+#[ignore = "Requires disposable PostgreSQL with CREATEDB; run in CI"]
+async fn service_shaders_save_without_any_poster_upload_or_media_reference(pool: PgPool) {
+    let (state, app, token, _storage) = setup(pool).await;
+    let manifest = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    assert_eq!(manifest.status, StatusCode::OK);
+    let entry = &manifest.body["shaders"][0];
+    let activated = call(
+        &app,
+        "PUT",
+        &format!(
+            "/api/v1/admin/shaders/{}/activation",
+            entry["id"].as_str().unwrap()
+        ),
+        Some(&token),
+        Some(json!({"version":entry["version"],"contract":entry["contract"],"active":true})),
+    )
+    .await;
+    assert_eq!(activated.status, StatusCode::OK);
+    let seeds: Vec<Value> =
+        serde_json::from_str(include_str!("../examples/services.json")).unwrap();
+    let mut input = seeds[0].clone();
+    input["seo"] = json!({});
+    input["assetIds"] = json!([]);
+    input["fields"]["media"] = json!([]);
+    input["fields"]["visuals"] = json!({});
+    for slot in [
+        "hero",
+        "overview",
+        "spotlight",
+        "article-1",
+        "article-2",
+        "article-3",
+    ] {
+        input["fields"]["visuals"][slot] = json!({"type":"shader","shader":entry["id"],"version":entry["version"],"props":entry["defaults"],"alt":"Crimson background effect"});
+    }
+    let saved = call(
+        &app,
+        "POST",
+        "/api/v1/admin/services",
+        Some(&token),
+        Some(input.clone()),
+    )
+    .await;
+    assert_eq!(saved.status, StatusCode::CREATED, "{}", saved.body);
+    assert_eq!(saved.body["assetIds"], json!([]));
+    assert_eq!(saved.body["fields"]["visuals"], input["fields"]["visuals"]);
+    let public = call(
+        &app,
+        "GET",
+        &format!("/api/v1/services/{}", input["slug"].as_str().unwrap()),
+        None,
+        None,
+    )
+    .await;
+    assert_eq!(public.status, StatusCode::OK);
+    assert_eq!(public.body["visuals"], input["fields"]["visuals"]);
+    assert!(public.body["seo"]["ogImage"]
+        .as_str()
+        .is_some_and(|image| !image.is_empty()));
+    input["version"] = saved.body["version"].clone();
+    input["fields"]["visuals"]["hero"]["poster"] = json!("");
+    let path = format!(
+        "/api/v1/admin/services/{}",
+        saved.body["id"].as_str().unwrap()
+    );
+    let edited = call(&app, "PUT", &path, Some(&token), Some(input.clone())).await;
+    assert_eq!(edited.status, StatusCode::OK, "{}", edited.body);
+    input["version"] = edited.body["version"].clone();
+    input["fields"]["visuals"]["hero"]["poster"] = json!("https://external.test/unverified.webp");
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(input))
+            .await
+            .status,
+        StatusCode::UNPROCESSABLE_ENTITY
+    );
+    let references: i64 = sqlx::query_scalar("SELECT count(*) FROM content_media_assets")
+        .fetch_one(&state.pool)
+        .await
+        .unwrap();
+    assert_eq!(references, 0);
+}
+
 async fn sign(app: &Router, token: &str, purpose: &str) -> Value {
     let reply = call(app, "POST", "/api/v1/admin/uploads/presign", Some(token), Some(json!({"purpose":purpose,"originalName":"../../source.png","contentType":"image/webp","sizeBytes":webp().len(),"width":16,"height":9}))).await;
     assert_eq!(reply.status, StatusCode::CREATED, "{}", reply.body);
@@ -163,6 +312,484 @@ async fn complete(app: &Router, token: &str, signed: &Value) -> super::Reply {
         Some(json!({})),
     )
     .await
+}
+
+#[sqlx::test(migrations = "./migrations")]
+#[ignore = "Requires disposable PostgreSQL with CREATEDB; run in CI"]
+async fn service_shader_visuals_persist_validated_settings_and_protect_their_ready_posters(
+    pool: PgPool,
+) {
+    let (state, app, token, storage) = setup(pool).await;
+    assert_eq!(
+        call(&app, "GET", "/api/v1/admin/shaders", None, None)
+            .await
+            .status,
+        StatusCode::UNAUTHORIZED
+    );
+    let manifest = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    assert_eq!(manifest.status, StatusCode::OK);
+    let entries = manifest.body["shaders"].as_array().unwrap();
+    let configured = portfolio_api::domains::content::visuals::catalog().unwrap();
+    assert_eq!(
+        entries.len(),
+        configured.manifest["shaders"].as_array().unwrap().len()
+    );
+    assert!(!entries.is_empty());
+    for entry in entries {
+        if entry["active"] == false {
+            let path = format!(
+                "/api/v1/admin/shaders/{}/activation",
+                entry["id"].as_str().unwrap()
+            );
+            let activated = call(
+                &app,
+                "PUT",
+                &path,
+                Some(&token),
+                Some(
+                    json!({"version":entry["version"],"contract":entry["contract"],"active":true}),
+                ),
+            )
+            .await;
+            assert_eq!(activated.status, StatusCode::OK, "{}", activated.body);
+        }
+    }
+    let signed = sign(&app, &token, "service_image").await;
+    upload(&storage, &signed, webp(), "image/webp");
+    let poster = complete(&app, &token, &signed).await;
+    assert_eq!(poster.status, StatusCode::OK);
+    let seeds: Vec<Value> =
+        serde_json::from_str(include_str!("../examples/services.json")).unwrap();
+    let mut input = seeds[0].clone();
+    input["seo"] = json!({});
+    input["assetIds"] = json!([poster.body["assetId"]]);
+    input["fields"]["visuals"] = json!({});
+    for (index, slot) in [
+        "hero",
+        "overview",
+        "spotlight",
+        "article-1",
+        "article-2",
+        "article-3",
+    ]
+    .iter()
+    .enumerate()
+    {
+        let entry = &entries[index % entries.len()];
+        input["fields"]["visuals"][*slot] = json!({"type":"shader","shader":entry["id"],"version":entry["version"],"props":entry["defaults"],"poster":poster.body["publicUrl"],"alt":"Approved poster"});
+    }
+    let saved = call(
+        &app,
+        "POST",
+        "/api/v1/admin/services",
+        Some(&token),
+        Some(input.clone()),
+    )
+    .await;
+    assert_eq!(saved.status, StatusCode::CREATED, "{}", saved.body);
+    assert_eq!(saved.body["fields"]["visuals"], input["fields"]["visuals"]);
+    let read = call(
+        &app,
+        "GET",
+        &format!("/api/v1/services/{}", input["slug"].as_str().unwrap()),
+        None,
+        None,
+    )
+    .await;
+    assert_eq!(read.status, StatusCode::OK);
+    assert_eq!(read.body["visuals"], input["fields"]["visuals"]);
+    assert_eq!(read.body["seo"]["ogImage"], poster.body["publicUrl"]);
+    let count: i64 =
+        sqlx::query_scalar("SELECT count(*) FROM content_media_assets WHERE asset_id=$1")
+            .bind(Uuid::parse_str(poster.body["assetId"].as_str().unwrap()).unwrap())
+            .fetch_one(&state.pool)
+            .await
+            .unwrap();
+    assert_eq!(count, 1);
+    for (key, value) in [
+        ("version", json!(999)),
+        ("shader", json!("draft-effect")),
+        ("poster", json!("https://external.test/unverified.webp")),
+    ] {
+        let mut invalid = input.clone();
+        invalid["fields"]["visuals"]["hero"][key] = value;
+        assert_eq!(
+            call(
+                &app,
+                "POST",
+                "/api/v1/admin/services",
+                Some(&token),
+                Some(invalid)
+            )
+            .await
+            .status,
+            StatusCode::UNPROCESSABLE_ENTITY
+        );
+    }
+    let mut invalid = input.clone();
+    invalid["fields"]["visuals"]["hero"]["props"]["onClick"] = json!("alert(1)");
+    assert_eq!(
+        call(
+            &app,
+            "POST",
+            "/api/v1/admin/services",
+            Some(&token),
+            Some(invalid)
+        )
+        .await
+        .status,
+        StatusCode::UNPROCESSABLE_ENTITY
+    );
+    let mut edited = input.clone();
+    edited["version"] = saved.body["version"].clone();
+    edited["fields"]["visuals"]["overview"] =
+        json!({"type":"image","src":poster.body["publicUrl"],"alt":"Approved still image"});
+    let updated = call(
+        &app,
+        "PUT",
+        &format!(
+            "/api/v1/admin/services/{}",
+            saved.body["id"].as_str().unwrap()
+        ),
+        Some(&token),
+        Some(edited.clone()),
+    )
+    .await;
+    assert_eq!(updated.status, StatusCode::OK, "{}", updated.body);
+    assert_eq!(
+        updated.body["fields"]["visuals"],
+        edited["fields"]["visuals"]
+    );
+    assert_eq!(
+        call(
+            &app,
+            "PUT",
+            &format!(
+                "/api/v1/admin/services/{}",
+                saved.body["id"].as_str().unwrap()
+            ),
+            Some(&token),
+            Some(edited)
+        )
+        .await
+        .status,
+        StatusCode::CONFLICT
+    );
+}
+
+#[sqlx::test(migrations = "./migrations")]
+#[ignore = "Requires disposable PostgreSQL with CREATEDB; run in CI"]
+async fn service_visuals_reject_wrong_purpose_posters_and_catalog_requires_service_permission(
+    pool: PgPool,
+) {
+    let (_state, app, token, storage) = setup(pool).await;
+    let signed = sign(&app, &token, "blog_cover").await;
+    upload(&storage, &signed, webp(), "image/webp");
+    let poster = complete(&app, &token, &signed).await;
+    let seeds: Vec<Value> =
+        serde_json::from_str(include_str!("../examples/services.json")).unwrap();
+    let mut input = seeds[0].clone();
+    input["assetIds"] = json!([poster.body["assetId"]]);
+    input["fields"]["visuals"] =
+        json!({"hero":{"type":"image","src":poster.body["publicUrl"],"alt":"Wrong purpose image"}});
+    assert_eq!(
+        call(
+            &app,
+            "POST",
+            "/api/v1/admin/services",
+            Some(&token),
+            Some(input)
+        )
+        .await
+        .status,
+        StatusCode::FORBIDDEN
+    );
+    let registered = call(
+        &app,
+        "POST",
+        "/api/v1/auth/register",
+        None,
+        Some(json!({"name":"Reader","email":"reader@test.invalid","password":PASSWORD})),
+    )
+    .await;
+    assert_eq!(registered.status, StatusCode::CREATED);
+    let login = call(
+        &app,
+        "POST",
+        "/api/v1/auth/login",
+        None,
+        Some(json!({"email":"reader@test.invalid","password":PASSWORD})),
+    )
+    .await;
+    let reader = login.body["accessToken"].as_str().unwrap();
+    assert_eq!(
+        call(&app, "GET", "/api/v1/admin/shaders", Some(reader), None)
+            .await
+            .status,
+        StatusCode::FORBIDDEN
+    );
+}
+
+#[sqlx::test(migrations = "./migrations")]
+#[ignore = "Requires disposable PostgreSQL with CREATEDB; run in CI"]
+async fn existing_service_images_can_be_promoted_to_shader_posters_without_backfill(pool: PgPool) {
+    let (_state, app, token, _storage) = setup(pool).await;
+    let seeds: Vec<Value> =
+        serde_json::from_str(include_str!("../examples/services.json")).unwrap();
+    let mut input = seeds[0].clone();
+    input["fields"]["media"] = json!([{"slot":"hero","kind":"image","url":"/uploads/old-hero.webp","alt":"Existing hero","poster":"","caption":""}]);
+    let saved = call(
+        &app,
+        "POST",
+        "/api/v1/admin/services",
+        Some(&token),
+        Some(input.clone()),
+    )
+    .await;
+    assert_eq!(saved.status, StatusCode::CREATED, "{}", saved.body);
+    let manifest = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    let entry = &manifest.body["shaders"][0];
+    input["version"] = saved.body["version"].clone();
+    input["fields"]["visuals"] = json!({"hero":{"type":"shader","shader":entry["id"],"version":entry["version"],"props":entry["defaults"],"poster":"/uploads/old-hero.webp","alt":"Existing hero as poster"}});
+    let updated = call(
+        &app,
+        "PUT",
+        &format!(
+            "/api/v1/admin/services/{}",
+            saved.body["id"].as_str().unwrap()
+        ),
+        Some(&token),
+        Some(input.clone()),
+    )
+    .await;
+    assert_eq!(updated.status, StatusCode::OK, "{}", updated.body);
+    assert_eq!(updated.body["fields"]["media"], input["fields"]["media"]);
+    assert_eq!(
+        updated.body["fields"]["visuals"],
+        input["fields"]["visuals"]
+    );
+}
+
+#[sqlx::test(migrations = "./migrations")]
+#[ignore = "Requires disposable PostgreSQL with CREATEDB; run in CI"]
+async fn shader_activation_persists_enforces_permissions_and_preserves_existing_pages(
+    pool: PgPool,
+) {
+    let (state, app, token, _storage) = setup(pool).await;
+    let catalog = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    assert_eq!(catalog.status, StatusCode::OK);
+    assert_eq!(catalog.body["canManage"], true);
+    let entry = catalog.body["shaders"][0].clone();
+    let path = format!(
+        "/api/v1/admin/shaders/{}/activation",
+        entry["id"].as_str().unwrap()
+    );
+    let activation =
+        |active| json!({"version":entry["version"],"contract":entry["contract"],"active":active});
+    let mut input: Value =
+        serde_json::from_str::<Vec<Value>>(include_str!("../examples/services.json"))
+            .unwrap()
+            .remove(0);
+    input["fields"]["media"] = json!([{"slot":"hero","kind":"image","url":"/old-poster.webp","alt":"Existing poster","poster":"","caption":""}]);
+    let saved = call(
+        &app,
+        "POST",
+        "/api/v1/admin/services",
+        Some(&token),
+        Some(input.clone()),
+    )
+    .await;
+    assert_eq!(saved.status, StatusCode::CREATED, "{}", saved.body);
+    let service_path = format!(
+        "/api/v1/admin/services/{}",
+        saved.body["id"].as_str().unwrap()
+    );
+    let disabled = call(&app, "PUT", &path, Some(&token), Some(activation(false))).await;
+    assert_eq!(disabled.status, StatusCode::OK, "{}", disabled.body);
+    assert_eq!(disabled.body["shaders"][0]["active"], false);
+    let recreated = create_router(state.clone()).unwrap();
+    let reread = call(
+        &recreated,
+        "GET",
+        "/api/v1/admin/shaders",
+        Some(&token),
+        None,
+    )
+    .await;
+    assert_eq!(reread.body["shaders"][0]["active"], false);
+    assert_eq!(
+        call(&app, "PUT", &path, None, Some(activation(true)))
+            .await
+            .status,
+        StatusCode::UNAUTHORIZED
+    );
+    let mut stale = activation(true);
+    stale["contract"] = json!("0".repeat(64));
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(stale))
+            .await
+            .status,
+        StatusCode::CONFLICT
+    );
+    let mut stale = activation(true);
+    stale["version"] = json!(999);
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(stale))
+            .await
+            .status,
+        StatusCode::CONFLICT
+    );
+    assert_eq!(
+        call(
+            &app,
+            "PUT",
+            "/api/v1/admin/shaders/unconfigured-draft/activation",
+            Some(&token),
+            Some(activation(true))
+        )
+        .await
+        .status,
+        StatusCode::NOT_FOUND
+    );
+    let mut executable = activation(true);
+    executable["source"] = json!("alert(1)");
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(executable))
+            .await
+            .status,
+        StatusCode::UNPROCESSABLE_ENTITY
+    );
+    let registered = call(
+        &app,
+        "POST",
+        "/api/v1/auth/register",
+        None,
+        Some(json!({"name":"Editor","email":"shader-editor@test.invalid","password":PASSWORD})),
+    )
+    .await;
+    assert_eq!(registered.status, StatusCode::CREATED);
+    sqlx::query("INSERT INTO user_roles(user_id,role_id) SELECT users.id,roles.id FROM users CROSS JOIN roles WHERE users.email='shader-editor@test.invalid' AND roles.name='editor' ON CONFLICT DO NOTHING").execute(&state.pool).await.unwrap();
+    let login = call(
+        &app,
+        "POST",
+        "/api/v1/auth/login",
+        None,
+        Some(json!({"email":"shader-editor@test.invalid","password":PASSWORD})),
+    )
+    .await;
+    let editor_token = login.body["accessToken"].as_str().unwrap();
+    let editor_catalog = call(
+        &app,
+        "GET",
+        "/api/v1/admin/shaders",
+        Some(editor_token),
+        None,
+    )
+    .await;
+    assert_eq!(editor_catalog.status, StatusCode::OK);
+    assert_eq!(editor_catalog.body["canManage"], false);
+    assert_eq!(
+        call(
+            &app,
+            "PUT",
+            &path,
+            Some(editor_token),
+            Some(activation(true))
+        )
+        .await
+        .status,
+        StatusCode::FORBIDDEN
+    );
+    input["version"] = saved.body["version"].clone();
+    let visual = json!({"type":"shader","shader":entry["id"],"version":entry["version"],"props":entry["defaults"],"poster":"/old-poster.webp","alt":"Approved shader poster"});
+    input["fields"]["visuals"] = json!({"hero":visual});
+    assert_eq!(
+        call(
+            &app,
+            "PUT",
+            &service_path,
+            Some(&token),
+            Some(input.clone())
+        )
+        .await
+        .status,
+        StatusCode::UNPROCESSABLE_ENTITY
+    );
+    for _attempt in 0..2 {
+        assert_eq!(
+            call(&app, "PUT", &path, Some(&token), Some(activation(true)))
+                .await
+                .status,
+            StatusCode::OK
+        );
+    }
+    let attached = call(
+        &app,
+        "PUT",
+        &service_path,
+        Some(&token),
+        Some(input.clone()),
+    )
+    .await;
+    assert_eq!(attached.status, StatusCode::OK, "{}", attached.body);
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(activation(false)))
+            .await
+            .status,
+        StatusCode::OK
+    );
+    input["version"] = attached.body["version"].clone();
+    input["title"] = json!("Existing shader remains editable");
+    let preserved = call(
+        &app,
+        "PUT",
+        &service_path,
+        Some(&token),
+        Some(input.clone()),
+    )
+    .await;
+    assert_eq!(preserved.status, StatusCode::OK, "{}", preserved.body);
+    let public = call(
+        &app,
+        "GET",
+        &format!("/api/v1/services/{}", input["slug"].as_str().unwrap()),
+        None,
+        None,
+    )
+    .await;
+    assert_eq!(public.status, StatusCode::OK);
+    assert_eq!(public.body["visuals"]["hero"], visual);
+    input["version"] = preserved.body["version"].clone();
+    input["fields"]["visuals"]["overview"] = visual;
+    assert_eq!(
+        call(
+            &app,
+            "PUT",
+            &service_path,
+            Some(&token),
+            Some(input.clone())
+        )
+        .await
+        .status,
+        StatusCode::UNPROCESSABLE_ENTITY
+    );
+    assert_eq!(
+        call(&app, "PUT", &path, Some(&token), Some(activation(true)))
+            .await
+            .status,
+        StatusCode::OK
+    );
+    assert_eq!(
+        call(&app, "PUT", &service_path, Some(&token), Some(input))
+            .await
+            .status,
+        StatusCode::OK
+    );
+    let count: i64 = sqlx::query_scalar("SELECT count(*) FROM shader_activations")
+        .fetch_one(&state.pool)
+        .await
+        .unwrap();
+    assert_eq!(count, 1);
 }
 
 #[sqlx::test(migrations = "./migrations")]

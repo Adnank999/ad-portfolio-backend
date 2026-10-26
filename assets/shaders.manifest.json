@@ -1,0 +1,6647 @@
+{
+  "formatVersion": 1,
+  "shaders": [
+    {
+      "id": "antigravity",
+      "name": "Antigravity",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "colorMode": "conic",
+        "particleShape": "capsule",
+        "count": 1500,
+        "magnetRadius": 9,
+        "ringRadius": 7,
+        "waveSpeed": 0.4,
+        "waveAmplitude": 1,
+        "waveCount": 3,
+        "particleSize": 0.9,
+        "lerpSpeed": 0.05,
+        "particleVariance": 1,
+        "rotationSpeed": 0,
+        "depthFactor": 1,
+        "pulseSpeed": 3,
+        "fieldStrength": 10,
+        "ambient": 0.25,
+        "colorSpeed": 0.05,
+        "autoAnimate": true,
+        "interactive": true,
+        "clickBurst": true,
+        "intro": false,
+        "opacity": 1
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "colorMode": {
+            "type": "string",
+            "enum": [
+              "conic",
+              "radial",
+              "random"
+            ]
+          },
+          "particleShape": {
+            "type": "string",
+            "enum": [
+              "capsule",
+              "sphere",
+              "box",
+              "tetrahedron"
+            ]
+          },
+          "count": {
+            "type": "number",
+            "minimum": 100,
+            "maximum": 5000
+          },
+          "magnetRadius": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "ringRadius": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "waveSpeed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "waveAmplitude": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "waveCount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 8
+          },
+          "particleSize": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "lerpSpeed": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 0.3
+          },
+          "particleVariance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "rotationSpeed": {
+            "type": "number",
+            "minimum": -2,
+            "maximum": 2
+          },
+          "depthFactor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "pulseSpeed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 6
+          },
+          "fieldStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "ambient": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "colorSpeed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "autoAnimate": {
+            "type": "boolean"
+          },
+          "interactive": {
+            "type": "boolean"
+          },
+          "clickBurst": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "colors",
+          "colorMode",
+          "particleShape",
+          "count",
+          "magnetRadius",
+          "ringRadius",
+          "waveSpeed",
+          "waveAmplitude",
+          "waveCount",
+          "particleSize",
+          "lerpSpeed",
+          "particleVariance",
+          "rotationSpeed",
+          "depthFactor",
+          "pulseSpeed",
+          "fieldStrength",
+          "ambient",
+          "colorSpeed",
+          "autoAnimate",
+          "interactive",
+          "clickBurst",
+          "intro",
+          "opacity"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "colors",
+          "label": "Colors"
+        },
+        {
+          "options": [
+            {
+              "label": "Conic",
+              "value": "conic"
+            },
+            {
+              "label": "Radial",
+              "value": "radial"
+            },
+            {
+              "label": "Random",
+              "value": "random"
+            }
+          ],
+          "kind": "select",
+          "key": "colorMode",
+          "label": "Color Mode"
+        },
+        {
+          "options": [
+            {
+              "label": "Capsule",
+              "value": "capsule"
+            },
+            {
+              "label": "Sphere",
+              "value": "sphere"
+            },
+            {
+              "label": "Box",
+              "value": "box"
+            },
+            {
+              "label": "Tetrahedron",
+              "value": "tetrahedron"
+            }
+          ],
+          "kind": "select",
+          "key": "particleShape",
+          "label": "Particle Shape"
+        },
+        {
+          "min": 100,
+          "max": 5000,
+          "step": 100,
+          "kind": "slider",
+          "key": "count",
+          "label": "Count"
+        },
+        {
+          "min": 0,
+          "max": 20,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "magnetRadius",
+          "label": "Magnet Radius"
+        },
+        {
+          "min": 0,
+          "max": 20,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "ringRadius",
+          "label": "Ring Radius"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waveSpeed",
+          "label": "Wave Speed"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waveAmplitude",
+          "label": "Wave Amplitude"
+        },
+        {
+          "min": 0,
+          "max": 8,
+          "step": 1,
+          "kind": "slider",
+          "key": "waveCount",
+          "label": "Wave Count"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "particleSize",
+          "label": "Particle Size"
+        },
+        {
+          "min": 0.001,
+          "max": 0.3,
+          "step": 0.001,
+          "kind": "slider",
+          "key": "lerpSpeed",
+          "label": "Lerp Speed"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "particleVariance",
+          "label": "Particle Variance"
+        },
+        {
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "rotationSpeed",
+          "label": "Rotation Speed"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "depthFactor",
+          "label": "Depth Factor"
+        },
+        {
+          "min": 0,
+          "max": 6,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulseSpeed",
+          "label": "Pulse Speed"
+        },
+        {
+          "min": 0,
+          "max": 20,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fieldStrength",
+          "label": "Field Strength"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "ambient",
+          "label": "Ambient"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "colorSpeed",
+          "label": "Color Speed"
+        },
+        {
+          "kind": "toggle",
+          "key": "autoAnimate",
+          "label": "Auto Animate"
+        },
+        {
+          "kind": "toggle",
+          "key": "interactive",
+          "label": "Interactive"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickBurst",
+          "label": "Click Burst"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        }
+      ],
+      "contract": "3ffdd8d58f5af8f2acec651af0644d8d666001793a0a0d3ebdd7b6ff6722b170",
+      "defaultActive": false
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "version": 1,
+      "defaults": {
+        "colorStops": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "amplitude": 1,
+        "blend": 0.5,
+        "speed": 1,
+        "height": 0.45,
+        "scale": 1,
+        "glow": 0.6,
+        "brightness": 1,
+        "layers": 1,
+        "direction": "top",
+        "mouseInteraction": true,
+        "intro": false,
+        "opacity": 1
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colorStops": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "amplitude": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "blend": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "height": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 1
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 4
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "layers": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "top",
+              "bottom"
+            ]
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "colorStops",
+          "amplitude",
+          "blend",
+          "speed",
+          "height",
+          "scale",
+          "glow",
+          "brightness",
+          "layers",
+          "direction",
+          "mouseInteraction",
+          "intro",
+          "opacity"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "colorStops",
+          "label": "Color Stops"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "amplitude",
+          "label": "Amplitude"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "blend",
+          "label": "Blend"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0.05,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "height",
+          "label": "Height"
+        },
+        {
+          "min": 0.1,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "scale",
+          "label": "Scale"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "kind": "slider",
+          "key": "layers",
+          "label": "Layers"
+        },
+        {
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            }
+          ],
+          "kind": "select",
+          "key": "direction",
+          "label": "Direction"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        }
+      ],
+      "contract": "f00da7ad57ea9c9eaf2b9bf8cde97b0ae4516de69d488388eb05b8addd5afe27",
+      "defaultActive": false
+    },
+    {
+      "id": "crystalized-ball",
+      "name": "Crystalized Ball",
+      "version": 1,
+      "defaults": {
+        "preset": "plasma",
+        "size": 0.7,
+        "speed": 1,
+        "interactive": true,
+        "hoverStrength": 0.7,
+        "intro": false,
+        "theme": "dark",
+        "color": "#C21E56",
+        "particleCount": 8000
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "particleCount": {
+            "type": "number",
+            "minimum": 1000,
+            "maximum": 15000
+          },
+          "preset": {
+            "type": "string",
+            "enum": [
+              "plasma",
+              "aurora",
+              "nebula",
+              "ember",
+              "frost",
+              "solar",
+              "eclipse",
+              "abyss"
+            ]
+          },
+          "size": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 1.5
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "interactive": {
+            "type": "boolean"
+          },
+          "hoverStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "theme": {
+            "type": "string",
+            "enum": [
+              "dark",
+              "light"
+            ]
+          }
+        },
+        "required": [
+          "color",
+          "particleCount",
+          "preset",
+          "size",
+          "speed",
+          "interactive",
+          "hoverStrength",
+          "intro",
+          "theme"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "color",
+          "label": "Ball color"
+        },
+        {
+          "kind": "slider",
+          "key": "particleCount",
+          "label": "Particles",
+          "min": 1000,
+          "max": 15000,
+          "step": 1000
+        },
+        {
+          "options": [
+            {
+              "label": "Plasma",
+              "value": "plasma"
+            },
+            {
+              "label": "Aurora",
+              "value": "aurora"
+            },
+            {
+              "label": "Nebula",
+              "value": "nebula"
+            },
+            {
+              "label": "Ember",
+              "value": "ember"
+            },
+            {
+              "label": "Frost",
+              "value": "frost"
+            },
+            {
+              "label": "Solar",
+              "value": "solar"
+            },
+            {
+              "label": "Eclipse",
+              "value": "eclipse"
+            },
+            {
+              "label": "Abyss",
+              "value": "abyss"
+            }
+          ],
+          "kind": "select",
+          "key": "preset",
+          "label": "Preset"
+        },
+        {
+          "min": 0.2,
+          "max": 1.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "size",
+          "label": "Size"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "kind": "toggle",
+          "key": "interactive",
+          "label": "Interactive"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "hoverStrength",
+          "label": "Hover Strength"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "options": [
+            {
+              "label": "Dark",
+              "value": "dark"
+            },
+            {
+              "label": "Light",
+              "value": "light"
+            }
+          ],
+          "kind": "select",
+          "key": "theme",
+          "label": "Theme"
+        }
+      ],
+      "contract": "0884e0689aae53087c28083f3769093d738c447217ed6e618625f99cb0f5eb58",
+      "defaultActive": false
+    },
+    {
+      "id": "dither-veil",
+      "name": "Dither Veil",
+      "version": 1,
+      "defaults": {
+        "pattern": "floyd",
+        "palette": "duotone",
+        "inkColor": "#151515",
+        "paperColor": "#C21E56",
+        "rimColor": "#F66B83",
+        "pixelSize": 2,
+        "levels": 2,
+        "contrast": 1.15,
+        "brightness": 0,
+        "revealRadius": 200,
+        "softness": 0.6,
+        "linger": 1,
+        "rim": 0,
+        "reverse": false,
+        "wander": true,
+        "clickBurst": true
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "pattern": {
+            "type": "string",
+            "enum": [
+              "bayer",
+              "noise",
+              "atkinson",
+              "floyd",
+              "lines"
+            ]
+          },
+          "palette": {
+            "type": "string",
+            "enum": [
+              "duotone",
+              "rgb"
+            ]
+          },
+          "inkColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "paperColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "rimColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "pixelSize": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "levels": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 8
+          },
+          "contrast": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2.5
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": -0.5,
+            "maximum": 0.5
+          },
+          "revealRadius": {
+            "type": "number",
+            "minimum": 30,
+            "maximum": 500
+          },
+          "softness": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 1
+          },
+          "linger": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "rim": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "reverse": {
+            "type": "boolean"
+          },
+          "wander": {
+            "type": "boolean"
+          },
+          "clickBurst": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pattern",
+          "palette",
+          "inkColor",
+          "paperColor",
+          "rimColor",
+          "pixelSize",
+          "levels",
+          "contrast",
+          "brightness",
+          "revealRadius",
+          "softness",
+          "linger",
+          "rim",
+          "reverse",
+          "wander",
+          "clickBurst"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "options": [
+            {
+              "label": "Bayer",
+              "value": "bayer"
+            },
+            {
+              "label": "Noise",
+              "value": "noise"
+            },
+            {
+              "label": "Atkinson",
+              "value": "atkinson"
+            },
+            {
+              "label": "Floyd",
+              "value": "floyd"
+            },
+            {
+              "label": "Lines",
+              "value": "lines"
+            }
+          ],
+          "kind": "select",
+          "key": "pattern",
+          "label": "Pattern"
+        },
+        {
+          "options": [
+            {
+              "label": "Duotone",
+              "value": "duotone"
+            },
+            {
+              "label": "Rgb",
+              "value": "rgb"
+            }
+          ],
+          "kind": "select",
+          "key": "palette",
+          "label": "Palette"
+        },
+        {
+          "kind": "color",
+          "key": "inkColor",
+          "label": "Ink Color"
+        },
+        {
+          "kind": "color",
+          "key": "paperColor",
+          "label": "Paper Color"
+        },
+        {
+          "kind": "color",
+          "key": "rimColor",
+          "label": "Rim Color"
+        },
+        {
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "kind": "slider",
+          "key": "pixelSize",
+          "label": "Pixel Size"
+        },
+        {
+          "min": 2,
+          "max": 8,
+          "step": 1,
+          "kind": "slider",
+          "key": "levels",
+          "label": "Levels"
+        },
+        {
+          "min": 0.2,
+          "max": 2.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "contrast",
+          "label": "Contrast"
+        },
+        {
+          "min": -0.5,
+          "max": 0.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "min": 30,
+          "max": 500,
+          "step": 10,
+          "kind": "slider",
+          "key": "revealRadius",
+          "label": "Reveal Radius"
+        },
+        {
+          "min": 0.05,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "softness",
+          "label": "Softness"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "linger",
+          "label": "Linger"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "rim",
+          "label": "Rim"
+        },
+        {
+          "kind": "toggle",
+          "key": "reverse",
+          "label": "Reverse"
+        },
+        {
+          "kind": "toggle",
+          "key": "wander",
+          "label": "Wander"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickBurst",
+          "label": "Click Burst"
+        }
+      ],
+      "contract": "bdd301df3746536f717657f9d7bb882c0b6827dc2c22289b59c077d059abff3a",
+      "defaultActive": false
+    },
+    {
+      "id": "dither",
+      "name": "Dither",
+      "version": 1,
+      "defaults": {
+        "waveColor": "#C21E56",
+        "backgroundColor": "#151515",
+        "waveSpeed": 0.05,
+        "waveFrequency": 3,
+        "waveAmplitude": 0.3,
+        "colorNum": 4,
+        "pixelSize": 2,
+        "ditherMode": "bayer",
+        "scale": 1,
+        "contrast": 1,
+        "brightness": 0,
+        "mouseEffect": "erase",
+        "mouseRadius": 1,
+        "mouseStrength": 1,
+        "trail": 0.5,
+        "enableMouseInteraction": true,
+        "clickRipple": true,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "waveColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "waveSpeed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "waveFrequency": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 8
+          },
+          "waveAmplitude": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 1
+          },
+          "colorNum": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 8
+          },
+          "pixelSize": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "ditherMode": {
+            "type": "string",
+            "enum": [
+              "bayer",
+              "bayer4",
+              "bayer2",
+              "halftone",
+              "lines",
+              "crosshatch",
+              "noise",
+              "none"
+            ]
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 4
+          },
+          "contrast": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2.5
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": -0.5,
+            "maximum": 0.5
+          },
+          "mouseEffect": {
+            "type": "string",
+            "enum": [
+              "erase",
+              "reveal",
+              "ripple"
+            ]
+          },
+          "mouseRadius": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "trail": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "enableMouseInteraction": {
+            "type": "boolean"
+          },
+          "clickRipple": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "waveColor",
+          "backgroundColor",
+          "waveSpeed",
+          "waveFrequency",
+          "waveAmplitude",
+          "colorNum",
+          "pixelSize",
+          "ditherMode",
+          "scale",
+          "contrast",
+          "brightness",
+          "mouseEffect",
+          "mouseRadius",
+          "mouseStrength",
+          "trail",
+          "enableMouseInteraction",
+          "clickRipple",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "waveColor",
+          "label": "Wave Color"
+        },
+        {
+          "kind": "color",
+          "key": "backgroundColor",
+          "label": "Background Color"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "waveSpeed",
+          "label": "Wave Speed"
+        },
+        {
+          "min": 0.2,
+          "max": 8,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waveFrequency",
+          "label": "Wave Frequency"
+        },
+        {
+          "min": 0.05,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waveAmplitude",
+          "label": "Wave Amplitude"
+        },
+        {
+          "min": 2,
+          "max": 8,
+          "step": 1,
+          "kind": "slider",
+          "key": "colorNum",
+          "label": "Color Num"
+        },
+        {
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "kind": "slider",
+          "key": "pixelSize",
+          "label": "Pixel Size"
+        },
+        {
+          "options": [
+            {
+              "label": "Bayer",
+              "value": "bayer"
+            },
+            {
+              "label": "Bayer4",
+              "value": "bayer4"
+            },
+            {
+              "label": "Bayer2",
+              "value": "bayer2"
+            },
+            {
+              "label": "Halftone",
+              "value": "halftone"
+            },
+            {
+              "label": "Lines",
+              "value": "lines"
+            },
+            {
+              "label": "Crosshatch",
+              "value": "crosshatch"
+            },
+            {
+              "label": "Noise",
+              "value": "noise"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "kind": "select",
+          "key": "ditherMode",
+          "label": "Dither Mode"
+        },
+        {
+          "min": 0.1,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "scale",
+          "label": "Scale"
+        },
+        {
+          "min": 0.1,
+          "max": 2.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "contrast",
+          "label": "Contrast"
+        },
+        {
+          "min": -0.5,
+          "max": 0.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "options": [
+            {
+              "label": "Erase",
+              "value": "erase"
+            },
+            {
+              "label": "Reveal",
+              "value": "reveal"
+            },
+            {
+              "label": "Ripple",
+              "value": "ripple"
+            }
+          ],
+          "kind": "select",
+          "key": "mouseEffect",
+          "label": "Mouse Effect"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseRadius",
+          "label": "Mouse Radius"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "trail",
+          "label": "Trail"
+        },
+        {
+          "kind": "toggle",
+          "key": "enableMouseInteraction",
+          "label": "Enable Mouse Interaction"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickRipple",
+          "label": "Click Ripple"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "cab9260b27c7413e2d106c994d71bf0f986707c51e231c075727b5fef48916f5",
+      "defaultActive": false
+    },
+    {
+      "id": "flux-lines",
+      "name": "Flux Lines",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "speed": 0.5,
+        "scale": 1.6,
+        "turbulence": 1,
+        "fluidity": 0.1,
+        "rimWidth": 0.2,
+        "sharpness": 2.5,
+        "shimmer": 1.5,
+        "glow": 2,
+        "lineWidth": 1,
+        "flowDirection": "down",
+        "opacity": 1,
+        "mouseInteraction": true,
+        "mouseStrength": 1,
+        "mouseRadius": 0.35,
+        "mouseDampening": 0.15,
+        "clickSwirl": true,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 4
+          },
+          "turbulence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "fluidity": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 1
+          },
+          "rimWidth": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 1
+          },
+          "sharpness": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 5
+          },
+          "shimmer": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "lineWidth": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "flowDirection": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ]
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "mouseRadius": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 1
+          },
+          "mouseDampening": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 1
+          },
+          "clickSwirl": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "colors",
+          "speed",
+          "scale",
+          "turbulence",
+          "fluidity",
+          "rimWidth",
+          "sharpness",
+          "shimmer",
+          "glow",
+          "lineWidth",
+          "flowDirection",
+          "opacity",
+          "mouseInteraction",
+          "mouseStrength",
+          "mouseRadius",
+          "mouseDampening",
+          "clickSwirl",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "colors",
+          "label": "Colors"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0.2,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "scale",
+          "label": "Scale"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "turbulence",
+          "label": "Turbulence"
+        },
+        {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fluidity",
+          "label": "Fluidity"
+        },
+        {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "rimWidth",
+          "label": "Rim Width"
+        },
+        {
+          "min": 0.5,
+          "max": 5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "sharpness",
+          "label": "Sharpness"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "shimmer",
+          "label": "Shimmer"
+        },
+        {
+          "min": 0,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "lineWidth",
+          "label": "Line Width"
+        },
+        {
+          "options": [
+            {
+              "label": "Up",
+              "value": "up"
+            },
+            {
+              "label": "Down",
+              "value": "down"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            }
+          ],
+          "kind": "select",
+          "key": "flowDirection",
+          "label": "Flow Direction"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "min": 0.05,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseRadius",
+          "label": "Mouse Radius"
+        },
+        {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "mouseDampening",
+          "label": "Mouse Dampening"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickSwirl",
+          "label": "Click Swirl"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "c5460a112bcc6c5819809a897894fcc9c1e7907b25020c7c9a931949d1d20734",
+      "defaultActive": false
+    },
+    {
+      "id": "ghost-fibers",
+      "name": "Ghost Fibers",
+      "version": 1,
+      "defaults": {
+        "glowColor": "#C21E56",
+        "lineColor": "#F66B83",
+        "secondaryColor": "#7C0A02",
+        "gradient": "depth",
+        "speed": 0.5,
+        "scale": 1,
+        "rotation": 18,
+        "rollSpeed": 0.15,
+        "layers": 3,
+        "waves": 1,
+        "twist": 1.2,
+        "threads": 72,
+        "volume": 0.7,
+        "spread": 1,
+        "density": 1,
+        "thickness": 1,
+        "flow": 0.4,
+        "fiberStyle": "dots",
+        "depthOfField": 0.85,
+        "focusDepth": 0,
+        "particles": 0.5,
+        "sparkle": 0.5,
+        "glow": 0.8,
+        "brightness": 1,
+        "vignette": 0.3,
+        "grain": 0.06,
+        "mouseInteraction": true,
+        "hoverEffect": "focus",
+        "mouseStrength": 1,
+        "pulseOnClick": true,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "glowColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "lineColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "secondaryColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "gradient": {
+            "type": "string",
+            "enum": [
+              "depth",
+              "along",
+              "across"
+            ]
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 3
+          },
+          "rotation": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "rollSpeed": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          },
+          "layers": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "waves": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "twist": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "threads": {
+            "type": "number",
+            "minimum": 16,
+            "maximum": 128
+          },
+          "volume": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1.5
+          },
+          "spread": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "density": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "thickness": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 3
+          },
+          "flow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "fiberStyle": {
+            "type": "string",
+            "enum": [
+              "dots",
+              "dashes",
+              "lines"
+            ]
+          },
+          "depthOfField": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "focusDepth": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          },
+          "particles": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "sparkle": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "vignette": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "grain": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.2
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "hoverEffect": {
+            "type": "string",
+            "enum": [
+              "focus",
+              "part",
+              "none"
+            ]
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "pulseOnClick": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "glowColor",
+          "lineColor",
+          "secondaryColor",
+          "gradient",
+          "speed",
+          "scale",
+          "rotation",
+          "rollSpeed",
+          "layers",
+          "waves",
+          "twist",
+          "threads",
+          "volume",
+          "spread",
+          "density",
+          "thickness",
+          "flow",
+          "fiberStyle",
+          "depthOfField",
+          "focusDepth",
+          "particles",
+          "sparkle",
+          "glow",
+          "brightness",
+          "vignette",
+          "grain",
+          "mouseInteraction",
+          "hoverEffect",
+          "mouseStrength",
+          "pulseOnClick",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "glowColor",
+          "label": "Glow Color"
+        },
+        {
+          "kind": "color",
+          "key": "lineColor",
+          "label": "Line Color"
+        },
+        {
+          "kind": "color",
+          "key": "secondaryColor",
+          "label": "Secondary Color"
+        },
+        {
+          "options": [
+            {
+              "label": "Depth",
+              "value": "depth"
+            },
+            {
+              "label": "Along",
+              "value": "along"
+            },
+            {
+              "label": "Across",
+              "value": "across"
+            }
+          ],
+          "kind": "select",
+          "key": "gradient",
+          "label": "Gradient"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0.2,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "scale",
+          "label": "Scale"
+        },
+        {
+          "min": -180,
+          "max": 180,
+          "step": 1,
+          "kind": "slider",
+          "key": "rotation",
+          "label": "Rotation"
+        },
+        {
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "rollSpeed",
+          "label": "Roll Speed"
+        },
+        {
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "kind": "slider",
+          "key": "layers",
+          "label": "Layers"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waves",
+          "label": "Waves"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "twist",
+          "label": "Twist"
+        },
+        {
+          "min": 16,
+          "max": 128,
+          "step": 1,
+          "kind": "slider",
+          "key": "threads",
+          "label": "Threads"
+        },
+        {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "volume",
+          "label": "Volume"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "spread",
+          "label": "Spread"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "density",
+          "label": "Density"
+        },
+        {
+          "min": 0.2,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "thickness",
+          "label": "Thickness"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "flow",
+          "label": "Flow"
+        },
+        {
+          "options": [
+            {
+              "label": "Dots",
+              "value": "dots"
+            },
+            {
+              "label": "Dashes",
+              "value": "dashes"
+            },
+            {
+              "label": "Lines",
+              "value": "lines"
+            }
+          ],
+          "kind": "select",
+          "key": "fiberStyle",
+          "label": "Fiber Style"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "depthOfField",
+          "label": "Depth Of Field"
+        },
+        {
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "focusDepth",
+          "label": "Focus Depth"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "particles",
+          "label": "Particles"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "sparkle",
+          "label": "Sparkle"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "vignette",
+          "label": "Vignette"
+        },
+        {
+          "min": 0,
+          "max": 0.2,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "grain",
+          "label": "Grain"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "options": [
+            {
+              "label": "Focus",
+              "value": "focus"
+            },
+            {
+              "label": "Part",
+              "value": "part"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "kind": "select",
+          "key": "hoverEffect",
+          "label": "Hover Effect"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "kind": "toggle",
+          "key": "pulseOnClick",
+          "label": "Pulse On Click"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "c2ee68db900eb97138991f9c14702e439967f6f45bc12d138e017a9e6502f124",
+      "defaultActive": false
+    },
+    {
+      "id": "gradient-ascii",
+      "name": "Gradient ASCII",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#160009"
+        ],
+        "shape": "horizon",
+        "characters": "=+xX0S8#@",
+        "cellSize": 18,
+        "density": 0.8,
+        "glyphOpacity": 0.85,
+        "glow": 0.2,
+        "depthOfField": 0,
+        "flicker": 0.2,
+        "softness": 0.5,
+        "scale": 1,
+        "flow": 0.5,
+        "speed": 1,
+        "gradientOpacity": 0.9,
+        "grain": 0.08,
+        "variation": 0,
+        "mouseInteraction": true,
+        "scrambleRadius": 0.1,
+        "clickEffect": "wave",
+        "intro": false,
+        "lightMode": false,
+        "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "shape": {
+            "type": "string",
+            "enum": [
+              "horizon",
+              "pinch",
+              "rise",
+              "eclipse"
+            ]
+          },
+          "characters": {
+            "type": "string",
+            "enum": [
+              "=+xX0S8#@",
+              ".:-=+*#%@",
+              "░▒▓█"
+            ]
+          },
+          "cellSize": {
+            "type": "number",
+            "minimum": 6,
+            "maximum": 64
+          },
+          "density": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "glyphOpacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "depthOfField": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "flicker": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "softness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.4,
+            "maximum": 2.5
+          },
+          "flow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "gradientOpacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "grain": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.4
+          },
+          "variation": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "scrambleRadius": {
+            "type": "number",
+            "minimum": 0.02,
+            "maximum": 0.4
+          },
+          "clickEffect": {
+            "type": "string",
+            "enum": [
+              "wave",
+              "burst",
+              "none"
+            ]
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "lightMode": {
+            "type": "boolean"
+          },
+          "fontFamily": {
+            "type": "string",
+            "enum": [
+              "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+              "monospace"
+            ]
+          }
+        },
+        "required": [
+          "colors",
+          "shape",
+          "characters",
+          "cellSize",
+          "density",
+          "glyphOpacity",
+          "glow",
+          "depthOfField",
+          "flicker",
+          "softness",
+          "scale",
+          "flow",
+          "speed",
+          "gradientOpacity",
+          "grain",
+          "variation",
+          "mouseInteraction",
+          "scrambleRadius",
+          "clickEffect",
+          "intro",
+          "lightMode",
+          "fontFamily"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color-list",
+          "key": "colors",
+          "label": "ASCII colors",
+          "minItems": 2,
+          "maxItems": 5
+        },
+        {
+          "kind": "select",
+          "key": "shape",
+          "label": "Shape",
+          "options": [
+            {
+              "label": "Horizon",
+              "value": "horizon"
+            },
+            {
+              "label": "Pinch",
+              "value": "pinch"
+            },
+            {
+              "label": "Rise",
+              "value": "rise"
+            },
+            {
+              "label": "Eclipse",
+              "value": "eclipse"
+            }
+          ]
+        },
+        {
+          "kind": "select",
+          "key": "characters",
+          "label": "Character set",
+          "options": [
+            {
+              "label": "Classic ASCII",
+              "value": "=+xX0S8#@"
+            },
+            {
+              "label": "Symbols",
+              "value": ".:-=+*#%@"
+            },
+            {
+              "label": "Blocks",
+              "value": "░▒▓█"
+            }
+          ]
+        },
+        {
+          "kind": "slider",
+          "key": "cellSize",
+          "label": "Cell size",
+          "min": 6,
+          "max": 64,
+          "step": 1
+        },
+        {
+          "kind": "slider",
+          "key": "density",
+          "label": "Density",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "glyphOpacity",
+          "label": "Glyph opacity",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow",
+          "min": 0,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "depthOfField",
+          "label": "Depth of field",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "flicker",
+          "label": "Flicker",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "softness",
+          "label": "Softness",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "scale",
+          "label": "Scale",
+          "min": 0.4,
+          "max": 2.5,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "flow",
+          "label": "Flow",
+          "min": 0,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed",
+          "min": 0,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "gradientOpacity",
+          "label": "Gradient opacity",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "grain",
+          "label": "Grain",
+          "min": 0,
+          "max": 0.4,
+          "step": 0.01
+        },
+        {
+          "kind": "slider",
+          "key": "variation",
+          "label": "Variation",
+          "min": 0,
+          "max": 10,
+          "step": 0.1
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse interaction"
+        },
+        {
+          "kind": "slider",
+          "key": "scrambleRadius",
+          "label": "Scramble radius",
+          "min": 0.02,
+          "max": 0.4,
+          "step": 0.01
+        },
+        {
+          "kind": "select",
+          "key": "clickEffect",
+          "label": "Click effect",
+          "options": [
+            {
+              "label": "Wave",
+              "value": "wave"
+            },
+            {
+              "label": "Burst",
+              "value": "burst"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ]
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro animation"
+        },
+        {
+          "kind": "toggle",
+          "key": "lightMode",
+          "label": "Light mode"
+        },
+        {
+          "kind": "select",
+          "key": "fontFamily",
+          "label": "Font",
+          "options": [
+            {
+              "label": "System monospace",
+              "value": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            },
+            {
+              "label": "Browser monospace",
+              "value": "monospace"
+            }
+          ]
+        }
+      ],
+      "contract": "43921d3208951f8eaf70eb1e9a7784e4047664804ecb803c27642a1fcb552c91",
+      "defaultActive": true
+    },
+    {
+      "id": "gradient-flow",
+      "name": "Gradient Flow",
+      "version": 1,
+      "defaults": {
+        "colorStops": [
+          "#160009",
+          "#C21E56",
+          "#7C0A02"
+        ],
+        "speed": 0.5,
+        "amplitude": 1,
+        "blend": 0.5,
+        "direction": "horizontal"
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colorStops": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "amplitude": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "blend": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "horizontal",
+              "vertical"
+            ]
+          }
+        },
+        "required": [
+          "colorStops",
+          "speed",
+          "amplitude",
+          "blend",
+          "direction"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color-list",
+          "key": "colorStops",
+          "label": "Gradient colors",
+          "minItems": 2,
+          "maxItems": 5
+        },
+        {
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed",
+          "min": 0,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "amplitude",
+          "label": "Amplitude",
+          "min": 0,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "blend",
+          "label": "Blend",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        },
+        {
+          "kind": "select",
+          "key": "direction",
+          "label": "Direction",
+          "options": [
+            {
+              "label": "Horizontal",
+              "value": "horizontal"
+            },
+            {
+              "label": "Vertical",
+              "value": "vertical"
+            }
+          ]
+        }
+      ],
+      "contract": "6e10c0480e4034abad68b6970da2d2758b948ffae2de56a386df9c0bd3549846",
+      "defaultActive": true
+    },
+    {
+      "id": "gradient-waves",
+      "name": "Gradient Waves",
+      "version": 1,
+      "defaults": {
+        "horizonColor": "#7C0A02",
+        "waveColor": "#C21E56",
+        "crestColor": "#FCE6EC",
+        "backgroundColor": "#151515",
+        "speed": 0.4,
+        "amplitude": 2.5,
+        "waveScale": 0.6,
+        "waveRatio": 0.9,
+        "swell": 35,
+        "turbulence": 20,
+        "tilt": 64,
+        "zoom": 1,
+        "height": 5.5,
+        "fogDepth": 15,
+        "relief": 1,
+        "lightAngle": 120,
+        "sheen": 0,
+        "brightness": 1,
+        "opacity": 1,
+        "grain": 0.2,
+        "intro": false,
+        "mouseInteraction": true,
+        "parallaxStrength": 0.5,
+        "mouseStrength": 0.6,
+        "swellOnClick": true
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "horizonColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "waveColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "crestColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "amplitude": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 5
+          },
+          "waveScale": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "waveRatio": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "swell": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 60
+          },
+          "turbulence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 40
+          },
+          "tilt": {
+            "type": "number",
+            "minimum": 20,
+            "maximum": 80
+          },
+          "zoom": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 2
+          },
+          "height": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "fogDepth": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 30
+          },
+          "relief": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "lightAngle": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 360
+          },
+          "sheen": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "grain": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.4
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "parallaxStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "swellOnClick": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "horizonColor",
+          "waveColor",
+          "crestColor",
+          "backgroundColor",
+          "speed",
+          "amplitude",
+          "waveScale",
+          "waveRatio",
+          "swell",
+          "turbulence",
+          "tilt",
+          "zoom",
+          "height",
+          "fogDepth",
+          "relief",
+          "lightAngle",
+          "sheen",
+          "brightness",
+          "opacity",
+          "grain",
+          "intro",
+          "mouseInteraction",
+          "parallaxStrength",
+          "mouseStrength",
+          "swellOnClick"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "horizonColor",
+          "label": "Horizon Color"
+        },
+        {
+          "kind": "color",
+          "key": "waveColor",
+          "label": "Wave Color"
+        },
+        {
+          "kind": "color",
+          "key": "crestColor",
+          "label": "Crest Color"
+        },
+        {
+          "kind": "color",
+          "key": "backgroundColor",
+          "label": "Background Color"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0.1,
+          "max": 5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "amplitude",
+          "label": "Amplitude"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waveScale",
+          "label": "Wave Scale"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waveRatio",
+          "label": "Wave Ratio"
+        },
+        {
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "kind": "slider",
+          "key": "swell",
+          "label": "Swell"
+        },
+        {
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "kind": "slider",
+          "key": "turbulence",
+          "label": "Turbulence"
+        },
+        {
+          "min": 20,
+          "max": 80,
+          "step": 1,
+          "kind": "slider",
+          "key": "tilt",
+          "label": "Tilt"
+        },
+        {
+          "min": 0.5,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "zoom",
+          "label": "Zoom"
+        },
+        {
+          "min": 1,
+          "max": 10,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "height",
+          "label": "Height"
+        },
+        {
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "kind": "slider",
+          "key": "fogDepth",
+          "label": "Fog Depth"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "relief",
+          "label": "Relief"
+        },
+        {
+          "min": 0,
+          "max": 360,
+          "step": 1,
+          "kind": "slider",
+          "key": "lightAngle",
+          "label": "Light Angle"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "sheen",
+          "label": "Sheen"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        },
+        {
+          "min": 0,
+          "max": 0.4,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "grain",
+          "label": "Grain"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "parallaxStrength",
+          "label": "Parallax Strength"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "kind": "toggle",
+          "key": "swellOnClick",
+          "label": "Swell On Click"
+        }
+      ],
+      "contract": "163a63ae69c1e3cce0c9d9735af09d7620c3ff517ee56614b946e9dc7775f515",
+      "defaultActive": false
+    },
+    {
+      "id": "grainient",
+      "name": "Grainient",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "type": "linear",
+        "angle": 55,
+        "bands": 1,
+        "speed": 1,
+        "flow": 0.8,
+        "scale": 1,
+        "softness": 1,
+        "silk": 0.35,
+        "grainAmount": 0.08,
+        "grainSize": 1.2,
+        "grainAnimated": true,
+        "contrast": 1,
+        "saturation": 1,
+        "variation": 0,
+        "interactive": true,
+        "stir": 1,
+        "clickSwirl": true,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "linear",
+              "radial"
+            ]
+          },
+          "angle": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "bands": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "flow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 3
+          },
+          "softness": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "silk": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "grainAmount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.3
+          },
+          "grainSize": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 3
+          },
+          "grainAnimated": {
+            "type": "boolean"
+          },
+          "contrast": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2
+          },
+          "saturation": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "variation": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "interactive": {
+            "type": "boolean"
+          },
+          "stir": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "clickSwirl": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "colors",
+          "type",
+          "angle",
+          "bands",
+          "speed",
+          "flow",
+          "scale",
+          "softness",
+          "silk",
+          "grainAmount",
+          "grainSize",
+          "grainAnimated",
+          "contrast",
+          "saturation",
+          "variation",
+          "interactive",
+          "stir",
+          "clickSwirl",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "colors",
+          "label": "Colors"
+        },
+        {
+          "options": [
+            {
+              "label": "Linear",
+              "value": "linear"
+            },
+            {
+              "label": "Radial",
+              "value": "radial"
+            }
+          ],
+          "kind": "select",
+          "key": "type",
+          "label": "Type"
+        },
+        {
+          "min": -180,
+          "max": 180,
+          "step": 1,
+          "kind": "slider",
+          "key": "angle",
+          "label": "Angle"
+        },
+        {
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "kind": "slider",
+          "key": "bands",
+          "label": "Bands"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "flow",
+          "label": "Flow"
+        },
+        {
+          "min": 0.2,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "scale",
+          "label": "Scale"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "softness",
+          "label": "Softness"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "silk",
+          "label": "Silk"
+        },
+        {
+          "min": 0,
+          "max": 0.3,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "grainAmount",
+          "label": "Grain Amount"
+        },
+        {
+          "min": 0.5,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "grainSize",
+          "label": "Grain Size"
+        },
+        {
+          "kind": "toggle",
+          "key": "grainAnimated",
+          "label": "Grain Animated"
+        },
+        {
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "contrast",
+          "label": "Contrast"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "saturation",
+          "label": "Saturation"
+        },
+        {
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "kind": "slider",
+          "key": "variation",
+          "label": "Variation"
+        },
+        {
+          "kind": "toggle",
+          "key": "interactive",
+          "label": "Interactive"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "stir",
+          "label": "Stir"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickSwirl",
+          "label": "Click Swirl"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "2d345a41e0d0d501790ffc848f6613cbfa82e6fa3cf6c1b8186183d1f01f5e96",
+      "defaultActive": false
+    },
+    {
+      "id": "hyperspeed",
+      "name": "Hyperspeed",
+      "version": 1,
+      "defaults": {
+        "curve": "winding",
+        "curvature": 1,
+        "speed": 1,
+        "boost": 3,
+        "fov": 90,
+        "boostFov": 130,
+        "lanes": 3,
+        "roadWidth": 10,
+        "medianWidth": 2,
+        "density": 40,
+        "trailLength": 1,
+        "lightSize": 1,
+        "poles": 20,
+        "poleHeight": 1,
+        "dust": 100,
+        "glow": 0.6,
+        "roadReflections": 0.5,
+        "steer": 0.35,
+        "tailColors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "headColors": [
+          "#FFFFFF",
+          "#F66B83"
+        ],
+        "poleColors": [
+          "#C21E56",
+          "#F66B83"
+        ],
+        "roadColor": "#151515",
+        "roadOpacity": 0.1,
+        "lineColor": "#424242",
+        "interactive": true
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "curve": {
+            "type": "string",
+            "enum": [
+              "straight",
+              "gentle",
+              "winding",
+              "hills",
+              "racing",
+              "deep"
+            ]
+          },
+          "curvature": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "boost": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "fov": {
+            "type": "number",
+            "minimum": 60,
+            "maximum": 110
+          },
+          "boostFov": {
+            "type": "number",
+            "minimum": 110,
+            "maximum": 140
+          },
+          "lanes": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "roadWidth": {
+            "type": "number",
+            "minimum": 5,
+            "maximum": 20
+          },
+          "medianWidth": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 4
+          },
+          "density": {
+            "type": "number",
+            "minimum": 10,
+            "maximum": 80
+          },
+          "trailLength": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2
+          },
+          "lightSize": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2
+          },
+          "poles": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 40
+          },
+          "poleHeight": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2
+          },
+          "dust": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 400
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1.5
+          },
+          "roadReflections": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "steer": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "tailColors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "headColors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "poleColors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "roadColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "roadOpacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "lineColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "interactive": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "curve",
+          "curvature",
+          "speed",
+          "boost",
+          "fov",
+          "boostFov",
+          "lanes",
+          "roadWidth",
+          "medianWidth",
+          "density",
+          "trailLength",
+          "lightSize",
+          "poles",
+          "poleHeight",
+          "dust",
+          "glow",
+          "roadReflections",
+          "steer",
+          "tailColors",
+          "headColors",
+          "poleColors",
+          "roadColor",
+          "roadOpacity",
+          "lineColor",
+          "interactive"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "options": [
+            {
+              "label": "Straight",
+              "value": "straight"
+            },
+            {
+              "label": "Gentle",
+              "value": "gentle"
+            },
+            {
+              "label": "Winding",
+              "value": "winding"
+            },
+            {
+              "label": "Hills",
+              "value": "hills"
+            },
+            {
+              "label": "Racing",
+              "value": "racing"
+            },
+            {
+              "label": "Deep",
+              "value": "deep"
+            }
+          ],
+          "kind": "select",
+          "key": "curve",
+          "label": "Curve"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "curvature",
+          "label": "Curvature"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 1,
+          "max": 5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "boost",
+          "label": "Boost"
+        },
+        {
+          "min": 60,
+          "max": 110,
+          "step": 1,
+          "kind": "slider",
+          "key": "fov",
+          "label": "Fov"
+        },
+        {
+          "min": 110,
+          "max": 140,
+          "step": 1,
+          "kind": "slider",
+          "key": "boostFov",
+          "label": "Boost Fov"
+        },
+        {
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "kind": "slider",
+          "key": "lanes",
+          "label": "Lanes"
+        },
+        {
+          "min": 5,
+          "max": 20,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "roadWidth",
+          "label": "Road Width"
+        },
+        {
+          "min": 0.5,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "medianWidth",
+          "label": "Median Width"
+        },
+        {
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "kind": "slider",
+          "key": "density",
+          "label": "Density"
+        },
+        {
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "trailLength",
+          "label": "Trail Length"
+        },
+        {
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "lightSize",
+          "label": "Light Size"
+        },
+        {
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "kind": "slider",
+          "key": "poles",
+          "label": "Poles"
+        },
+        {
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "poleHeight",
+          "label": "Pole Height"
+        },
+        {
+          "min": 0,
+          "max": 400,
+          "step": 10,
+          "kind": "slider",
+          "key": "dust",
+          "label": "Dust"
+        },
+        {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "roadReflections",
+          "label": "Road reflections"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "steer",
+          "label": "Steer"
+        },
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "tailColors",
+          "label": "Tail Colors"
+        },
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "headColors",
+          "label": "Head Colors"
+        },
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "poleColors",
+          "label": "Pole Colors"
+        },
+        {
+          "kind": "color",
+          "key": "roadColor",
+          "label": "Road Color"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "roadOpacity",
+          "label": "Road Opacity"
+        },
+        {
+          "kind": "color",
+          "key": "lineColor",
+          "label": "Line Color"
+        },
+        {
+          "kind": "toggle",
+          "key": "interactive",
+          "label": "Interactive"
+        }
+      ],
+      "contract": "937ea94b3d2de8da9fc3f9f80d59bbafede80fcc1308c156227610460bd4620d",
+      "defaultActive": false
+    },
+    {
+      "id": "laser-flow",
+      "name": "Laser Flow",
+      "version": 1,
+      "defaults": {
+        "color": "#C21E56",
+        "beamPosition": 0.6,
+        "surfaceLevel": 1,
+        "intensity": 1.8,
+        "beamWidth": 1.5,
+        "flare": 1.5,
+        "spread": 1.5,
+        "spill": 1,
+        "fog": 0.2,
+        "dust": 1.6,
+        "streaks": 1.5,
+        "dots": 1,
+        "pulse": 1.5,
+        "speed": 1.5,
+        "seed": 3,
+        "mouseInteraction": true,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "beamPosition": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 0.9
+          },
+          "surfaceLevel": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 1
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "beamWidth": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 3
+          },
+          "flare": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "spread": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "spill": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "fog": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "dust": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "streaks": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "dots": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "pulse": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "seed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "color",
+          "beamPosition",
+          "surfaceLevel",
+          "intensity",
+          "beamWidth",
+          "flare",
+          "spread",
+          "spill",
+          "fog",
+          "dust",
+          "streaks",
+          "dots",
+          "pulse",
+          "speed",
+          "seed",
+          "mouseInteraction",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "color",
+          "label": "Color"
+        },
+        {
+          "min": 0.1,
+          "max": 0.9,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "beamPosition",
+          "label": "Beam Position"
+        },
+        {
+          "min": 0.2,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "surfaceLevel",
+          "label": "Surface Level"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "intensity",
+          "label": "Intensity"
+        },
+        {
+          "min": 0.2,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "beamWidth",
+          "label": "Beam Width"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "flare",
+          "label": "Flare"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "spread",
+          "label": "Spread"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "spill",
+          "label": "Spill"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fog",
+          "label": "Fog"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "dust",
+          "label": "Dust"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "streaks",
+          "label": "Streaks"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "dots",
+          "label": "Dots"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulse",
+          "label": "Pulse"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "kind": "slider",
+          "key": "seed",
+          "label": "Seed"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "4b5cfff9acf9487736530cd28a59c94b06667f8a63406a1a84b153bd052fb905",
+      "defaultActive": false
+    },
+    {
+      "id": "letter-glitch",
+      "name": "Letter Glitch",
+      "version": 1,
+      "defaults": {
+        "glitchColors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "baseColor": "#FFFFFF",
+        "backgroundColor": "#151515",
+        "fontSize": 14,
+        "spacing": 0.6,
+        "density": 0.9,
+        "baseOpacity": 0.16,
+        "glitchAmount": 0.5,
+        "speed": 1,
+        "smooth": true,
+        "interactive": true,
+        "cursorRadius": 140,
+        "clickEffect": "tear",
+        "flow": 0.5,
+        "edgeFade": 0,
+        "centerFade": 0,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "glitchColors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "baseColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "fontSize": {
+            "type": "number",
+            "minimum": 10,
+            "maximum": 32
+          },
+          "spacing": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1.5
+          },
+          "density": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "baseOpacity": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 0.6
+          },
+          "glitchAmount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "smooth": {
+            "type": "boolean"
+          },
+          "interactive": {
+            "type": "boolean"
+          },
+          "cursorRadius": {
+            "type": "number",
+            "minimum": 30,
+            "maximum": 300
+          },
+          "clickEffect": {
+            "type": "string",
+            "enum": [
+              "tear",
+              "burst",
+              "none"
+            ]
+          },
+          "flow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "edgeFade": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "centerFade": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "glitchColors",
+          "baseColor",
+          "backgroundColor",
+          "fontSize",
+          "spacing",
+          "density",
+          "baseOpacity",
+          "glitchAmount",
+          "speed",
+          "smooth",
+          "interactive",
+          "cursorRadius",
+          "clickEffect",
+          "flow",
+          "edgeFade",
+          "centerFade",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "glitchColors",
+          "label": "Glitch Colors"
+        },
+        {
+          "kind": "color",
+          "key": "baseColor",
+          "label": "Base Color"
+        },
+        {
+          "kind": "color",
+          "key": "backgroundColor",
+          "label": "Background Color"
+        },
+        {
+          "min": 10,
+          "max": 32,
+          "step": 1,
+          "kind": "slider",
+          "key": "fontSize",
+          "label": "Font Size"
+        },
+        {
+          "min": 0.1,
+          "max": 1.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "spacing",
+          "label": "Spacing"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "density",
+          "label": "Density"
+        },
+        {
+          "min": 0.05,
+          "max": 0.6,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "baseOpacity",
+          "label": "Base Opacity"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glitchAmount",
+          "label": "Glitch Amount"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "kind": "toggle",
+          "key": "smooth",
+          "label": "Smooth"
+        },
+        {
+          "kind": "toggle",
+          "key": "interactive",
+          "label": "Interactive"
+        },
+        {
+          "min": 30,
+          "max": 300,
+          "step": 10,
+          "kind": "slider",
+          "key": "cursorRadius",
+          "label": "Cursor Radius"
+        },
+        {
+          "options": [
+            {
+              "label": "Tear",
+              "value": "tear"
+            },
+            {
+              "label": "Burst",
+              "value": "burst"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "kind": "select",
+          "key": "clickEffect",
+          "label": "Click Effect"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "flow",
+          "label": "Flow"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "edgeFade",
+          "label": "Edge Fade"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "centerFade",
+          "label": "Center Fade"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "67e1902f6bf23343970280e39d8d600e6d15da24dd8923c35821a8e657876c57",
+      "defaultActive": false
+    },
+    {
+      "id": "light-pillar",
+      "name": "Light Pillar",
+      "version": 1,
+      "defaults": {
+        "topColor": "#C21E56",
+        "bottomColor": "#F66B83",
+        "intensity": 1,
+        "rotationSpeed": 0.3,
+        "flow": 1,
+        "interactive": true,
+        "clickPulse": true,
+        "glowAmount": 0.002,
+        "bloom": 0.5,
+        "pillarWidth": 3,
+        "pillarHeight": 0.4,
+        "pillarRotation": 25,
+        "twist": 0.4,
+        "detail": 4,
+        "noiseIntensity": 0.5,
+        "fade": 0,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "topColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "bottomColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "rotationSpeed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "flow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "interactive": {
+            "type": "boolean"
+          },
+          "clickPulse": {
+            "type": "boolean"
+          },
+          "glowAmount": {
+            "type": "number",
+            "minimum": 0.0005,
+            "maximum": 0.01
+          },
+          "bloom": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "pillarWidth": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 5
+          },
+          "pillarHeight": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "pillarRotation": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "twist": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "detail": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "noiseIntensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "fade": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.8
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "topColor",
+          "bottomColor",
+          "intensity",
+          "rotationSpeed",
+          "flow",
+          "interactive",
+          "clickPulse",
+          "glowAmount",
+          "bloom",
+          "pillarWidth",
+          "pillarHeight",
+          "pillarRotation",
+          "twist",
+          "detail",
+          "noiseIntensity",
+          "fade",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "topColor",
+          "label": "Top Color"
+        },
+        {
+          "kind": "color",
+          "key": "bottomColor",
+          "label": "Bottom Color"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "intensity",
+          "label": "Intensity"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "rotationSpeed",
+          "label": "Rotation Speed"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "flow",
+          "label": "Flow"
+        },
+        {
+          "kind": "toggle",
+          "key": "interactive",
+          "label": "Interactive"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickPulse",
+          "label": "Click Pulse"
+        },
+        {
+          "min": 0.0005,
+          "max": 0.01,
+          "step": 0.0005,
+          "kind": "slider",
+          "key": "glowAmount",
+          "label": "Glow Amount"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "bloom",
+          "label": "Bloom"
+        },
+        {
+          "min": 0.5,
+          "max": 5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pillarWidth",
+          "label": "Pillar Width"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pillarHeight",
+          "label": "Pillar Height"
+        },
+        {
+          "min": -90,
+          "max": 90,
+          "step": 1,
+          "kind": "slider",
+          "key": "pillarRotation",
+          "label": "Pillar Rotation"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "twist",
+          "label": "Twist"
+        },
+        {
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "kind": "slider",
+          "key": "detail",
+          "label": "Detail"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "noiseIntensity",
+          "label": "Noise Intensity"
+        },
+        {
+          "min": 0,
+          "max": 0.8,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fade",
+          "label": "Fade"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "be09bc87180be8062bc15bbce7617bdab8e0b848092aae147924f5e1b253b092",
+      "defaultActive": false
+    },
+    {
+      "id": "light-tunnel",
+      "name": "Light Tunnel",
+      "version": 1,
+      "defaults": {
+        "cableColor": "#C21E56",
+        "pulseColor": "#FCE6EC",
+        "tunnelColor": "#7C0A02",
+        "tunnelOpacity": 0,
+        "speed": 0.1,
+        "flowDirection": "inward",
+        "pulseSpeed": 2,
+        "pulseLength": 0.28,
+        "pulseBlend": 0.6,
+        "pulseWidth": 1,
+        "pulseDensity": 0.5,
+        "cableCount": 56,
+        "thickness": 0.35,
+        "rimWidth": 0.15,
+        "waviness": 0.3,
+        "sway": 0.5,
+        "bend": 0.4,
+        "size": 1,
+        "glow": 1,
+        "fadeNear": 0.5,
+        "fadeFar": 2,
+        "brightness": 1,
+        "colorVariance": true,
+        "grain": false,
+        "grainIntensity": 0.05,
+        "opacity": 1,
+        "mouseInteraction": true,
+        "mouseStrength": 0.1,
+        "clickSurge": true,
+        "intro": false
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "cableColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "pulseColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "tunnelColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "tunnelOpacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.5
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "flowDirection": {
+            "type": "string",
+            "enum": [
+              "inward",
+              "outward"
+            ]
+          },
+          "pulseSpeed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "pulseLength": {
+            "type": "number",
+            "minimum": 0.02,
+            "maximum": 1
+          },
+          "pulseBlend": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "pulseWidth": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "pulseDensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "cableCount": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 100
+          },
+          "thickness": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 2
+          },
+          "rimWidth": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "waviness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "sway": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "bend": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "size": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "fadeNear": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "fadeFar": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 4
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "colorVariance": {
+            "type": "boolean"
+          },
+          "grain": {
+            "type": "boolean"
+          },
+          "grainIntensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.2
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "clickSurge": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cableColor",
+          "pulseColor",
+          "tunnelColor",
+          "tunnelOpacity",
+          "speed",
+          "flowDirection",
+          "pulseSpeed",
+          "pulseLength",
+          "pulseBlend",
+          "pulseWidth",
+          "pulseDensity",
+          "cableCount",
+          "thickness",
+          "rimWidth",
+          "waviness",
+          "sway",
+          "bend",
+          "size",
+          "glow",
+          "fadeNear",
+          "fadeFar",
+          "brightness",
+          "colorVariance",
+          "grain",
+          "grainIntensity",
+          "opacity",
+          "mouseInteraction",
+          "mouseStrength",
+          "clickSurge",
+          "intro"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "cableColor",
+          "label": "Cable Color"
+        },
+        {
+          "kind": "color",
+          "key": "pulseColor",
+          "label": "Pulse Color"
+        },
+        {
+          "kind": "color",
+          "key": "tunnelColor",
+          "label": "Tunnel Color"
+        },
+        {
+          "min": 0,
+          "max": 0.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "tunnelOpacity",
+          "label": "Tunnel Opacity"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "options": [
+            {
+              "label": "Inward",
+              "value": "inward"
+            },
+            {
+              "label": "Outward",
+              "value": "outward"
+            }
+          ],
+          "kind": "select",
+          "key": "flowDirection",
+          "label": "Flow Direction"
+        },
+        {
+          "min": 0,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulseSpeed",
+          "label": "Pulse Speed"
+        },
+        {
+          "min": 0.02,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulseLength",
+          "label": "Pulse Length"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulseBlend",
+          "label": "Pulse Blend"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulseWidth",
+          "label": "Pulse Width"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulseDensity",
+          "label": "Pulse Density"
+        },
+        {
+          "min": 4,
+          "max": 100,
+          "step": 1,
+          "kind": "slider",
+          "key": "cableCount",
+          "label": "Cable Count"
+        },
+        {
+          "min": 0.05,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "thickness",
+          "label": "Thickness"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "rimWidth",
+          "label": "Rim Width"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "waviness",
+          "label": "Waviness"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "sway",
+          "label": "Sway"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "bend",
+          "label": "Bend"
+        },
+        {
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "size",
+          "label": "Size"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fadeNear",
+          "label": "Fade Near"
+        },
+        {
+          "min": 0.5,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fadeFar",
+          "label": "Fade Far"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "kind": "toggle",
+          "key": "colorVariance",
+          "label": "Color Variance"
+        },
+        {
+          "kind": "toggle",
+          "key": "grain",
+          "label": "Grain"
+        },
+        {
+          "min": 0,
+          "max": 0.2,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "grainIntensity",
+          "label": "Grain Intensity"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickSurge",
+          "label": "Click Surge"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        }
+      ],
+      "contract": "5a31195861d7944377bc29ab9eff423d3646fb4197ece1887b4a8159cd4acacb",
+      "defaultActive": false
+    },
+    {
+      "id": "lightfall",
+      "name": "Lightfall",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "backgroundColor": "#151515",
+        "speed": 0.3,
+        "streakCount": 2,
+        "streakWidth": 0.8,
+        "streakLength": 1,
+        "glow": 1,
+        "density": 0.6,
+        "twinkle": 0.3,
+        "zoom": 3,
+        "backgroundGlow": 0.1,
+        "headGlow": 0.6,
+        "depth": 0.5,
+        "bloom": 0.35,
+        "opacity": 1,
+        "mouseInteraction": true,
+        "mouseStrength": 0.4,
+        "mouseRadius": 0.45,
+        "mouseDampening": 0.15,
+        "lens": 0.5,
+        "holdToWarp": true,
+        "intro": false,
+        "fade": 0
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "backgroundColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "streakCount": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "streakWidth": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2
+          },
+          "streakLength": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 3
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "density": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "twinkle": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "zoom": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "backgroundGlow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "headGlow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "depth": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "bloom": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "mouseRadius": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "mouseDampening": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 1
+          },
+          "lens": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "holdToWarp": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "fade": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.8
+          }
+        },
+        "required": [
+          "colors",
+          "backgroundColor",
+          "speed",
+          "streakCount",
+          "streakWidth",
+          "streakLength",
+          "glow",
+          "density",
+          "twinkle",
+          "zoom",
+          "backgroundGlow",
+          "headGlow",
+          "depth",
+          "bloom",
+          "opacity",
+          "mouseInteraction",
+          "mouseStrength",
+          "mouseRadius",
+          "mouseDampening",
+          "lens",
+          "holdToWarp",
+          "intro",
+          "fade"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "colors",
+          "label": "Colors"
+        },
+        {
+          "kind": "color",
+          "key": "backgroundColor",
+          "label": "Background Color"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "kind": "slider",
+          "key": "streakCount",
+          "label": "Streak Count"
+        },
+        {
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "streakWidth",
+          "label": "Streak Width"
+        },
+        {
+          "min": 0.2,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "streakLength",
+          "label": "Streak Length"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "density",
+          "label": "Density"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "twinkle",
+          "label": "Twinkle"
+        },
+        {
+          "min": 1,
+          "max": 5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "zoom",
+          "label": "Zoom"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "backgroundGlow",
+          "label": "Background Glow"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "headGlow",
+          "label": "Head Glow"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "depth",
+          "label": "Depth"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "bloom",
+          "label": "Bloom"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseRadius",
+          "label": "Mouse Radius"
+        },
+        {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "mouseDampening",
+          "label": "Mouse Dampening"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "lens",
+          "label": "Lens"
+        },
+        {
+          "kind": "toggle",
+          "key": "holdToWarp",
+          "label": "Hold To Warp"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "min": 0,
+          "max": 0.8,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fade",
+          "label": "Fade"
+        }
+      ],
+      "contract": "c7bfd004f63e383ca903ef9284b470296fe518bbe71691cc5e6d3a7c863c9e27",
+      "defaultActive": false
+    },
+    {
+      "id": "orb",
+      "name": "Orb",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#160009"
+        ],
+        "backgroundColor": "#191919",
+        "hue": 0,
+        "size": 1,
+        "glow": 1,
+        "bleed": 1,
+        "wobble": 1,
+        "highlight": 1,
+        "trail": 1,
+        "tiltX": 0,
+        "tiltY": 0,
+        "speed": 0.8,
+        "hoverIntensity": 0.5,
+        "rotateOnHover": true,
+        "forceHoverState": false,
+        "followCursor": true,
+        "clickPulse": true,
+        "intro": false,
+        "opacity": 1
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 3,
+            "maxItems": 3,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "backgroundColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "hue": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 360
+          },
+          "size": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "bleed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "wobble": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "highlight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "trail": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "tiltX": {
+            "type": "number",
+            "minimum": -45,
+            "maximum": 45
+          },
+          "tiltY": {
+            "type": "number",
+            "minimum": -45,
+            "maximum": 45
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "hoverIntensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "rotateOnHover": {
+            "type": "boolean"
+          },
+          "forceHoverState": {
+            "type": "boolean"
+          },
+          "followCursor": {
+            "type": "boolean"
+          },
+          "clickPulse": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "colors",
+          "backgroundColor",
+          "hue",
+          "size",
+          "glow",
+          "bleed",
+          "wobble",
+          "highlight",
+          "trail",
+          "tiltX",
+          "tiltY",
+          "speed",
+          "hoverIntensity",
+          "rotateOnHover",
+          "forceHoverState",
+          "followCursor",
+          "clickPulse",
+          "intro",
+          "opacity"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color-list",
+          "key": "colors",
+          "label": "Orb colors",
+          "minItems": 3,
+          "maxItems": 3
+        },
+        {
+          "kind": "color",
+          "key": "backgroundColor",
+          "label": "Background color"
+        },
+        {
+          "kind": "slider",
+          "key": "hue",
+          "label": "Hue",
+          "min": 0,
+          "max": 360,
+          "step": 1
+        },
+        {
+          "kind": "slider",
+          "key": "size",
+          "label": "Size",
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow",
+          "min": 0.1,
+          "max": 3,
+          "step": 0.1
+        },
+        {
+          "kind": "slider",
+          "key": "bleed",
+          "label": "Bleed",
+          "min": 0,
+          "max": 3,
+          "step": 0.1
+        },
+        {
+          "kind": "slider",
+          "key": "wobble",
+          "label": "Wobble",
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        },
+        {
+          "kind": "slider",
+          "key": "highlight",
+          "label": "Highlight",
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        },
+        {
+          "kind": "slider",
+          "key": "trail",
+          "label": "Trail",
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        },
+        {
+          "kind": "slider",
+          "key": "tiltX",
+          "label": "Horizontal tilt",
+          "min": -45,
+          "max": 45,
+          "step": 1
+        },
+        {
+          "kind": "slider",
+          "key": "tiltY",
+          "label": "Vertical tilt",
+          "min": -45,
+          "max": 45,
+          "step": 1
+        },
+        {
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed",
+          "min": 0,
+          "max": 2,
+          "step": 0.05
+        },
+        {
+          "kind": "slider",
+          "key": "hoverIntensity",
+          "label": "Hover intensity",
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        },
+        {
+          "kind": "toggle",
+          "key": "rotateOnHover",
+          "label": "Rotate on hover"
+        },
+        {
+          "kind": "toggle",
+          "key": "forceHoverState",
+          "label": "Always show hover effect"
+        },
+        {
+          "kind": "toggle",
+          "key": "followCursor",
+          "label": "Follow cursor"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickPulse",
+          "label": "Pulse on click"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro animation"
+        },
+        {
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity",
+          "min": 0,
+          "max": 1,
+          "step": 0.05
+        }
+      ],
+      "contract": "e1225dae2bf272188197d42cb7ed0707fb3383e4a17bab90ca2c71e72fc7169d",
+      "defaultActive": true
+    },
+    {
+      "id": "prismatic-burst",
+      "name": "Prismatic Burst",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "intensity": 2,
+        "speed": 0.5,
+        "animationType": "rotate3d",
+        "distort": 0,
+        "rayCount": 0,
+        "rayWidth": 1,
+        "zoom": 1,
+        "twist": 0,
+        "flow": 0,
+        "centerFade": 1,
+        "grain": 0.8,
+        "glow": 0,
+        "mouseInteraction": true,
+        "mouseStrength": 0.5,
+        "hoverDampness": 0.25,
+        "clickBurst": true,
+        "intro": false,
+        "fade": 0
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 4
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "animationType": {
+            "type": "string",
+            "enum": [
+              "rotate",
+              "rotate3d",
+              "hover"
+            ]
+          },
+          "distort": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "rayCount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 24
+          },
+          "rayWidth": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 2.5
+          },
+          "zoom": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 3
+          },
+          "twist": {
+            "type": "number",
+            "minimum": -2,
+            "maximum": 2
+          },
+          "flow": {
+            "type": "number",
+            "minimum": -2,
+            "maximum": 2
+          },
+          "centerFade": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 3
+          },
+          "grain": {
+            "type": "number",
+            "minimum": 0.3,
+            "maximum": 1
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "hoverDampness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "clickBurst": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "fade": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.8
+          }
+        },
+        "required": [
+          "colors",
+          "intensity",
+          "speed",
+          "animationType",
+          "distort",
+          "rayCount",
+          "rayWidth",
+          "zoom",
+          "twist",
+          "flow",
+          "centerFade",
+          "grain",
+          "glow",
+          "mouseInteraction",
+          "mouseStrength",
+          "hoverDampness",
+          "clickBurst",
+          "intro",
+          "fade"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "colors",
+          "label": "Colors"
+        },
+        {
+          "min": 0.1,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "intensity",
+          "label": "Intensity"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "options": [
+            {
+              "label": "Rotate",
+              "value": "rotate"
+            },
+            {
+              "label": "Rotate3d",
+              "value": "rotate3d"
+            },
+            {
+              "label": "Hover",
+              "value": "hover"
+            }
+          ],
+          "kind": "select",
+          "key": "animationType",
+          "label": "Animation Type"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "distort",
+          "label": "Distort"
+        },
+        {
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "kind": "slider",
+          "key": "rayCount",
+          "label": "Ray Count"
+        },
+        {
+          "min": 0.2,
+          "max": 2.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "rayWidth",
+          "label": "Ray Width"
+        },
+        {
+          "min": 0.2,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "zoom",
+          "label": "Zoom"
+        },
+        {
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "twist",
+          "label": "Twist"
+        },
+        {
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "flow",
+          "label": "Flow"
+        },
+        {
+          "min": 0.5,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "centerFade",
+          "label": "Center Fade"
+        },
+        {
+          "min": 0.3,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "grain",
+          "label": "Grain"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "hoverDampness",
+          "label": "Hover Dampness"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickBurst",
+          "label": "Click Burst"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "min": 0,
+          "max": 0.8,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fade",
+          "label": "Fade"
+        }
+      ],
+      "contract": "15109272676f638aa1b832338082a69428bc1008923a252c025dd6e9e56614a7",
+      "defaultActive": false
+    },
+    {
+      "id": "soft-aurora",
+      "name": "Soft Aurora",
+      "version": 1,
+      "defaults": {
+        "color1": "#FCE6EC",
+        "color2": "#C21E56",
+        "speed": 0.6,
+        "scale": 1.5,
+        "brightness": 1,
+        "noiseFrequency": 2.5,
+        "noiseAmplitude": 1,
+        "bandHeight": 0.5,
+        "bandSpread": 1,
+        "octaveDecay": 0.1,
+        "layerOffset": 0,
+        "colorSpeed": 1,
+        "spectrum": 1,
+        "tilt": 0,
+        "enableMouseInteraction": true,
+        "mouseInfluence": 0.25,
+        "clickPulse": true,
+        "intro": false,
+        "opacity": 1
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "color1": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "color2": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "scale": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 4
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "noiseFrequency": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 5
+          },
+          "noiseAmplitude": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "bandHeight": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          },
+          "bandSpread": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "octaveDecay": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.5
+          },
+          "layerOffset": {
+            "type": "number",
+            "minimum": -2,
+            "maximum": 2
+          },
+          "colorSpeed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "spectrum": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "tilt": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "enableMouseInteraction": {
+            "type": "boolean"
+          },
+          "mouseInfluence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "clickPulse": {
+            "type": "boolean"
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "color1",
+          "color2",
+          "speed",
+          "scale",
+          "brightness",
+          "noiseFrequency",
+          "noiseAmplitude",
+          "bandHeight",
+          "bandSpread",
+          "octaveDecay",
+          "layerOffset",
+          "colorSpeed",
+          "spectrum",
+          "tilt",
+          "enableMouseInteraction",
+          "mouseInfluence",
+          "clickPulse",
+          "intro",
+          "opacity"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "kind": "color",
+          "key": "color1",
+          "label": "Color1"
+        },
+        {
+          "kind": "color",
+          "key": "color2",
+          "label": "Color2"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0.2,
+          "max": 4,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "scale",
+          "label": "Scale"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "min": 0.1,
+          "max": 5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "noiseFrequency",
+          "label": "Noise Frequency"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "noiseAmplitude",
+          "label": "Noise Amplitude"
+        },
+        {
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "bandHeight",
+          "label": "Band Height"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "bandSpread",
+          "label": "Band Spread"
+        },
+        {
+          "min": 0,
+          "max": 0.5,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "octaveDecay",
+          "label": "Octave Decay"
+        },
+        {
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "layerOffset",
+          "label": "Layer Offset"
+        },
+        {
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "colorSpeed",
+          "label": "Color Speed"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "spectrum",
+          "label": "Spectrum"
+        },
+        {
+          "min": -90,
+          "max": 90,
+          "step": 1,
+          "kind": "slider",
+          "key": "tilt",
+          "label": "Tilt"
+        },
+        {
+          "kind": "toggle",
+          "key": "enableMouseInteraction",
+          "label": "Enable Mouse Interaction"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseInfluence",
+          "label": "Mouse Influence"
+        },
+        {
+          "kind": "toggle",
+          "key": "clickPulse",
+          "label": "Click Pulse"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        }
+      ],
+      "contract": "c31dfc20374354dad8ddffb3602e7d2c1231da092fad42ff9edb9700196a218c",
+      "defaultActive": false
+    },
+    {
+      "id": "web-threads",
+      "name": "Web Threads",
+      "version": 1,
+      "defaults": {
+        "colors": [
+          "#C21E56",
+          "#7C0A02",
+          "#F66B83"
+        ],
+        "coreColor": "#FCE6EC",
+        "backgroundColor": "#151515",
+        "threadCount": 6,
+        "speed": 0.2,
+        "frequency": 5,
+        "spread": 0.18,
+        "taper": 1,
+        "position": 0.5,
+        "pinch": 0.5,
+        "nodes": 1,
+        "angle": 0,
+        "glow": 0.02,
+        "falloff": 0.6,
+        "thickness": 1.1,
+        "brightness": 0.6,
+        "opacity": 1,
+        "depth": 0,
+        "pulses": 0,
+        "mirror": true,
+        "shimmer": false,
+        "fade": 0,
+        "grain": 0.05,
+        "intro": false,
+        "mouseInteraction": true,
+        "mouseStrength": 0.5,
+        "pulseOnClick": true
+      },
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "colors": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "coreColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "threadCount": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 16
+          },
+          "speed": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "frequency": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 10
+          },
+          "spread": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 0.8
+          },
+          "taper": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "position": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "pinch": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "nodes": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "angle": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "glow": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.2
+          },
+          "falloff": {
+            "type": "number",
+            "minimum": 0.05,
+            "maximum": 2
+          },
+          "thickness": {
+            "type": "number",
+            "minimum": 0.2,
+            "maximum": 3
+          },
+          "brightness": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 1
+          },
+          "depth": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "pulses": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "mirror": {
+            "type": "boolean"
+          },
+          "shimmer": {
+            "type": "boolean"
+          },
+          "fade": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.8
+          },
+          "grain": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.2
+          },
+          "intro": {
+            "type": "boolean"
+          },
+          "mouseInteraction": {
+            "type": "boolean"
+          },
+          "mouseStrength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "pulseOnClick": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "colors",
+          "coreColor",
+          "backgroundColor",
+          "threadCount",
+          "speed",
+          "frequency",
+          "spread",
+          "taper",
+          "position",
+          "pinch",
+          "nodes",
+          "angle",
+          "glow",
+          "falloff",
+          "thickness",
+          "brightness",
+          "opacity",
+          "depth",
+          "pulses",
+          "mirror",
+          "shimmer",
+          "fade",
+          "grain",
+          "intro",
+          "mouseInteraction",
+          "mouseStrength",
+          "pulseOnClick"
+        ],
+        "additionalProperties": false
+      },
+      "controls": [
+        {
+          "minItems": 2,
+          "maxItems": 5,
+          "kind": "color-list",
+          "key": "colors",
+          "label": "Colors"
+        },
+        {
+          "kind": "color",
+          "key": "coreColor",
+          "label": "Core Color"
+        },
+        {
+          "kind": "color",
+          "key": "backgroundColor",
+          "label": "Background Color"
+        },
+        {
+          "min": 1,
+          "max": 16,
+          "step": 1,
+          "kind": "slider",
+          "key": "threadCount",
+          "label": "Thread Count"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "speed",
+          "label": "Speed"
+        },
+        {
+          "min": 0.5,
+          "max": 10,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "frequency",
+          "label": "Frequency"
+        },
+        {
+          "min": 0.01,
+          "max": 0.8,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "spread",
+          "label": "Spread"
+        },
+        {
+          "min": 0.1,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "taper",
+          "label": "Taper"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "position",
+          "label": "Position"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pinch",
+          "label": "Pinch"
+        },
+        {
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "kind": "slider",
+          "key": "nodes",
+          "label": "Nodes"
+        },
+        {
+          "min": -90,
+          "max": 90,
+          "step": 1,
+          "kind": "slider",
+          "key": "angle",
+          "label": "Angle"
+        },
+        {
+          "min": 0,
+          "max": 0.2,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "glow",
+          "label": "Glow"
+        },
+        {
+          "min": 0.05,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "falloff",
+          "label": "Falloff"
+        },
+        {
+          "min": 0.2,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "thickness",
+          "label": "Thickness"
+        },
+        {
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "brightness",
+          "label": "Brightness"
+        },
+        {
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "opacity",
+          "label": "Opacity"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "depth",
+          "label": "Depth"
+        },
+        {
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "pulses",
+          "label": "Pulses"
+        },
+        {
+          "kind": "toggle",
+          "key": "mirror",
+          "label": "Mirror"
+        },
+        {
+          "kind": "toggle",
+          "key": "shimmer",
+          "label": "Shimmer"
+        },
+        {
+          "min": 0,
+          "max": 0.8,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "fade",
+          "label": "Fade"
+        },
+        {
+          "min": 0,
+          "max": 0.2,
+          "step": 0.01,
+          "kind": "slider",
+          "key": "grain",
+          "label": "Grain"
+        },
+        {
+          "kind": "toggle",
+          "key": "intro",
+          "label": "Intro"
+        },
+        {
+          "kind": "toggle",
+          "key": "mouseInteraction",
+          "label": "Mouse Interaction"
+        },
+        {
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "slider",
+          "key": "mouseStrength",
+          "label": "Mouse Strength"
+        },
+        {
+          "kind": "toggle",
+          "key": "pulseOnClick",
+          "label": "Pulse On Click"
+        }
+      ],
+      "contract": "820e4cdb0bd4fddb9e2809b2b1b73ef2c0ae774ebd2330268eddf9f87cb91883",
+      "defaultActive": false
+    }
+  ]
+}

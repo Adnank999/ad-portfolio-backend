@@ -4,7 +4,7 @@ use crate::common::{
 };
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use std::collections::HashSet;
+use std::collections::{BTreeMap, HashSet};
 
 #[derive(Deserialize, Serialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
@@ -36,6 +36,8 @@ pub struct ServiceFields {
     pub page_content: Value,
     #[serde(default)]
     pub media: Vec<ServiceMedia>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub visuals: BTreeMap<String, Value>,
 }
 
 pub fn page_schema() -> AppResult<Value> {
@@ -142,6 +144,14 @@ pub fn validate(fields: &ServiceFields) -> AppResult<()> {
         ));
     }
     validate_page(&fields.page_content)?;
+    if fields.visuals.len() > 6 {
+        return Err(AppError::Invalid(
+            "At most six service visuals are supported".into(),
+        ));
+    }
+    for (slot, visual) in &fields.visuals {
+        super::visuals::validate(slot, visual)?;
+    }
     let mut slots = HashSet::new();
     if fields.media.len() > 6 {
         return Err(AppError::Invalid(

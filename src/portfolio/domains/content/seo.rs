@@ -32,6 +32,10 @@ fn absolute(value: &str, config: &Config) -> String {
 
 pub fn resolved(record: &Record, config: &Config) -> AppResult<Value> {
     let seo: Seo = serde_json::from_value(record.seo.clone()).map_err(|_| AppError::Internal)?;
+    let hero_visual = record
+        .fields
+        .get("visuals")
+        .and_then(|visuals| visuals.get("hero"));
     let service_image = record
         .fields
         .get("media")
@@ -46,7 +50,17 @@ pub fn resolved(record: &Record, config: &Config) -> AppResult<Value> {
         })
         .and_then(Value::as_str)
         .filter(|value| !value.is_empty());
-    let fallback_image = service_image
+    let fallback_image = hero_visual
+        .and_then(|visual| {
+            visual.get(if visual["type"] == "shader" {
+                "poster"
+            } else {
+                "src"
+            })
+        })
+        .and_then(Value::as_str)
+        .filter(|value| !value.is_empty())
+        .or(service_image)
         .or_else(|| {
             record
                 .fields
@@ -62,6 +76,7 @@ pub fn resolved(record: &Record, config: &Config) -> AppResult<Value> {
     let alt = seo
         .og_image_alt
         .as_deref()
+        .or_else(|| hero_visual.and_then(|visual| visual["alt"].as_str()))
         .or_else(|| {
             record
                 .fields

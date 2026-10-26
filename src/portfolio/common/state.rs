@@ -25,6 +25,7 @@ pub struct AppState {
 
 impl AppState {
     pub async fn new(pool: PgPool, config: Config) -> AppResult<Self> {
+        crate::domains::content::visuals::catalog()?;
         Ok(Self {
             media: Arc::new(crate::domains::media::service::MediaService::new(
                 config.r2.clone(),
