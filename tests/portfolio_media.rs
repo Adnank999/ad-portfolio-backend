@@ -548,7 +548,20 @@ async fn existing_service_images_can_be_promoted_to_shader_posters_without_backf
     .await;
     assert_eq!(saved.status, StatusCode::CREATED, "{}", saved.body);
     let manifest = call(&app, "GET", "/api/v1/admin/shaders", Some(&token), None).await;
+    assert_eq!(manifest.status, StatusCode::OK, "{}", manifest.body);
     let entry = &manifest.body["shaders"][0];
+    let activated = call(
+        &app,
+        "PUT",
+        &format!(
+            "/api/v1/admin/shaders/{}/activation",
+            entry["id"].as_str().unwrap()
+        ),
+        Some(&token),
+        Some(json!({"version":entry["version"],"contract":entry["contract"],"active":true})),
+    )
+    .await;
+    assert_eq!(activated.status, StatusCode::OK, "{}", activated.body);
     input["version"] = saved.body["version"].clone();
     input["fields"]["visuals"] = json!({"hero":{"type":"shader","shader":entry["id"],"version":entry["version"],"props":entry["defaults"],"poster":"/uploads/old-hero.webp","alt":"Existing hero as poster"}});
     let updated = call(
