@@ -14,6 +14,7 @@ pub struct Config {
     pub access_minutes: i64,
     pub refresh_days: i64,
     pub reset_email: Option<ResetEmailConfig>,
+    pub contact: Option<crate::domains::contact::ContactConfig>,
     pub ai: Option<crate::domains::ai::config::AiConfig>,
     pub r2: Option<crate::domains::media::config::R2Config>,
 }
@@ -75,6 +76,7 @@ impl Config {
                 }),
                 Err(_) => None,
             },
+            contact: crate::domains::contact::ContactConfig::from_env()?,
             ai: crate::domains::ai::config::AiConfig::from_env()?,
             r2: crate::domains::media::config::R2Config::from_env()?,
         };

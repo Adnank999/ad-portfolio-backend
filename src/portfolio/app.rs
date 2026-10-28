@@ -94,6 +94,7 @@ pub fn create_router(state: AppState) -> AppResult<Router> {
         .nest("/api/v1/auth",auth::api::routes(state.clone()))
         .nest("/api/v1/admin",admin)
         .nest("/api/v1",public)
+        .merge(crate::domains::contact::routes())
         .fallback(||async {AppError::NotFound})
         .layer(DefaultBodyLimit::max(2*1024*1024))
         .layer(timeout)

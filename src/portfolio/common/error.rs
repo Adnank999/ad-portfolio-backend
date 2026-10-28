@@ -21,6 +21,10 @@ pub enum AppError {
     RateLimited,
     #[error("Too many image uploads; wait before trying again")]
     UploadRateLimited,
+    #[error("Too many enquiries; please wait a minute before trying again")]
+    ContactRateLimited,
+    #[error("Email is temporarily unavailable. Please try again shortly")]
+    ContactUnavailable,
     #[error("Internal server error")]
     Internal,
     #[error("This service is not configured")]
@@ -72,6 +76,8 @@ impl IntoResponse for AppError {
             Self::Conflict(_) => (StatusCode::CONFLICT, "conflict"),
             Self::RateLimited => (StatusCode::TOO_MANY_REQUESTS, "rate_limited"),
             Self::UploadRateLimited => (StatusCode::TOO_MANY_REQUESTS, "too_many_uploads"),
+            Self::ContactRateLimited => (StatusCode::TOO_MANY_REQUESTS, "too_many_enquiries"),
+            Self::ContactUnavailable => (StatusCode::SERVICE_UNAVAILABLE, "contact_unavailable"),
             Self::Internal => (StatusCode::INTERNAL_SERVER_ERROR, "internal_error"),
             Self::Unavailable => (StatusCode::SERVICE_UNAVAILABLE, "unavailable"),
             Self::ShaderSchemaUnavailable => {

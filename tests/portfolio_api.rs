@@ -35,6 +35,7 @@ fn config() -> Config {
         access_minutes: 30,
         refresh_days: 7,
         reset_email: None,
+        contact: None,
         ai: None,
         r2: None,
     }

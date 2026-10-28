@@ -20,6 +20,7 @@ pub struct AppState {
     pub dummy_hash: Arc<String>,
     pub ai: Arc<crate::domains::ai::service::AiService>,
     pub media: Arc<crate::domains::media::service::MediaService>,
+    pub contact: Arc<crate::domains::contact::ContactService>,
     attempts: Arc<Mutex<HashMap<IpAddr, (Instant, u32)>>>,
 }
 
@@ -27,6 +28,9 @@ impl AppState {
     pub async fn new(pool: PgPool, config: Config) -> AppResult<Self> {
         crate::domains::content::visuals::catalog()?;
         Ok(Self {
+            contact: Arc::new(crate::domains::contact::ContactService::new(
+                config.contact.clone(),
+            )?),
             media: Arc::new(crate::domains::media::service::MediaService::new(
                 config.r2.clone(),
             )?),
