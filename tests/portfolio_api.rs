@@ -732,6 +732,75 @@ async fn project_contract_and_editor_content(pool: PgPool) {
 
 #[sqlx::test(migrations = "./migrations")]
 #[ignore = "Requires disposable PostgreSQL with CREATEDB; see PORTFOLIO.md"]
+async fn public_projects_exclude_drafts_archived_scheduled_and_deleted_records(pool: PgPool) {
+    let (_, app, token) = setup(pool).await;
+    for (slug, status) in [
+        ("public-project", "published"),
+        ("draft-project", "draft"),
+        ("archived-project", "archived"),
+        ("scheduled-project", "published"),
+        ("deleted-project", "published"),
+    ] {
+        let mut input = project();
+        input["slug"] = json!(slug);
+        input["status"] = json!(status);
+        if slug == "scheduled-project" {
+            input["publishedAt"] =
+                json!((chrono::Utc::now() + chrono::Duration::days(1)).to_rfc3339());
+        }
+        let created = call(
+            &app,
+            "POST",
+            "/api/v1/admin/projects",
+            Some(&token),
+            Some(input),
+        )
+        .await;
+        assert_eq!(created.status, StatusCode::CREATED, "{}", created.body);
+        if slug == "deleted-project" {
+            let id = created.body["id"].as_str().unwrap();
+            assert_eq!(
+                call(
+                    &app,
+                    "DELETE",
+                    &format!("/api/v1/admin/projects/{id}?version=1"),
+                    Some(&token),
+                    None
+                )
+                .await
+                .status,
+                StatusCode::NO_CONTENT
+            );
+        }
+    }
+    let archive = call(&app, "GET", "/api/v1/projects?perPage=100", None, None).await;
+    assert_eq!(archive.status, StatusCode::OK);
+    assert_eq!(archive.body["pagination"]["total"], 1);
+    assert_eq!(archive.body["data"][0]["slug"], "public-project");
+    for slug in [
+        "draft-project",
+        "archived-project",
+        "scheduled-project",
+        "deleted-project",
+        "not-in-database",
+    ] {
+        assert_eq!(
+            call(&app, "GET", &format!("/api/v1/projects/{slug}"), None, None)
+                .await
+                .status,
+            StatusCode::NOT_FOUND
+        );
+    }
+    assert_eq!(
+        call(&app, "GET", "/api/v1/projects/public-project", None, None)
+            .await
+            .status,
+        StatusCode::OK
+    );
+}
+
+#[sqlx::test(migrations = "./migrations")]
+#[ignore = "Requires disposable PostgreSQL with CREATEDB; see PORTFOLIO.md"]
 async fn rbac_live_updates_owner_protection_and_editor_limits(pool: PgPool) {
     let (state, app, owner) = setup(pool).await;
     let user = call(
