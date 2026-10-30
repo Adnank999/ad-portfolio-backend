@@ -161,6 +161,9 @@ pub struct ProjectImage {
 pub struct ProjectFields {
     pub image: String,
     pub image_alt: String,
+    pub thumbnail_url: String,
+    #[serde(default)]
+    pub featured_image_url: String,
     #[serde(default)]
     pub gallery: Vec<ProjectImage>,
     pub category: String,

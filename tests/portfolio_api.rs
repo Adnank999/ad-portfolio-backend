@@ -675,6 +675,10 @@ async fn content_publication_versions_redirects_and_sitemap(pool: PgPool) {
 async fn project_contract_and_editor_content(pool: PgPool) {
     let (_state, app, token) = setup(pool).await;
     let mut input = project();
+    input["fields"]["thumbnailUrl"] = json!("/images/project-thumbnail.webp");
+    input["fields"]["gallery"] =
+        json!([{"url":"/images/project-featured.webp","alt":"Chosen featured image"}]);
+    input["fields"]["featuredImageUrl"] = json!("/images/project-featured.webp");
     input["status"] = json!("published");
     let created = call(
         &app,
@@ -696,6 +700,19 @@ async fn project_contract_and_editor_content(pool: PgPool) {
     assert_eq!(public.status, StatusCode::OK);
     assert_eq!(public.body["features"], input["fields"]["features"]);
     assert_eq!(public.body["technologies"], input["fields"]["technologies"]);
+    assert_eq!(
+        public.body["thumbnailUrl"],
+        "/images/project-thumbnail.webp"
+    );
+    assert_eq!(
+        public.body["featuredImageUrl"],
+        "/images/project-featured.webp"
+    );
+    assert_eq!(
+        public.body["seo"]["ogImage"],
+        "https://portfolio.test/images/project-featured.webp"
+    );
+    assert_eq!(public.body["seo"]["ogImageAlt"], "Chosen featured image");
     assert_eq!(
         public.body["structuredData"]["@graph"][0]["@type"],
         "CreativeWork"

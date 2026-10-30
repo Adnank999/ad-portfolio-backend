@@ -62,6 +62,12 @@ pub fn resolved(record: &Record, config: &Config) -> AppResult<Value> {
         .filter(|value| !value.is_empty())
         .or(service_image)
         .or_else(|| {
+            (record.kind == "project")
+                .then(|| record.fields["featuredImageUrl"].as_str())
+                .flatten()
+                .filter(|url| !url.is_empty())
+        })
+        .or_else(|| {
             record
                 .fields
                 .get(if record.kind == "blog" {
@@ -76,6 +82,18 @@ pub fn resolved(record: &Record, config: &Config) -> AppResult<Value> {
     let alt = seo
         .og_image_alt
         .as_deref()
+        .or_else(|| {
+            if record.kind == "project" {
+                let featured = record.fields["featuredImageUrl"].as_str()?;
+                return record.fields["gallery"]
+                    .as_array()?
+                    .iter()
+                    .find(|image| image["url"].as_str() == Some(featured))?
+                    .get("alt")?
+                    .as_str();
+            }
+            None
+        })
         .or_else(|| hero_visual.and_then(|visual| visual["alt"].as_str()))
         .or_else(|| {
             record

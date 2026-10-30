@@ -81,3 +81,43 @@ fn rejects_unsafe_urls_invalid_metadata_duplicates_and_excessive_gallery_size() 
         assert!(service::prepare(Kind::Project, &mut input).is_err());
     }
 }
+
+#[test]
+fn requires_a_safe_thumbnail_and_a_featured_image_from_cover_or_gallery() {
+    let value = project();
+    let prepared = prepare(value.clone()).unwrap();
+    assert_eq!(
+        prepared.fields["featuredImageUrl"],
+        value["fields"]["image"]
+    );
+    assert_eq!(
+        prepared.fields["thumbnailUrl"],
+        value["fields"]["thumbnailUrl"]
+    );
+    for bad in [
+        json!(null),
+        json!(""),
+        json!("javascript:alert(1)"),
+        json!("//other.test/image"),
+        json!("https://user:password@cdn.test/image"),
+    ] {
+        let mut invalid = value.clone();
+        invalid["fields"]["thumbnailUrl"] = bad;
+        assert!(prepare(invalid).is_err());
+    }
+    let mut missing = value.clone();
+    missing["fields"]
+        .as_object_mut()
+        .unwrap()
+        .remove("thumbnailUrl");
+    assert!(prepare(missing).is_err());
+    let mut gallery = value.clone();
+    gallery["fields"]["gallery"] = json!([{"url":"/featured.webp","alt":"Selected hero"}]);
+    gallery["fields"]["featuredImageUrl"] = json!("/featured.webp");
+    assert_eq!(
+        prepare(gallery.clone()).unwrap().fields["featuredImageUrl"],
+        "/featured.webp"
+    );
+    gallery["fields"]["featuredImageUrl"] = json!("/unattached.webp");
+    assert!(prepare(gallery).is_err());
+}

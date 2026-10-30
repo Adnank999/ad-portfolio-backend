@@ -484,6 +484,13 @@ pub async fn validate_references(
         let purpose: Purpose =
             serde_json::from_value(Value::String(asset.purpose)).map_err(|_| AppError::Internal)?;
         let mut allowed_urls = HashSet::new();
+        if kind == Kind::Project
+            && matches!(purpose, Purpose::ProjectCover | Purpose::ProjectGallery)
+        {
+            if let Some(value) = input.fields.get("thumbnailUrl") {
+                image_urls(value, &mut allowed_urls);
+            }
+        }
         match purpose {
             Purpose::BlogCover | Purpose::ProjectCover | Purpose::CaseStudyCover => {
                 if let Some(value) =

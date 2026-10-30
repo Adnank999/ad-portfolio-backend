@@ -32,8 +32,11 @@ pub fn prepare(kind: Kind, input: &mut ContentWrite) -> AppResult<(String, Strin
             render_blog(&fields)
         }
         Kind::Project => {
-            let fields: ProjectFields = serde_json::from_value(input.fields.clone())
+            let mut fields: ProjectFields = serde_json::from_value(input.fields.clone())
                 .map_err(|_| AppError::Invalid("fields must match the project schema".into()))?;
+            if fields.featured_image_url.is_empty() {
+                fields.featured_image_url = fields.image.clone();
+            }
             validate_project(&fields)?;
             input.fields = serde_json::to_value(&fields).map_err(|_| AppError::Internal)?;
             render_project(&fields)
@@ -215,6 +218,18 @@ fn validate_images(image: &str, image_alt: &str, gallery: &[ProjectImage]) -> Ap
 
 fn validate_project(fields: &ProjectFields) -> AppResult<()> {
     validate_images(&fields.image, &fields.image_alt, &fields.gallery)?;
+    validation::url(&fields.thumbnail_url, "thumbnailUrl", true, false)?;
+    validation::url(&fields.featured_image_url, "featuredImageUrl", true, false)?;
+    if fields.featured_image_url != fields.image
+        && !fields
+            .gallery
+            .iter()
+            .any(|image| image.url == fields.featured_image_url)
+    {
+        return Err(AppError::Invalid(
+            "Choose the featured image from the project cover or gallery".into(),
+        ));
+    }
     validation::text(&fields.category, "category", 1, 100)?;
     if fields.year.len() != 4 || !fields.year.bytes().all(|byte| byte.is_ascii_digit()) {
         return Err(AppError::Invalid("year must be four digits".into()));

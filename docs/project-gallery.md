@@ -1,16 +1,17 @@
 # Project image galleries
 
-Projects retain their primary `fields.image` / `fields.imageAlt` cover and now support an optional ordered `fields.gallery` array. Existing projects and clients remain valid; an omitted gallery defaults to an empty array on save. Gallery data uses the existing PostgreSQL JSONB content fields, so no migration or new table is required.
+Projects retain their primary `fields.image` / `fields.imageAlt` cover and an optional ordered `fields.gallery` array. Writes now require `fields.thumbnailUrl` for terrain overview previews. `fields.featuredImageUrl` selects a cover/gallery image for the detail hero and defaults to the cover. Existing records remain readable with cover fallbacks; editors must set a thumbnail before saving older records. These settings use the existing PostgreSQL JSONB fields, so no migration or new table is required.
 
 ## Upload and save
 
 1. Open Admin → Projects → create/edit → Project gallery → Upload images.
-2. Select multiple JPEG, PNG, WebP, GIF, or AVIF files. A project supports up to 20 gallery images, each at most 8 MiB.
-3. Files upload sequentially through the existing authenticated TanStack Start server endpoint `POST /api/admin/media`. It retains same-origin checks, server-side authentication/permissions, bounded request reads, MIME/signature validation, and private R2 credentials. There is no unauthenticated or direct-browser R2 upload, nor a new bulk endpoint that buffers every file at once.
+2. Select multiple still JPEG, PNG or WebP files, up to 20 MiB per original. A project supports up to 20 gallery images.
+3. The shared browser conversion resizes/encodes WebP. With direct uploads enabled, the authenticated backend presigns a direct browser PUT to private R2 staging, verifies completion and publishes a ready asset. Asset IDs are included when saving. The legacy server upload remains available when direct uploads are disabled.
 4. Successful uploads remain available even if another file fails. Retry only failed files. Enter required alt text, optional captions, and arrange images using the up/down buttons.
-5. Save Changes persists the gallery through the existing Rust `POST /api/v1/admin/projects` or `PUT /api/v1/admin/projects/{id}` endpoint. Updating requires the normal full content payload and current version. Uploading alone does not save or publish a project. Saving is blocked while a gallery batch is uploading.
+5. Set **Terrain thumbnail URL**, or upload through that field. Select the cover or one gallery image using **Use as featured image**. Selecting another replaces the choice; reordering preserves it and removing the chosen image returns to the cover. The existing **Featured project** flag is separate.
+6. Save Changes persists these fields through Rust `POST /api/v1/admin/projects` or `PUT /api/v1/admin/projects/{id}`. Updating requires the full content payload and current version. Uploading alone does not save/publish a project. Saving is blocked while uploads are running.
 
-R2 configuration remains in the **frontend server environment**, where the existing storage integration lives: `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, and `R2_PUBLIC_URL`. No new credentials are needed and none are sent to the browser.
+For verified direct uploads, R2 credentials remain in the **backend environment**. Thumbnail uploads reuse the project-gallery purpose and register their verified asset ID automatically. New managed R2 URLs still require verified references; pasting a URL does not bypass that check. No new R2 credentials or bucket configuration are introduced.
 
 ## API contract
 
@@ -18,6 +19,8 @@ Include this within the normal project `fields` object; retain all other project
 
 ```json
 {
+  "thumbnailUrl": "https://your-public-r2-domain.example/portfolio/2026-10/small-preview.webp",
+  "featuredImageUrl": "/images/project-checkout.webp",
   "gallery": [
     {
       "url": "https://your-public-r2-domain.example/portfolio/2026-10/uploaded-search.webp",
@@ -37,6 +40,6 @@ The Rust API validates a maximum of 20 entries, unique image URLs (HTTP(S) witho
 
 Admin detail responses contain `fields.gallery`. Published public project responses from `GET /api/v1/projects/{slug}` expose `gallery` at the top level, consistent with other public project fields. Existing unsaved legacy rows can omit it; frontend consumers should use `project.gallery ?? []`.
 
-The current public Work pages still read `src/data/projects.ts`; this change makes gallery data available through the API and admin, without replacing that existing static public-data source. When connecting those pages, render the returned images with their saved alt text and captions, preserving array order and lazy-loading non-cover images.
+Public Work pages load published database projects through the public API. Terrain overview portals and cards use `thumbnailUrl`; opening details loads the full featured texture on demand, and the native fallback uses the same featured image/alt text. The API preserves the gallery and its ordering. Deploy frontend and backend together for the new write contract.
 
 Removing an item from a gallery only removes its project reference after Save Changes; it does **not** delete the R2 object. Other content may reference the same object. Failed/discarded drafts can leave unused uploads, just as the existing single-image uploader does.

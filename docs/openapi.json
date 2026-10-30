@@ -578,13 +578,26 @@
               },
               "featured": {
                 "type": "boolean"
+              },
+              "thumbnailUrl": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048,
+                "description": "Required public HTTP(S) or root-relative image URL used for terrain overview previews."
+              },
+              "featuredImageUrl": {
+                "type": "string",
+                "maxLength": 2048,
+                "default": "",
+                "description": "Exactly one hero selection: must equal image or a gallery image URL. Defaults to image. Independent of the featured project flag."
               }
             },
             "required": [
               "image",
               "imageAlt",
               "category",
-              "year"
+              "year",
+              "thumbnailUrl"
             ],
             "additionalProperties": false
           },
